@@ -1,0 +1,34 @@
+[build-system]
+requires = ["setuptools", "wheel"]
+build-backend = "setuptools.build_meta"
+
+[project]
+name = "copernicus-seasonal-forecast-tools"
+version = "0.1.0"
+description = "CLIMADA-compatible module for generating and analyzing seasonal forecast hazards from Copernicus data"
+readme = "README.md"
+license = {file = "LICENSE"}
+authors = [
+  {name = "Dahyann Araya"}
+]
+dependencies = [
+  "ipykernel",
+  "xarray",
+  "cfgrib",
+  "cdsapi",
+  "numpy",
+  "pandas",
+  "matplotlib",
+  "netCDF4",
+  "shapely",
+  "geopandas",
+  "cartopy",
+  "pytest"
+]
+
+
+[project.optional-dependencies]
+dev = ["pytest", "tqdm", "scipy", "dask"]
+
+[tool.setuptools.packages.find]
+where = ["."]

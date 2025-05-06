@@ -1,0 +1,20 @@
+name: venv_forecast
+channels:
+  - conda-forge
+dependencies:
+  - python=3.10
+  - ipykernel
+  - cdsapi
+  - xarray
+  - cfgrib
+  - pandas
+  - matplotlib
+  - netCDF4
+  - geopandas
+  - shapely
+  - dask
+  - cartopy
+  - pytest
+  - pip
+  - pip:
+      - -e .
