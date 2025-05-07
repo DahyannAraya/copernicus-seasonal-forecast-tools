@@ -1,3 +1,0 @@
-images
-seasonal_forecast_tools
-test

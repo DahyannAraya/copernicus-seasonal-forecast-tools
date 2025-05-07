@@ -19,20 +19,20 @@ While the package is not part of the core [CLIMADA](https://climada.ethz.ch/) pl
 
 ## **Installation**
 
-You can install **climada_copernicus_seasonal_forecast** in three ways:
+You can install **copernicus-seasonal-forecast-tools** in three ways:
 
 ### 1. Install via pip (recommended for most users)
 
 ```bash
-pip install climada_copernicus_seasonal_forecast
+pip install copernicus-seasonal-forecast-tools
 ```
 ### 2. Install via conda or mamba
 ```bash
-conda install -c conda-forge climada_copernicus_seasonal_forecast
+conda install -c conda-forge copernicus-seasonal-forecast-tools
 ```
 ### 3. Install directly from GitHub 
 ```bash
-git clone https://github.com/your-username/climada_copernicus_seasonal_forecast.git
+git clone https://github.com/your-username/copernicus-seasonal-forecast-tools.git
 cd climada_copernicus_seasonal_forecast
 pip install .
 ```
@@ -56,6 +56,10 @@ pip install -e .
 # 4. Verify the installation
 python -c "from climada.hazard import Hazard; print('Hazard module successfully imported!')"
 ```
+**Note**
+If you want to have all the functionalities of **CLIMADA**, you must install the full version.  
+👉 For detailed instructions, follow the official CLIMADA installation guide:  
+**[CLIMADA Installation Guide](https://climada-python.readthedocs.io/en/stable/guide/install.html)**
 
 
 ## **Example of use**

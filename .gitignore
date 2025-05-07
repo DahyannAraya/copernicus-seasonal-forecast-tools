@@ -1,0 +1,11 @@
+# Ignore build artifacts
+build/
+dist/
+*.egg-info/
+
+# Ignore Python bytecode and cache
+__pycache__/
+*.pyc
+
+# macOS Finder metadata
+.DS_Store
