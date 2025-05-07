@@ -15,12 +15,12 @@ Users can:
 
 While not part of the core [CLIMADA](https://climada.ethz.ch/) platform, it is designed for **seamless integration** with CLIMADA for climate impact and risk workflows.
 
----
+
 
 ## **Documentation**
 Coming soon via ReadTheDocs.
 
----
+
 
 ## **Installation**
 
@@ -59,7 +59,7 @@ If you want to have all the functionalities of **CLIMADA**, you must install the
 👉 For detailed instructions, follow the official CLIMADA installation guide:  
 **[CLIMADA Installation Guide](https://climada-python.readthedocs.io/en/stable/guide/install.html)**
 
----
+
 ## **Example of use**
 
 This repository provides Jupyter Notebooks to work with **CLIMADA** and the **Copernicus seasonal forecast module**.
@@ -77,7 +77,7 @@ There are two notebooks available:
 | `DEMO_Modul_climada_copernicus_seasonal_forecast_workshop.ipynb` | [<img src="https://colab.research.google.com/assets/colab-badge.svg" alt="Open In Colab" height="20">](https://colab.research.google.com/github/DahyannAraya/climada_copernicus_seasonal_forecast_workshop/blob/main/DEMO_Modul_climada_copernicus_seasonal_forecast_workshop.ipynb) | [View on GitHub](https://github.com/DahyannAraya/climada_copernicus_seasonal_forecast_workshop/blob/main/DEMO_Modul_climada_copernicus_seasonal_forecast_workshop.ipynb) |
 
 
----
+
 ## **References**
 - [Copernicus Seasonal Forecast Module](https://github.com/CLIMADA-project/climada_petals/tree/feature/copernicus_forecast)
 - [Seasonal forecast daily and subdaily data on single levels](https://cds.climate.copernicus.eu/datasets/seasonal-original-single-levels?tab=overview)
