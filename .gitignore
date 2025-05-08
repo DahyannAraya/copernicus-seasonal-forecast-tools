@@ -49,9 +49,6 @@ ENV/
 env.bak/
 venv.bak/
 
-# ReadTheDocs
-.readthedocs.yaml
-
 # CLIMADA clone (if manually added)
 climada_python/
 
