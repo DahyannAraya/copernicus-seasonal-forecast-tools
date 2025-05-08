@@ -4,8 +4,6 @@ channels:
 dependencies:
   - python=3.10
   - pip
-  - pip:
-      - -e .
   - cdsapi
   - xarray
   - cfgrib
@@ -20,3 +18,5 @@ dependencies:
   - sphinx
   - sphinx-autoapi
   - sphinx_rtd_theme
+  - pip:
+      - -e .
