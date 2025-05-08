@@ -1,12 +1,20 @@
 <img src="images/Logos.png" alt="Project Logos" width="70%"/>
 
+
 # **Copernicus Seasonal Forecast Tools**
+[![GitHub repo](https://img.shields.io/badge/github-repo-000.svg?logo=github&labelColor=gray&color=blue)](https://github.com/DahyannAraya/copernicus-seasonal-forecast-tools)
+[![License](https://img.shields.io/github/license/DahyannAraya/copernicus-seasonal-forecast-tools)](https://github.com/DahyannAraya/copernicus-seasonal-forecast-tools/blob/main/LICENSE)
+[![PyPI version](https://badge.fury.io/py/copernicus-seasonal-forecast-tools.svg)](https://badge.fury.io/py/copernicus-seasonal-forecast-tools)
+[![Downloads](https://img.shields.io/pypi/dm/copernicus-seasonal-forecast-tools?color=yellow&label=Downloads)](https://pypistats.org/packages/copernicus-seasonal-forecast-tools)
+[![Documentation Status](https://readthedocs.org/projects/copernicus-seasonal-forecast-tools/badge/?version=latest)](https://copernicus-seasonal-forecast-tools.readthedocs.io/en/latest/?badge=latest)
+
+
 
 <img src="images/repo_qr.png" alt="Repository QR Code" width="150"/>
 
 This repository hosts the **copernicus-seasonal-forecast-tools** package, a Python module developed as part of the [U-CLIMADAPT project](https://www.copernicus-user-uptake.eu/user-uptake/details/responding-to-the-impact-of-climate-change-u-climadapt-488).
 
-The module bridges **seasonal forecast data** from the [Copernicus Climate Data Store (CDS)](https://cds.climate.copernicus.eu) with flexible data processing and climate impact modeling workflows. It supports downloading sub-daily Copernicus forecasts and **aggregating them to daily resolution**, enabling analysis of climate indices for impact forecasting.
+The module bridges **seasonal forecast data** from the [Copernicus Climate Data Store (CDS)](https://cds.climate.copernicus.eu) with flexible data processing and climate impact modeling workflows. It supports downloading [sub-daily Copernicus forecasts](https://cds.climate.copernicus.eu/datasets/seasonal-original-single-levels?tab=overview) and **aggregating them to daily resolution**, enabling analysis of climate indices for impact forecasting.
 
 Users can:
 - Convert raw Copernicus seasonal forecasts into usable daily datasets.
@@ -18,7 +26,7 @@ While not part of the core [CLIMADA](https://climada.ethz.ch/) platform, it is d
 
 
 ## **Documentation**
-Coming soon via ReadTheDocs.
+For full documentation of all features and functions, please refer to the [Copernicus Seasonal Forecast Tools documentation on ReadTheDocs](https://copernicus-seasonal-forecast-tools.readthedocs.io/en/latest/?badge=latest).
 
 
 
