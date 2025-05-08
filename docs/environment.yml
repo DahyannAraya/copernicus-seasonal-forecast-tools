@@ -15,7 +15,11 @@ dependencies:
   - dask
   - cartopy
   - pytest
+  - sphinx
+  - sphinx-autoapi
+  - myst-nb
+  - sphinx_rtd_theme
   - pip
   - pip:
-      - -e .
-
+    - -e .. 
+    - -r requirements.txt

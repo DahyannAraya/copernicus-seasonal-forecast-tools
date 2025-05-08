@@ -1,0 +1,3 @@
+git+https://github.com/CLIMADA-project/climada_python.git
+fiona
+pyarrow
