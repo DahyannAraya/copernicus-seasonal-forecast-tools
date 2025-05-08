@@ -1,0 +1,22 @@
+name: docs_env
+channels:
+  - conda-forge
+dependencies:
+  - python=3.10
+  - pip
+  - pip:
+      - -e .
+  - cdsapi
+  - xarray
+  - cfgrib
+  - numpy
+  - pandas
+  - matplotlib
+  - netCDF4
+  - shapely
+  - geopandas
+  - cartopy
+  - myst-nb
+  - sphinx
+  - sphinx-autoapi
+  - sphinx_rtd_theme

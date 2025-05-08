@@ -114,6 +114,8 @@ Jupyter notebooks for full pipelines:
    Home <self>
    CDS API <cds_api>
    autoapi/index
+   climada_hazard_copernicus_forecast.ipynb
+   How to Cite <citing>
    Resources <modules>
 
 

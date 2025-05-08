@@ -13,6 +13,7 @@ extensions = [
     "sphinx.ext.autodoc",
     "sphinx.ext.napoleon",
     "autoapi.extension",
+    "myst_nb",
 ]
 
 # Automatically document all Python code under this directory
