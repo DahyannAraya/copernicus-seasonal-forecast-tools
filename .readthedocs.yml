@@ -5,8 +5,6 @@ build:
   tools:
     python: "mambaforge-22.9"
 
-system_packages: true
-
 conda:
   environment: docs/environment.yml
 
