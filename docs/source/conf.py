@@ -16,6 +16,7 @@ extensions = [
     "myst_nb",
 ]
 execution_mode = "off"
+nbsphinx_execute = 'never'
 
 autoapi_type = "python"
 autoapi_dirs = ["../../seasonal_forecast_tools"]  # relative to conf.py
