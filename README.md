@@ -31,7 +31,7 @@ For full documentation of all features and functions, please refer to the [Coper
 
 ## **Getting Started**
 
-To use this package, you must first configure access to the `Copernicus Climate Data Store (CDS) <https://cds.climate.copernicus.eu>`_, which provides the seasonal forecast datasets.
+To use this package, you must first configure access to the [Copernicus Climate Data Store (CDS)](https://cds.climate.copernicus.eu), which provides the seasonal forecast datasets.
 
 We've prepared a comprehensive [CDS API setup guide](https://copernicus-seasonal-forecast-tools.readthedocs.io/en/latest/cds_api.html) to walk you through each step of the process. Once configured, you'll be ready to explore and analyze seasonal forecast data with ease!
 
