@@ -29,6 +29,12 @@ While not part of the core [CLIMADA](https://climada.ethz.ch/) platform, it is d
 For full documentation of all features and functions, please refer to the [Copernicus Seasonal Forecast Tools documentation on ReadTheDocs](https://copernicus-seasonal-forecast-tools.readthedocs.io/en/latest/?badge=latest).
 
 
+## **Getting Started**
+
+To use this package, you must first configure access to the `Copernicus Climate Data Store (CDS) <https://cds.climate.copernicus.eu>`_, which provides the seasonal forecast datasets.
+
+We've prepared a comprehensive [CDS API setup guide](https://copernicus-seasonal-forecast-tools.readthedocs.io/en/latest/cds_api.html) to walk you through each step of the process. Once configured, you'll be ready to explore and analyze seasonal forecast data with ease!
+
 
 ## **Installation**
 
