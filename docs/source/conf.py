@@ -15,19 +15,16 @@ extensions = [
     "autoapi.extension",
     "myst_nb",
 ]
+execution_mode = "off"
 
-# Automatically document all Python code under this directory
 autoapi_type = "python"
 autoapi_dirs = ["../../seasonal_forecast_tools"]  # relative to conf.py
 
-# Optional but helpful for debugging and structure
 autoapi_keep_files = True
 autoapi_add_toctree_entry = True
 
-# Add any paths that contain templates here, relative to this directory.
 templates_path = ['_templates']
 
-# List of patterns to ignore when looking for source files.
 exclude_patterns = []
 
 # Add project root directory to sys.path so autodoc can find modules
@@ -42,7 +39,7 @@ html_static_path = ['_static']
 html_css_files = [
     'custom.css',
 ]
-nbsphinx_execute = 'never'
+
 
 
 
