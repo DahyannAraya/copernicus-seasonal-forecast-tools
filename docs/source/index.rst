@@ -60,7 +60,7 @@ To use this package, you must first configure access to the `Copernicus Climate 
 
 **note:** You need a CDS account, API credentials, and to accept the dataset's terms and conditions.
 
-We've prepared a comprehensive :doc:`CDS API setup guide <cds_api>` to walk you through each step of the process. Once configured, you'll be ready to explore and analyze seasonal forecast data with ease!
+We've prepared a comprehensive :doc:`CDS API setup guide <cds_api>` to walk you through each step of the process. Once configured, you'll be ready to explore and analyze seasonal forecast data.
 
 Installation
 ------------
@@ -70,12 +70,14 @@ Install from PyPI:
 .. code-block:: bash
 
    pip install copernicus-seasonal-forecast-tools
+   pip install -r docs/requirements.txt
 
-Install via conda or mamba:
+Install via environment.yml (Conda or Mamba):
 
 .. code-block:: bash
 
-   conda install -c conda-forge copernicus-seasonal-forecast-tools
+   conda env create -f environment.yml
+   conda activate venv_forecast
 
 Install from GitHub:
 
@@ -88,7 +90,11 @@ Install from GitHub:
 CLIMADA Installation
 --------------------
 
-To generate hazard layers, install `CLIMADA <https://github.com/CLIMADA-project/climada_python>`_:
+CLIMADA is required to generate hazard layers.
+
+- If you installed via `environment.yml`, CLIMADA is already included.
+- If you installed from PyPI and then ran `pip install -r docs/requirements.txt`, CLIMADA is also installed.
+- ⚠️ Only install CLIMADA manually if you skipped `requirements.txt` or want to customize its installation:
 
 .. code-block:: bash
 
@@ -96,14 +102,27 @@ To generate hazard layers, install `CLIMADA <https://github.com/CLIMADA-project/
    cd climada_python
    pip install -e .
 
-Examples
---------
+.. note::
 
-Jupyter notebooks for full pipelines:
+   If you want to have all the functionalities of **CLIMADA**, you must install the full version.
 
-- `Workshop notebook on GitHub <https://github.com/DahyannAraya/climada_copernicus_seasonal_forecast_workshop/blob/main/Modul_climada_copernicus_seasonal_forecast_workshop.ipynb>`_
-- `Demo end-to-end pipeline <https://github.com/DahyannAraya/climada_copernicus_seasonal_forecast_workshop/blob/main/DEMO_Modul_climada_copernicus_seasonal_forecast_workshop.ipynb>`_
+   👉 For detailed instructions, follow the official CLIMADA installation guide:  
+   `CLIMADA Installation Guide <https://climada-python.readthedocs.io/en/stable/guide/install.html>`__
 
+
+Developer Setup
+---------------
+
+To contribute or run the documentation and tests:
+
+.. code-block:: bash
+   git clone https://github.com/DahyannAraya/copernicus-seasonal-forecast-tools.git
+   cd copernicus-seasonal-forecast-tools
+   python3.10 -m venv .venv_forecast  # Windows: use py -3.10
+   source .venv_forecast/bin/activate  # Windows: .\.venv_forecast\Scripts\activate
+   pip install -e .
+   pip install -r requirements.txt
+   ⚠️ On Windows, use .\.venv_forecast\Scripts\activate instead of source.
 
 
 .. toctree::
