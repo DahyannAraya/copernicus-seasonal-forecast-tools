@@ -39,15 +39,18 @@ We've prepared a comprehensive [CDS API setup guide](https://copernicus-seasonal
 ## **Installation**
 
 You can install **copernicus-seasonal-forecast-tools** in three ways:
+📘 **For full installation instructions, see the [online documentation](https://copernicus-seasonal-forecast-tools.readthedocs.io/en/latest/index.html)**.
 
 ### 1. Install via pip (recommended for most users)
 
 ```bash
 pip install copernicus-seasonal-forecast-tools
+pip install -r docs/requirements.txt
 ```
-### 2. Install via conda or mamba
+### 2. Install via environment.yml (Conda or Mamba):
 ```bash
-conda install -c conda-forge copernicus-seasonal-forecast-tools
+conda env create -f environment.yml
+conda activate venv_forecast
 ```
 ### 3. Install directly from GitHub 
 ```bash
@@ -55,23 +58,19 @@ git clone https://github.com/DahyannAraya/copernicus-seasonal-forecast-tools.git
 cd copernicus-seasonal-forecast-tools
 pip install .
 ```
+
+
 ### **CLIMADA Installation**
-To create hazard objects from processed forecasts, CLIMADA is required.  
 
-Follow the steps below:
-```bash
-# Clone and install CLIMADA in development mode
+CLIMADA is required to generate hazard layers.
 
-git clone https://github.com/CLIMADA-project/climada_python.git
-cd climada_python
-pip install -e .
-cd ..
-python -c "from climada.hazard import Hazard; print('Hazard module successfully imported!')"
-```
-**Note**
-If you want to have all the functionalities of **CLIMADA**, you must install the full version.  
-👉 For detailed instructions, follow the official CLIMADA installation guide:  
-**[CLIMADA Installation Guide](https://climada-python.readthedocs.io/en/stable/guide/install.html)**
+- ✅ If you installed via `environment.yml`, CLIMADA is already included.
+- ✅ If you installed from PyPI and then ran `pip install -r docs/requirements.txt`, CLIMADA is also installed.
+
+> **Note**  
+> If you want to have all the functionalities of **CLIMADA**, you must install the full version.  
+> 👉 For detailed instructions, follow the official CLIMADA installation guide:  
+> [CLIMADA Installation Guide](https://climada-python.readthedocs.io/en/stable/guide/install.html)
 
 
 ## **Example of use**
