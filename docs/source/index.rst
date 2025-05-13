@@ -32,7 +32,6 @@ Copernicus Seasonal Forecast Tools
         </a>
     </p>
 
-
 Overview
 --------
 
@@ -44,14 +43,12 @@ The module bridges **seasonal forecast data** from the `Copernicus Climate Data 
 
 Key features include:
 
-- 📥 Download Copernicus CDS seasonal forecasts (subdaily)
-- 🔁 Convert to daily resolution automatically
-- 🌡️ Calculate heat-related climate indices (e.g., Heatwaves, Tropical Nights).
-- 🧩 Integrate with CLIMADA hazard workflows
+- Download Copernicus CDS seasonal forecasts (subdaily)
+- Convert to daily resolution automatically
+- Calculate heat-related climate indices (e.g., Heatwaves, Tropical Nights).
+- Integrate with CLIMADA hazard workflows
 
 While not part of the core `CLIMADA <https://climada.ethz.ch/>`_ platform, it is designed for **seamless integration** with CLIMADA for climate impact and risk workflows
-
-
 
 Getting Started
 ---------------
@@ -104,11 +101,7 @@ CLIMADA is required to generate hazard layers.
 
 .. note::
 
-   If you want to have all the functionalities of **CLIMADA**, you must install the full version.
-
-   👉 For detailed instructions, follow the official CLIMADA installation guide:  
-   `CLIMADA Installation Guide <https://climada-python.readthedocs.io/en/stable/guide/install.html>`__
-
+   If you want to have all the functionalities of **CLIMADA**, you must install the full version. For detailed instructions, follow the official CLIMADA installation guide: `CLIMADA Installation Guide <https://climada-python.readthedocs.io/en/stable/guide/install.html>`__
 
 Developer Setup
 ---------------
@@ -116,14 +109,22 @@ Developer Setup
 To contribute or run the documentation and tests:
 
 .. code-block:: bash
+
    git clone https://github.com/DahyannAraya/copernicus-seasonal-forecast-tools.git
    cd copernicus-seasonal-forecast-tools
    python3.10 -m venv .venv_forecast  # Windows: use py -3.10
-   source .venv_forecast/bin/activate  # Windows: .\.venv_forecast\Scripts\activate
+   source .venv_forecast/bin/activate
    pip install -e .
-   pip install -r requirements.txt
-   ⚠️ On Windows, use .\.venv_forecast\Scripts\activate instead of source.
+   pip install -r docs/requirements.txt
 
+.. note::
+
+   On Windows, use ``.venv_forecast\Scripts\activate`` instead of ``source``.
+
+License
+-------
+
+`GPL-3.0 license <https://github.com/DahyannAraya/copernicus-seasonal-forecast-tools/blob/main/LICENSE>`__
 
 .. toctree::
    :maxdepth: 1
@@ -136,5 +137,3 @@ To contribute or run the documentation and tests:
    climada_hazard_copernicus_forecast.ipynb
    How to Cite <citing>
    Resources <modules>
-
-

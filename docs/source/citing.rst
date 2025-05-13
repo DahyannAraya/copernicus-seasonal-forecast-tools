@@ -1,5 +1,5 @@
 How to Cite
-==========
+===========
 
 If you use the **Copernicus Seasonal Forecast Tools** in your work, please cite the package directly:
 

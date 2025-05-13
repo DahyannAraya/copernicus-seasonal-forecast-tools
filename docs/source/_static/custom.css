@@ -16,3 +16,21 @@ img[src*="Logos.png"] {
     background-color: #2c3e50;  /* Customize your sidebar color */
 }
 
+/* Customize the note admonition box */
+div.admonition.note {
+    background-color: #f0f4fa;  /* Keep light blue for the body */
+    /*border-left: 4px solid #2980b9;   Optional left border (you can tweak this) */
+    padding: 1em;
+    margin: 1.5em 0;
+    box-shadow: none;
+}
+
+/* Change the top header bar (title) */
+div.admonition.note > .admonition-title {
+    background-color: #2c3e50;  /* 9bafaa softer gray-blue, close to sidebar tone */
+    color: #ffffff;  /* dark neutral blue for text */
+    font-weight: 600;
+    border-radius: 0;
+    padding: 0.4em 0.8em;
+    border-bottom: 1px solid #d0dbe5;
+}

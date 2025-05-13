@@ -61,5 +61,11 @@ climada_python/
 # Test output
 test_output/
 
+# Ignore only the VS Code task file 
+.vscode/
+
+# Ignore locally generated paper draft
+paper.pdf
+
 
 
