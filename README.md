@@ -39,7 +39,7 @@ We've prepared a comprehensive [CDS API setup guide](https://copernicus-seasonal
 ## **Installation**
 
 You can install copernicus-seasonal-forecast-tools in three ways:
-For full installation instructions, see the [online documentation](https://copernicus-seasonal-forecast-tools.readthedocs.io/en/latest/index.html)**.
+For full installation instructions, see the [online documentation](https://copernicus-seasonal-forecast-tools.readthedocs.io/en/latest/index.html).
 
 ### 1. Install via pip (recommended for most users)
 
@@ -77,7 +77,7 @@ CLIMADA is required to generate hazard layers.
 
 This section provides practical example to help users understand how to work with the copernicus-seasonal-forecast-tools package. The notebooks demonstrate key steps including downloading data, computing climate indices, and generating CLIMADA hazard objects.
 
-- **`DEMO_copernicus_forecast_seasonal.ipynb`**: This is the first notebook to run. It demonstrates how to install and use the `copernicus_interface` module to download, process, and convert seasonal forecast data into a CLIMADA hazard object.
+- **`DEMO_copernicus_forecast_seasonal.ipynb`**: This is the first notebook to run. It demonstrates how to install and use the `seasonal_forecast_tools` to download, process, and convert seasonal forecast data into a CLIMADA hazard object.
 
 
 ### Notebooks
@@ -90,7 +90,7 @@ This section provides practical example to help users understand how to work wit
 | Calculate a Hazard Object | [<img src="https://colab.research.google.com/assets/colab-badge.svg" alt="Open In Colab" height="20">](https://colab.research.google.com/github/DahyannAraya/copernicus_climada_seasonal_forecast_workshop/blob/main/Modul_climada_copernicus_seasonal_forecast_workshop.ipynb#scrollTo=Calculate_a_Hazard_Object)  | [View in Docs](https://copernicus-seasonal-forecast-tools.readthedocs.io/en/latest/climada_hazard_copernicus_forecast.html#calculate-a-hazard-object) |
 | Example for Reading and Plotting Hazard | [<img src="https://colab.research.google.com/assets/colab-badge.svg" alt="Open In Colab" height="20">](https://colab.research.google.com/github/DahyannAraya/copernicus_climada_seasonal_forecast_workshop/blob/main/Modul_climada_copernicus_seasonal_forecast_workshop.ipynb#scrollTo=Example_for_reading_and_plotting_hazard) | [View in Docs](https://copernicus-seasonal-forecast-tools.readthedocs.io/en/latest/climada_hazard_copernicus_forecast.html#example-for-reading-and-plotting-hazard) |
 
-You can find further material in [<img src="https://colab.research.google.com/assets/colab-badge.svg" alt="Open In Colab" height="20">](https://colab.research.google.com/github/DahyannAraya/climada_copernicus_seasonal_forecast_workshop/blob/main/DEMO_Modul_climada_copernicus_seasonal_forecast_workshop.ipynb), where we provide an extended demonstration
+You can find further material in [<img src="https://colab.research.google.com/assets/colab-badge.svg" alt="Open In Colab" height="20">](https://colab.research.google.com/github/DahyannAraya/climada_copernicus_seasonal_forecast_workshop/blob/main/DEMO_Modul_climada_copernicus_seasonal_forecast_workshop.ipynb), where we provide an extended demonstration.
 
 
 
@@ -101,7 +101,7 @@ You can find further material in [<img src="https://colab.research.google.com/as
 
 ## **Resources**
 - [U-CLIMADAPT Project](https://www.copernicus-user-uptake.eu/user-uptake/details/responding-to-the-impact-of-climate-change-u-climadapt-488)
-- [Copernicus Seasonal Forecast Module](https://github.com/CLIMADA-project/climada_petals/tree/feature/copernicus_forecast)
+- [Copernicus Seasonal Forecast on CLIMADA](to do)
 - [Copernicus Seasonal Forecast Module extended demostration](https://colab.research.google.com/github/DahyannAraya/climada_copernicus_seasonal_forecast_workshop/blob/main/DEMO_Modul_climada_copernicus_seasonal_forecast_workshop.ipynb)
 - [Seasonal forecast daily and subdaily data on single levels](https://cds.climate.copernicus.eu/datasets/seasonal-original-single-levels?tab=overview)
 - [Copernicus Climate Data Store](https://cds.climate.copernicus.eu)
