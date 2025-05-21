@@ -159,7 +159,7 @@ def calculate_heat_indices_metrics(
         raise e
 
     # add monthly period label
-    da_index.coords["forecast_month"] = monthly_periods_from_valid_times(daily_ds)
+    da_index.coords["forecast_month"] = _monthly_periods_from_valid_times(daily_ds)
 
     # compute monthly means
     method = "count" if index_metric in ["TR", "TX30", "HW"] else "mean"
@@ -171,7 +171,7 @@ def calculate_heat_indices_metrics(
     return ds_combined, ds_monthly, ds_stats
 
 
-def monthly_periods_from_valid_times(ds):
+def _monthly_periods_from_valid_times(ds):
     """Create monthly labels from valid times of a dataframe
 
     Parameters

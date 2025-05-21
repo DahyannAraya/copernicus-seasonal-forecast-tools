@@ -26,7 +26,7 @@ This module provides the SeasonalForecast class, which enables:
 - Organizing outputs by forecast system, initialization time, and spatial domain.
 
 The interface integrates several submodules under copernicus_interface:
-- create_seasonal_forecast_hazard.py: implements the core SeasonalForecast class 
+- create_seasonal_forecast_hazard.py: implements the core SeasonalForecast class
   that coordinates the entire workflow.
 - downloader.py: handles forecast data retrieval from the CDS API.
 - index_definitions.py: climate index definitions and variable handling.
@@ -40,22 +40,18 @@ All inputs and outputs are consistently managed through a pipeline structure tha
 modularity, traceability, and ease of integration into CLIMADA workflows.
 
 """
-import calendar
-import logging
-from datetime import date
-from pathlib import Path, PosixPath
-from typing import List
 
-import cartopy.crs as ccrs
-import cartopy.feature as cfeature
-import matplotlib.pyplot as plt
-import numpy as np
+import logging
+from pathlib import Path, PosixPath
+
+
 import pandas as pd
 import xarray as xr
 
 # Optional CLIMADA dependency
 try:
     from climada.hazard import Hazard
+
     CLIMADA_INSTALLED = True
 except ImportError:
     CLIMADA_INSTALLED = False
@@ -63,18 +59,18 @@ except ImportError:
     class Hazard:
         @staticmethod
         def from_xarray_raster(*args, **kwargs):
-            raise ImportError("CLIMADA not installed. Please install CLIMADA to use this function.")
+            raise ImportError(
+                "CLIMADA not installed. Please install CLIMADA to use this function."
+            )
+
 
 from seasonal_forecast_tools.downloader import download_data
 from seasonal_forecast_tools.index_definitions import (
-    IndexSpecEnum,
+    ClimateIndex,
     get_short_name_from_variable,
 )
 import seasonal_forecast_tools.seasonal_statistics as seasonal_statistics
-from seasonal_forecast_tools.path_utils import (
-    check_existing_files,
-    get_file_path,
-)
+from seasonal_forecast_tools.path_utils import get_file_path
 from seasonal_forecast_tools.time_utils import (
     calculate_leadtimes,
     month_name_to_number,
@@ -82,7 +78,7 @@ from seasonal_forecast_tools.time_utils import (
 
 
 # set path to store data
-#DATA_OUT = CONFIG.hazard.copernicus.seasonal_forecasts.dir()
+# DATA_OUT = CONFIG.hazard.copernicus.seasonal_forecasts.dir()
 from seasonal_forecast_tools import config
 
 DATA_OUT = config.SEASONAL_FORECAST_DIR
@@ -112,12 +108,12 @@ class SeasonalForecast:
 
         Parameters
         ----------
-        index_metric : str
+        index_metric : IndexSpec | str
             Climate index to calculate (e.g., "HW", "TR", "Tmax").
         year_list : list of int
             List of years for which data should be downloaded and processed.
         lead_time_months : list of str or int
-            List specifying the start and end month (given as integers or strings) 
+            List specifying the start and end month (given as integers or strings)
             of the valid forecast period. Must contain exactly two elements.
         initiation_month : list of str
             List of initiation months for the forecast (e.g., ["March", "April"]).
@@ -130,7 +126,7 @@ class SeasonalForecast:
         system : str
             Forecast system configuration (e.g., "21").
         data_out : pathlib.Path, optional
-            Output directory for storing downloaded and processed data. If None, 
+            Output directory for storing downloaded and processed data. If None,
             uses a default directory specified in the configuration.
 
         Raises
@@ -158,7 +154,7 @@ class SeasonalForecast:
         self.bounds_str = (
             f"boundsN{int(self.bounds[0])}_S{int(self.bounds[1])}_"
             f"E{int(self.bounds[2])}_W{int(self.bounds[3])}"
-            )
+        )
         self.data_format = data_format
         self.originating_centre = originating_centre
         self.system = system
@@ -167,15 +163,18 @@ class SeasonalForecast:
         self.data_out = Path(data_out) if data_out else DATA_OUT
 
         # Get index specifications
-        index_spec = IndexSpecEnum.get_info(self.index_metric)
-        self.variables = index_spec.variables
-        self.variables_short = [
-            get_short_name_from_variable(var) for var in self.variables
-        ]
+        self.index_spec = ClimateIndex.from_input(index_metric)
 
+    @property
+    def variables(self):
+        return self.index_spec.variables
+
+    @property
+    def short_variables(self):
+        return [get_short_name_from_variable(var) for var in self.index_spec.variables]
 
     ##########  Index Metadata Utilities  ##########
-        
+
     def explain_index(self, index_metric=None, print_flag=False):
         """
         Retrieve and display information about a specific climate index.
@@ -201,22 +200,22 @@ class SeasonalForecast:
         -----
         The index information is retrieved from `IndexSpecEnum.get_info`.
         """
-        index_metric = index_metric or self.index_metric
+        index_metric = ClimateIndex.from_input(index_metric or self.index_metric)
+
         response = (
-            f"Explanation for {index_metric}: "
-            f"{IndexSpecEnum.get_info(index_metric).explanation} "
+            f"Explanation for {index_metric.name}: "
+            f"{index_metric.value.explanation} "
         )
         response += (
             "Required variables: "
-            f"{', '.join(IndexSpecEnum.get_info(index_metric).variables)}"
+            f"{', '.join(index_metric.value.variables)}"
         )
         if print_flag:
             print(response)
         return response
-    
 
     ##########  Path Utilities  ##########
-        
+
     def get_pipeline_path(self, year, initiation_month_str, data_type):
         """
         Provide (and possibly create) file paths for forecast pipeline.
@@ -233,7 +232,7 @@ class SeasonalForecast:
         Returns
         -------
         Path or dict of Path
-            Path to the requested file(s). For 'indices', returns a dictionary with keys 
+            Path to the requested file(s). For 'indices', returns a dictionary with keys
             'daily', 'monthly', 'stats'.
 
         Raises
@@ -369,7 +368,7 @@ class SeasonalForecast:
                     processed_data_path,
                     overwrite,
                     downloaded_data_path,
-                    self.variables_short,
+                    self.short_variables,
                     self.data_format,
                 )
 
@@ -563,7 +562,9 @@ class SeasonalForecast:
         used for further risk assessment workflows.
         """
         if not CLIMADA_INSTALLED:
-            raise ImportError("CLIMADA is required for this function. Please install CLIMADA first.")
+            raise ImportError(
+                "CLIMADA is required for this function. Please install CLIMADA first."
+            )
 
         hazard_outputs = {}
 
@@ -605,9 +606,10 @@ class SeasonalForecast:
                     ) from error
 
         return hazard_outputs
-    
+
 
 ##########  Utility Functions  ##########
+
 
 def handle_overwriting(function):
     """
@@ -660,6 +662,7 @@ def handle_overwriting(function):
 
 ##########  Decorated Functions  ##########
 
+
 @handle_overwriting
 def _download_data(
     output_file_name,
@@ -676,9 +679,9 @@ def _download_data(
     """
     Download seasonal forecast data for a specific year and initiation month.
 
-    This function downloads raw seasonal forecast data from the Copernicus 
-    Climate Data Store (CDS) based on the specified forecast configuration 
-    and geographical domain. The data is saved in the specified format and 
+    This function downloads raw seasonal forecast data from the Copernicus
+    Climate Data Store (CDS) based on the specified forecast configuration
+    and geographical domain. The data is saved in the specified format and
     location.
 
     Parameters
@@ -686,7 +689,7 @@ def _download_data(
     output_file_name : Path
         Path to save the downloaded data file.
     overwrite : bool
-        If True, existing files will be overwritten. If False and the file exists, 
+        If True, existing files will be overwritten. If False and the file exists,
         the download is skipped.
     variables : list of str
         List of variable names to download (e.g., ['tasmax', 'tasmin']).
@@ -919,9 +922,9 @@ def _convert_to_hazard(output_file_name, overwrite, input_file_name, index_metri
 
     Notes
     -----
-    - The function uses `Hazard.from_xarray_raster()` to create Hazard objects 
+    - The function uses `Hazard.from_xarray_raster()` to create Hazard objects
       from the input dataset.
-    - If multiple ensemble members are present, individual Hazard objects are 
+    - If multiple ensemble members are present, individual Hazard objects are
       created for each member and concatenated.
     - The function determines the intensity unit based on the selected index:
         - '%' for relative humidity (RH)
@@ -929,7 +932,9 @@ def _convert_to_hazard(output_file_name, overwrite, input_file_name, index_metri
         - '°C' for temperature indices
     """
     if not CLIMADA_INSTALLED:
-        raise ImportError("CLIMADA is required for this function. Please install CLIMADA first.")
+        raise ImportError(
+            "CLIMADA is required for this function. Please install CLIMADA first."
+        )
 
     try:
         with xr.open_dataset(str(input_file_name)) as input_dataset:
@@ -963,7 +968,11 @@ def _convert_to_hazard(output_file_name, overwrite, input_file_name, index_metri
 
             # Create Hazard objects
             for member in ensemble_members:
-                ds_subset = input_dataset.sel(number=member) if "number" in input_dataset.dims else input_dataset
+                ds_subset = (
+                    input_dataset.sel(number=member)
+                    if "number" in input_dataset.dims
+                    else input_dataset
+                )
                 hazard = Hazard.from_xarray_raster(
                     data=ds_subset,
                     hazard_type=index_metric,

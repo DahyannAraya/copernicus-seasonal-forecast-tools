@@ -8,7 +8,7 @@ Covered functions:
 - calculate_heat_indices_metrics
 - calculate_monthly_dataset
 - calculate_statistics_from_index
-- monthly_periods_from_valid_times
+- _monthly_periods_from_valid_times
 
 The tests use synthetic datasets to validate expected output structure,
 numerical accuracy, error handling, and metadata preservation.
@@ -25,7 +25,7 @@ from seasonal_forecast_tools.seasonal_statistics import (
     calculate_heat_indices_metrics,
     calculate_monthly_dataset,
     calculate_statistics_from_index,
-    monthly_periods_from_valid_times,
+    _monthly_periods_from_valid_times,
 )
 
 """
@@ -224,10 +224,10 @@ class TestSeasonalStatistics(unittest.TestCase):
         with self.assertRaises(FileNotFoundError):
             calculate_heat_indices_metrics("nonexistent.nc", "Tmean")
 
-    ### monthly_periods_from_valid_times test ###
+    ### _monthly_periods_from_valid_times test ###
     def test_monthly_periods_from_valid_times(self):
         """Test if the function correctly assing forescat month date."""
-        result = monthly_periods_from_valid_times(self.ds_valid_time)
+        result = _monthly_periods_from_valid_times(self.ds_valid_time)
         self.assertIsInstance(result, xr.DataArray)
         self.assertEqual(tuple(result.dims), ("step",))
         expected_months = ["2019-02"] * 3

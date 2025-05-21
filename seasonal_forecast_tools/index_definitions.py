@@ -51,17 +51,23 @@ class IndexSpec:
     variables: list
 
 
-class IndexSpecEnum(Enum):
+class ClimateIndex(Enum):
     HIA = IndexSpec(
         unit="C",
         full_name="Heat Index Adjusted",
-        explanation="Heat Index Adjusted: A refined measure of apparent temperature that accounts for both air temperature and humidity. This index improves upon the simplified heat index by incorporating empirical corrections for extreme temperature and humidity conditions, ensuring a more accurate representation of perceived heat stress. If the temperature is ≤ 26.7°C (80°F), the index returns a simplified estimate.",
+        explanation="Heat Index Adjusted: A refined measure of apparent temperature that accounts"
+        " for both air temperature and humidity. This index improves upon the simplified heat"
+        " index by incorporating empirical corrections for extreme temperature and humidity"
+        " conditions, ensuring a more accurate representation of perceived heat stress. If the"
+        " temperature is ≤ 26.7°C (80°F), the index returns a simplified estimate.",
         variables=["2m_temperature", "2m_dewpoint_temperature"],
     )
     HIS = IndexSpec(
         unit="C",
         full_name="Heat Index Simplified",
-        explanation="Heat Index Simplified: A quick estimate of perceived heat based on temperature and humidity, using an empirical formula designed for warm conditions (T > 20°C). If the temperature is ≤ 20°C, the heat index is set to the air temperature.",
+        explanation="Heat Index Simplified: A quick estimate of perceived heat based on"
+        " temperature and humidity, using an empirical formula designed for warm conditions"
+        " (T > 20°C). If the temperature is ≤ 20°C, the heat index is set to the air temperature.",
         variables=["2m_temperature", "2m_dewpoint_temperature"],
     )
     Tmean = IndexSpec(
@@ -73,25 +79,29 @@ class IndexSpecEnum(Enum):
     Tmin = IndexSpec(
         unit="C",
         full_name="Minimum Temperature",
-        explanation="Minimum Temperature: Tracks the lowest temperature recorded over a specified period.",
+        explanation="Minimum Temperature: Tracks the lowest temperature recorded over a specified"
+        " period.",
         variables=["2m_temperature"],
     )
     Tmax = IndexSpec(
         unit="C",
         full_name="Maximum Temperature",
-        explanation="Maximum Temperature: Tracks the highest temperature recorded over a specified period.",
+        explanation="Maximum Temperature: Tracks the highest temperature recorded over a specified"
+        " period.",
         variables=["2m_temperature"],
     )
     HW = IndexSpec(
         unit="Days",
         full_name="Heat Wave",
-        explanation="Heat Wave: Identifies heat waves as periods with temperatures above a threshold. Default >= 27 °C for minimum 3 consecutive days.",
+        explanation="Heat Wave: Identifies heat waves as periods with temperatures above a"
+        " threshold. Default >= 27 °C for minimum 3 consecutive days.",
         variables=["2m_temperature"],
     )
     TR = IndexSpec(
         unit="Days",
         full_name="Tropical Nights",
-        explanation="Tropical Nights: Counts nights with minimum temperatures above a certain threshold. Default threshold is 20°C.",
+        explanation="Tropical Nights: Counts nights with minimum temperatures above a certain"
+        " threshold. Default threshold is 20°C.",
         variables=["2m_temperature"],
     )
     TX30 = IndexSpec(
@@ -126,12 +136,13 @@ class IndexSpecEnum(Enum):
     WBGT = IndexSpec(
         unit="C",
         full_name="Wet Bulb Globe Temperature",
-        explanation="Wet Bulb Globe Temperature (Simple): Heat stress index combining temperature and humidity.",
+        explanation="Wet Bulb Globe Temperature (Simple): Heat stress index combining temperature"
+        " and humidity.",
         variables=["2m_temperature", "2m_dewpoint_temperature"],
     )
 
     @classmethod
-    def get_info(cls, index_name: str):
+    def by_name(cls, index_name: str):
         """
         Retrieve the complete information for a specified index.
 
@@ -148,10 +159,20 @@ class IndexSpecEnum(Enum):
         """
         try:
             return cls[index_name].value
-        except KeyError:
+        except KeyError as kerr:
+            indices = ', '.join(cls.__members__.keys())
             raise ValueError(
-                f"Unknown index '{index_name}'. Available indices: {', '.join(cls.__members__.keys())}"
-            )
+                f"Unknown index '{index_name}'. Available indices: {indices}"
+            ) from kerr
+        
+    @staticmethod
+    def from_input(arg):
+        """Returns proper IndexSpec object from whatever input is valid"""
+        if isinstance(arg, str):
+            return ClimateIndex.by_name(arg)
+        if isinstance(arg, IndexSpec):
+            return arg
+        raise ValueError("type of index_spec must be of IndexSpec or str")
 
 
 def get_short_name_from_variable(variable):
@@ -161,12 +182,14 @@ def get_short_name_from_variable(variable):
     Parameters
     ----------
     variable : str
-        The standard name of the climate variable (e.g., "2m_temperature", "10m_u_component_of_wind").
+        The standard name of the climate variable (e.g., "2m_temperature",
+        "10m_u_component_of_wind").
 
     Returns
     -------
     str or None
-        The short name corresponding to the specified climate variable (e.g., "t2m" for "2m_temperature").
+        The short name corresponding to the specified climate variable (e.g., "t2m" for
+        "2m_temperature").
         Returns None if the variable is not recognized.
 
     Notes
@@ -186,13 +209,9 @@ def get_short_name_from_variable(variable):
     >>> get_short_name_from_variable("unknown_variable")
     None
     """
-    if variable == "2m_temperature":
-        return "t2m"
-    elif variable == "2m_dewpoint_temperature":
-        return "d2m"
-    elif variable == "10m_u_component_of_wind":
-        return "u10"
-    elif variable == "10m_v_component_of_wind":
-        return "v10"
-    else:
-        return None
+    return {
+        "2m_temperature": "t2m",
+        "2m_dewpoint_temperature": "d2m",
+        "10m_u_component_of_wind": "u10",
+        "10m_v_component_of_wind": "v10",
+    }.get(variable)

@@ -109,7 +109,7 @@ Functions
    seasonal_forecast_tools.get_short_name_from_variable
    seasonal_forecast_tools.kelvin_to_celsius
    seasonal_forecast_tools.calculate_heat_indices_metrics
-   seasonal_forecast_tools.monthly_periods_from_valid_times
+   seasonal_forecast_tools._monthly_periods_from_valid_times
    seasonal_forecast_tools.calculate_monthly_dataset
    seasonal_forecast_tools.calculate_statistics_from_index
    seasonal_forecast_tools.month_name_to_number
@@ -1262,7 +1262,7 @@ Package Contents
    :raises FileNotFoundError: If the specified input file does not exist.
 
 
-.. py:function:: monthly_periods_from_valid_times(ds)
+.. py:function:: _monthly_periods_from_valid_times(ds)
 
    Create monthly labels from valid times of a dataframe
 

@@ -41,7 +41,7 @@ Functions
 .. autoapisummary::
 
    seasonal_forecast_tools.seasonal_statistics.calculate_heat_indices_metrics
-   seasonal_forecast_tools.seasonal_statistics.monthly_periods_from_valid_times
+   seasonal_forecast_tools.seasonal_statistics._monthly_periods_from_valid_times
    seasonal_forecast_tools.seasonal_statistics.calculate_monthly_dataset
    seasonal_forecast_tools.seasonal_statistics.calculate_statistics_from_index
 
@@ -94,7 +94,7 @@ Module Contents
    :raises FileNotFoundError: If the specified input file does not exist.
 
 
-.. py:function:: monthly_periods_from_valid_times(ds)
+.. py:function:: _monthly_periods_from_valid_times(ds)
 
    Create monthly labels from valid times of a dataframe
 

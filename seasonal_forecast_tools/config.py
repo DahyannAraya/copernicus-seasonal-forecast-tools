@@ -23,7 +23,7 @@ import os
 from pathlib import Path
 
 # Default base directory for all seasonal forecast outputs
-BASE_DATA_DIR = Path.home() / "climada_data"
+BASE_DATA_DIR = Path.home() / "climada/data"
 
 # Path to Copernicus seasonal forecasts
 SEASONAL_FORECAST_DIR = Path(os.getenv(

@@ -1,13 +1,13 @@
 cdsapi                      # Copernicus Climate Data Store API client
-ipykernel                   # Jupyter kernel support
+#ipykernel                   # Jupyter kernel support
 xarray                      # NetCDF and multi-dimensional arrays
 cfgrib                      # GRIB file support via ECMWF ecCodes
 numpy                       # Numerical arrays and operations
 pandas                      # Data manipulation and timestamps
 matplotlib                  # Plotting
-netCDF4                     # NetCDF file I/O 
+#netCDF4                     # NetCDF file I/O 
 shapely                     # Geometry operations 
 geopandas                   # Country geometries and plotting
 cartopy                     # Map plotting with projections
-requests                    # HTTP requests 
-pytest                      # Testing framework
+#requests                    # HTTP requests 
+#pytest                      # Testing framework

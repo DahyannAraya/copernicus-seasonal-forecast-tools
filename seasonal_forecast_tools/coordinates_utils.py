@@ -21,12 +21,10 @@ Coordinate utilities for the Copernicus seasonal forecast module.
 Provides helper functions to construct bounding boxes from global, cardinal, or country-level input.
 """
 
-from typing import Tuple, List
-import geopandas as gpd
-import numpy as np
-from shapely.geometry import box
-from cartopy.io import shapereader
+from typing import List, Tuple
 
+import geopandas as gpd
+from cartopy.io import shapereader
 
 
 def bounding_box_from_cardinal_bounds(north: float, south: float, east: float, west: float) -> Tuple[float, float, float, float]:
@@ -56,11 +54,6 @@ def bounding_box_global() -> Tuple[float, float, float, float]:
     """
     return (-180.0, -90.0, 180.0, 90.0)
 
-
-from typing import List, Tuple
-import geopandas as gpd
-import numpy as np
-from cartopy.io import shapereader
 
 def bounding_box_from_countries(countries: List[str], buffer: float = 1.0) -> Tuple[float, float, float, float]:
     """

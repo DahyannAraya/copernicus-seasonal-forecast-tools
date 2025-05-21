@@ -87,17 +87,14 @@ def download_data(dataset, params, filename=None, datastore_url=None, overwrite=
     # Warning about terms and conditions
     if not datastore_url:
         cds_filepath = str(Path.home()) + "/.cdsapirc"
-        try:
-            with open(cds_filepath, "r") as file:
-                url = (
-                    file.read()
-                    .split("\n")[0]
-                    .split(" ")[1]
-                    .strip()
-                    .removesuffix("/api")
-                )
-        except FileNotFoundError as e:
-            raise FileNotFoundError("No .cdsapirc file in home directory.")
+        with open(cds_filepath, "r") as file:
+            url = (
+                file.read()
+                .split("\n")[0]
+                .split(" ")[1]
+                .strip()
+                .removesuffix("/api")
+            )
     else:
         if not datastore_url.endswith("/api"):
             raise ValueError("The given datastore_url must end with /api.")
