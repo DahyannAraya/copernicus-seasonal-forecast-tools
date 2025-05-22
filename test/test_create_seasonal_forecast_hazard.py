@@ -17,11 +17,10 @@ import unittest
 from pathlib import Path
 
 import numpy as np
-import numpy.testing as npt
-import pandas as pd
 import xarray as xr
-from climada.hazard import Hazard
 from seasonal_forecast_tools.create_seasonal_forecast_hazard import (
+    CLIMADA_INSTALLED,
+    Hazard,
     _convert_to_hazard,
     _process_data
 )
@@ -147,6 +146,22 @@ class TestCalculateSeasonalForescastHazard(unittest.TestCase):
         # Save dataset
         ds_p.to_netcdf(self.input_file_process)
 
+    @unittest.skipIf(CLIMADA_INSTALLED,
+                     "_convert_to_hazard only fails if Climada is not installed")
+    def test_convert_to_hazard_without_climada(self):
+        index_metric = "Tmax"
+
+        # Call the function
+        with self.assertRaises(ImportError):
+            _convert_to_hazard(
+                output_file_name=self.output_file,
+                overwrite=True,
+                input_file_name=self.input_file,
+                index_metric=index_metric,
+            )
+
+    @unittest.skipUnless(CLIMADA_INSTALLED,
+                         "_convert_to_hazard is bound to fail if Climada is not installed")
     def test_convert_to_hazard(self):
         index_metric = "Tmax"
 

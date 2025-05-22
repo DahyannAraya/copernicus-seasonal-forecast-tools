@@ -1,4 +1,4 @@
-<img src="images/Logos.png" alt="Project Logos" width="70%"/>
+<img src="https://raw.githubusercontent.com/DahyannAraya/copernicus-seasonal-forecast-tools/refs/heads/main/images/Logos.png" alt="Project Logos" width="70%"/>
 
 
 # **Copernicus Seasonal Forecast Tools**
@@ -10,7 +10,7 @@
 
 
 
-<img src="images/copernicus_forecast_qr.png" alt="Repository QR Code" width="150"/>
+<img src="https://raw.githubusercontent.com/DahyannAraya/copernicus-seasonal-forecast-tools/refs/heads/main/images/copernicus_forecast_qr.png" alt="Repository QR Code" width="150"/>
 
 This repository hosts the **copernicus-seasonal-forecast-tools** package, a Python module developed as part of the [U-CLIMADAPT project](https://www.copernicus-user-uptake.eu/user-uptake/details/responding-to-the-impact-of-climate-change-u-climadapt-488).
 

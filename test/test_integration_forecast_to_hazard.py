@@ -8,11 +8,12 @@ for all supported thermal index metrics.
 Each test checks file creation, dataset content, and hazard consistency.
 """
 
-import unittest
-import xarray as xr
 from pathlib import Path
-from climada.hazard import Hazard
-from seasonal_forecast_tools.create_seasonal_forecast_hazard import SeasonalForecast
+import unittest
+
+import xarray as xr
+
+from seasonal_forecast_tools.create_seasonal_forecast_hazard import SeasonalForecast, Hazard, CLIMADA_INSTALLED
 
 INDEX_METRICS = [
     "Tmean",  # Mean Temperature
@@ -72,7 +73,8 @@ class TestIntegrationWorkflow(unittest.TestCase):
             )
             forecast._process(overwrite=True)
             forecast.calculate_index(overwrite=True)
-            forecast.save_index_to_hazard(overwrite=True)
+            if CLIMADA_INSTALLED:
+                forecast.save_index_to_hazard(overwrite=True)
 
             month_str = forecast.initiation_month_str[0]
             cls.forecasts[index_metric] = forecast
@@ -126,6 +128,7 @@ class TestIntegrationWorkflow(unittest.TestCase):
                 self.assertTrue(self.hazard_paths[index_metric].exists(),
                     f"Hazard file not found: {self.hazard_paths[index_metric]}")
 
+    @unittest.skipUnless(CLIMADA_INSTALLED, "Without climada there is no functional Hazard class.")
     def test_hazard_content(self):
         """
         Validate the content of the hazard file for each index.
@@ -144,4 +147,3 @@ class TestIntegrationWorkflow(unittest.TestCase):
 
 if __name__ == "__main__":
     unittest.main()
-

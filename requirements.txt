@@ -11,3 +11,6 @@ geopandas                   # Country geometries and plotting
 cartopy                     # Map plotting with projections
 #requests                    # HTTP requests 
 #pytest                      # Testing framework
+climada
+fiona
+pyarrow

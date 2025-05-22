@@ -1,3 +1,5 @@
+.*
+
 # Byte-compiled / cache files
 __pycache__/
 *.py[cod]
@@ -67,6 +69,8 @@ test_output/
 # Ignore locally generated paper draft
 paper.pdf
 
-
+# binary
+*.hdf5
+*.nc
 
 .DS_Store
