@@ -203,12 +203,12 @@ class SeasonalForecast:
         index_metric = ClimateIndex.from_input(index_metric or self.index_metric)
 
         response = (
-            f"Explanation for {index_metric.name}: "
-            f"{index_metric.value.explanation} "
+            f"Explanation for {index_metric.full_name}: "
+            f"{index_metric.explanation} "
         )
         response += (
             "Required variables: "
-            f"{', '.join(index_metric.value.variables)}"
+            f"{', '.join(index_metric.variables)}"
         )
         if print_flag:
             print(response)
