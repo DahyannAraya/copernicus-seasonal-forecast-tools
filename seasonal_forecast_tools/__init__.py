@@ -17,10 +17,10 @@ If not, it is available at https://www.gnu.org/licenses/.
 
 ---
 
-init Copernicus seasonal forecast handler
+init Copernicus seasonal forecast tools
 """
 
-from .core.create_seasonal_forecast_hazard import *  # This will import all functions from create_seasonal_forecast_hazard.py
+from .core.seasonal_forecast import *  # This will import all functions from seasonal_forecast.py
 from .core.heat_index import *  # This will import all functions from heat_index.py
 from .core.index_definitions import *  # This will import all functions from index_definitions.py
 from .core.seasonal_statistics import *  # This will import all functions from seasonal_statistics.py

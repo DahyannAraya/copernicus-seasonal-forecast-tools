@@ -1,5 +1,5 @@
 """
-Unit tests for seasonal_forecast_tools.create_seasonal_forecast_hazard.
+Unit tests for seasonal_forecast_tools.seasonal_forecast.
 
 Covers:
 - Conversion of forecast data to CLIMADA Hazard via `_convert_to_hazard`
@@ -18,7 +18,7 @@ from pathlib import Path
 
 import numpy as np
 import xarray as xr
-from seasonal_forecast_tools.core.create_seasonal_forecast_hazard import (
+from seasonal_forecast_tools.core.seasonal_forecast import (
     CLIMADA_INSTALLED,
     Hazard,
     _convert_to_hazard,

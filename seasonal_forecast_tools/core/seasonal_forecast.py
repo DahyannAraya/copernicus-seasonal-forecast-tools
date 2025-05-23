@@ -26,7 +26,7 @@ This module provides the SeasonalForecast class, which enables:
 - Organizing outputs by forecast system, initialization time, and spatial domain.
 
 The interface integrates several submodules under copernicus_interface:
-- create_seasonal_forecast_hazard.py: implements the core SeasonalForecast class
+- seasonal_forecast.py: implements the core SeasonalForecast class
   that coordinates the entire workflow.
 - downloader.py: handles forecast data retrieval from the CDS API.
 - index_definitions.py: climate index definitions and variable handling.

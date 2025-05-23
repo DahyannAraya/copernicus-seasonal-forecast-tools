@@ -13,7 +13,7 @@ import unittest
 
 import xarray as xr
 
-from seasonal_forecast_tools.core.create_seasonal_forecast_hazard import SeasonalForecast, Hazard, CLIMADA_INSTALLED
+from seasonal_forecast_tools.core.seasonal_forecast import SeasonalForecast, Hazard, CLIMADA_INSTALLED
 
 INDEX_METRICS = [
     "Tmean",  # Mean Temperature
