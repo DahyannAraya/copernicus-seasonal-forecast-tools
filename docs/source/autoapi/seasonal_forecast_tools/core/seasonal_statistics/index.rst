@@ -1,7 +1,7 @@
-seasonal_forecast_tools.seasonal_statistics
-===========================================
+seasonal_forecast_tools.core.seasonal_statistics
+================================================
 
-.. py:module:: seasonal_forecast_tools.seasonal_statistics
+.. py:module:: seasonal_forecast_tools.core.seasonal_statistics
 
 .. autoapi-nested-parse::
 
@@ -32,7 +32,7 @@ Attributes
 
 .. autoapisummary::
 
-   seasonal_forecast_tools.seasonal_statistics.LOGGER
+   seasonal_forecast_tools.core.seasonal_statistics.LOGGER
 
 
 Functions
@@ -40,10 +40,10 @@ Functions
 
 .. autoapisummary::
 
-   seasonal_forecast_tools.seasonal_statistics.calculate_heat_indices_metrics
-   seasonal_forecast_tools.seasonal_statistics._monthly_periods_from_valid_times
-   seasonal_forecast_tools.seasonal_statistics.calculate_monthly_dataset
-   seasonal_forecast_tools.seasonal_statistics.calculate_statistics_from_index
+   seasonal_forecast_tools.core.seasonal_statistics.calculate_heat_indices_metrics
+   seasonal_forecast_tools.core.seasonal_statistics._monthly_periods_from_valid_times
+   seasonal_forecast_tools.core.seasonal_statistics.calculate_monthly_dataset
+   seasonal_forecast_tools.core.seasonal_statistics.calculate_statistics_from_index
 
 
 Module Contents

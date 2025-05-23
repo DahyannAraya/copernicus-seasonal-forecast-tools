@@ -1,7 +1,7 @@
-seasonal_forecast_tools.coordinates_utils
-=========================================
+seasonal_forecast_tools.utils.coordinates_utils
+===============================================
 
-.. py:module:: seasonal_forecast_tools.coordinates_utils
+.. py:module:: seasonal_forecast_tools.utils.coordinates_utils
 
 .. autoapi-nested-parse::
 
@@ -33,9 +33,9 @@ Functions
 
 .. autoapisummary::
 
-   seasonal_forecast_tools.coordinates_utils.bounding_box_from_cardinal_bounds
-   seasonal_forecast_tools.coordinates_utils.bounding_box_global
-   seasonal_forecast_tools.coordinates_utils.bounding_box_from_countries
+   seasonal_forecast_tools.utils.coordinates_utils.bounding_box_from_cardinal_bounds
+   seasonal_forecast_tools.utils.coordinates_utils.bounding_box_global
+   seasonal_forecast_tools.utils.coordinates_utils.bounding_box_from_countries
 
 
 Module Contents

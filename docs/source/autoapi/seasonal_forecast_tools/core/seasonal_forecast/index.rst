@@ -1,7 +1,7 @@
-seasonal_forecast_tools.create_seasonal_forecast_hazard
-=======================================================
+seasonal_forecast_tools.core.seasonal_forecast
+==============================================
 
-.. py:module:: seasonal_forecast_tools.create_seasonal_forecast_hazard
+.. py:module:: seasonal_forecast_tools.core.seasonal_forecast
 
 .. autoapi-nested-parse::
 
@@ -32,7 +32,7 @@ seasonal_forecast_tools.create_seasonal_forecast_hazard
    - Organizing outputs by forecast system, initialization time, and spatial domain.
 
    The interface integrates several submodules under copernicus_interface:
-   - create_seasonal_forecast_hazard.py: implements the core SeasonalForecast class
+   - seasonal_forecast.py: implements the core SeasonalForecast class
      that coordinates the entire workflow.
    - downloader.py: handles forecast data retrieval from the CDS API.
    - index_definitions.py: climate index definitions and variable handling.
@@ -52,9 +52,9 @@ Attributes
 
 .. autoapisummary::
 
-   seasonal_forecast_tools.create_seasonal_forecast_hazard.CLIMADA_INSTALLED
-   seasonal_forecast_tools.create_seasonal_forecast_hazard.DATA_OUT
-   seasonal_forecast_tools.create_seasonal_forecast_hazard.LOGGER
+   seasonal_forecast_tools.core.seasonal_forecast.CLIMADA_INSTALLED
+   seasonal_forecast_tools.core.seasonal_forecast.DATA_OUT
+   seasonal_forecast_tools.core.seasonal_forecast.LOGGER
 
 
 Classes
@@ -62,7 +62,7 @@ Classes
 
 .. autoapisummary::
 
-   seasonal_forecast_tools.create_seasonal_forecast_hazard.SeasonalForecast
+   seasonal_forecast_tools.core.seasonal_forecast.SeasonalForecast
 
 
 Functions
@@ -70,11 +70,11 @@ Functions
 
 .. autoapisummary::
 
-   seasonal_forecast_tools.create_seasonal_forecast_hazard.handle_overwriting
-   seasonal_forecast_tools.create_seasonal_forecast_hazard._download_data
-   seasonal_forecast_tools.create_seasonal_forecast_hazard._process_data
-   seasonal_forecast_tools.create_seasonal_forecast_hazard._calculate_index
-   seasonal_forecast_tools.create_seasonal_forecast_hazard._convert_to_hazard
+   seasonal_forecast_tools.core.seasonal_forecast.handle_overwriting
+   seasonal_forecast_tools.core.seasonal_forecast._download_data
+   seasonal_forecast_tools.core.seasonal_forecast._process_data
+   seasonal_forecast_tools.core.seasonal_forecast._calculate_index
+   seasonal_forecast_tools.core.seasonal_forecast._convert_to_hazard
 
 
 Module Contents
@@ -130,10 +130,13 @@ Module Contents
    .. py:attribute:: data_out
 
 
-   .. py:attribute:: variables
+   .. py:attribute:: index_spec
 
 
-   .. py:attribute:: variables_short
+   .. py:property:: variables
+
+
+   .. py:property:: short_variables
 
 
    .. py:method:: explain_index(index_metric=None, print_flag=False)

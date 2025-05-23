@@ -1,7 +1,7 @@
-seasonal_forecast_tools
-=======================
+seasonal_forecast_tools.core
+============================
 
-.. py:module:: seasonal_forecast_tools
+.. py:module:: seasonal_forecast_tools.core
 
 .. autoapi-nested-parse::
 
@@ -33,9 +33,10 @@ Submodules
 .. toctree::
    :maxdepth: 1
 
-   /autoapi/seasonal_forecast_tools/core/index
-   /autoapi/seasonal_forecast_tools/data/index
-   /autoapi/seasonal_forecast_tools/utils/index
+   /autoapi/seasonal_forecast_tools/core/heat_index/index
+   /autoapi/seasonal_forecast_tools/core/index_definitions/index
+   /autoapi/seasonal_forecast_tools/core/seasonal_forecast/index
+   /autoapi/seasonal_forecast_tools/core/seasonal_statistics/index
 
 
 Attributes
@@ -43,15 +44,13 @@ Attributes
 
 .. autoapisummary::
 
-   seasonal_forecast_tools.CLIMADA_INSTALLED
-   seasonal_forecast_tools.DATA_OUT
-   seasonal_forecast_tools.LOGGER
-   seasonal_forecast_tools.LOGGER
-   seasonal_forecast_tools.HI_COEFFS
-   seasonal_forecast_tools.HI_ADJUSTED_COEFFS
-   seasonal_forecast_tools.LOGGER
-   seasonal_forecast_tools.BASE_DATA_DIR
-   seasonal_forecast_tools.SEASONAL_FORECAST_DIR
+   seasonal_forecast_tools.core.CLIMADA_INSTALLED
+   seasonal_forecast_tools.core.DATA_OUT
+   seasonal_forecast_tools.core.LOGGER
+   seasonal_forecast_tools.core.LOGGER
+   seasonal_forecast_tools.core.HI_COEFFS
+   seasonal_forecast_tools.core.HI_ADJUSTED_COEFFS
+   seasonal_forecast_tools.core.LOGGER
 
 
 Classes
@@ -59,10 +58,10 @@ Classes
 
 .. autoapisummary::
 
-   seasonal_forecast_tools.ClimateIndex
-   seasonal_forecast_tools.SeasonalForecast
-   seasonal_forecast_tools.IndexSpec
-   seasonal_forecast_tools.ClimateIndex
+   seasonal_forecast_tools.core.ClimateIndex
+   seasonal_forecast_tools.core.SeasonalForecast
+   seasonal_forecast_tools.core.IndexSpec
+   seasonal_forecast_tools.core.ClimateIndex
 
 
 Functions
@@ -70,49 +69,40 @@ Functions
 
 .. autoapisummary::
 
-   seasonal_forecast_tools.download_data
-   seasonal_forecast_tools.get_short_name_from_variable
-   seasonal_forecast_tools.get_file_path
-   seasonal_forecast_tools.calculate_leadtimes
-   seasonal_forecast_tools.month_name_to_number
-   seasonal_forecast_tools.handle_overwriting
-   seasonal_forecast_tools._download_data
-   seasonal_forecast_tools._process_data
-   seasonal_forecast_tools._calculate_index
-   seasonal_forecast_tools._convert_to_hazard
-   seasonal_forecast_tools.kelvin_to_fahrenheit
-   seasonal_forecast_tools.fahrenheit_to_kelvin
-   seasonal_forecast_tools.fahrenheit_to_celsius
-   seasonal_forecast_tools.celsius_to_kelvin
-   seasonal_forecast_tools.kelvin_to_celsius
-   seasonal_forecast_tools.calculate_relative_humidity
-   seasonal_forecast_tools.calculate_humidex
-   seasonal_forecast_tools.calculate_heat_index_simplified
-   seasonal_forecast_tools.calculate_heat_index_adjusted
-   seasonal_forecast_tools.calculate_wind_speed
-   seasonal_forecast_tools.calculate_apparent_temperature
-   seasonal_forecast_tools.calculate_nonsaturation_vapour_pressure
-   seasonal_forecast_tools.calculate_wbgt_simple
-   seasonal_forecast_tools.calculate_heat_index
-   seasonal_forecast_tools.calculate_tr
-   seasonal_forecast_tools.calculate_tx30
-   seasonal_forecast_tools.calculate_hw_1D
-   seasonal_forecast_tools.calculate_hw
-   seasonal_forecast_tools.get_short_name_from_variable
-   seasonal_forecast_tools.kelvin_to_celsius
-   seasonal_forecast_tools.calculate_heat_indices_metrics
-   seasonal_forecast_tools._monthly_periods_from_valid_times
-   seasonal_forecast_tools.calculate_monthly_dataset
-   seasonal_forecast_tools.calculate_statistics_from_index
-   seasonal_forecast_tools.download_data
-   seasonal_forecast_tools.month_name_to_number
-   seasonal_forecast_tools.calculate_leadtimes
-   seasonal_forecast_tools.month_name_to_number
-   seasonal_forecast_tools.get_file_path
-   seasonal_forecast_tools.check_existing_files
-   seasonal_forecast_tools.bounding_box_from_cardinal_bounds
-   seasonal_forecast_tools.bounding_box_global
-   seasonal_forecast_tools.bounding_box_from_countries
+   seasonal_forecast_tools.core.download_data
+   seasonal_forecast_tools.core.get_short_name_from_variable
+   seasonal_forecast_tools.core.get_file_path
+   seasonal_forecast_tools.core.calculate_leadtimes
+   seasonal_forecast_tools.core.month_name_to_number
+   seasonal_forecast_tools.core.handle_overwriting
+   seasonal_forecast_tools.core._download_data
+   seasonal_forecast_tools.core._process_data
+   seasonal_forecast_tools.core._calculate_index
+   seasonal_forecast_tools.core._convert_to_hazard
+   seasonal_forecast_tools.core.kelvin_to_fahrenheit
+   seasonal_forecast_tools.core.fahrenheit_to_kelvin
+   seasonal_forecast_tools.core.fahrenheit_to_celsius
+   seasonal_forecast_tools.core.celsius_to_kelvin
+   seasonal_forecast_tools.core.kelvin_to_celsius
+   seasonal_forecast_tools.core.calculate_relative_humidity
+   seasonal_forecast_tools.core.calculate_humidex
+   seasonal_forecast_tools.core.calculate_heat_index_simplified
+   seasonal_forecast_tools.core.calculate_heat_index_adjusted
+   seasonal_forecast_tools.core.calculate_wind_speed
+   seasonal_forecast_tools.core.calculate_apparent_temperature
+   seasonal_forecast_tools.core.calculate_nonsaturation_vapour_pressure
+   seasonal_forecast_tools.core.calculate_wbgt_simple
+   seasonal_forecast_tools.core.calculate_heat_index
+   seasonal_forecast_tools.core.calculate_tr
+   seasonal_forecast_tools.core.calculate_tx30
+   seasonal_forecast_tools.core.calculate_hw_1D
+   seasonal_forecast_tools.core.calculate_hw
+   seasonal_forecast_tools.core.get_short_name_from_variable
+   seasonal_forecast_tools.core.kelvin_to_celsius
+   seasonal_forecast_tools.core.calculate_heat_indices_metrics
+   seasonal_forecast_tools.core._monthly_periods_from_valid_times
+   seasonal_forecast_tools.core.calculate_monthly_dataset
+   seasonal_forecast_tools.core.calculate_statistics_from_index
 
 
 Package Contents
@@ -1256,217 +1246,4 @@ Package Contents
              - `ensemble_p05`, `ensemble_p25`, `ensemble_p50`, `ensemble_p75`, `ensemble_p95`: Percentile values (5th, 25th, 50th, 75th, and 95th) across the ensemble members.
    :rtype: xarray.Dataset
 
-
-.. py:function:: download_data(dataset, params, filename=None, datastore_url=None, overwrite=False)
-
-   Download data from Copernicus Data Stores (e.g., cds.climate.copernicus.eu,
-   ads.atmosphere.copernicus.eu and ewds.climate.copernicus.eu) using specified dataset type and parameters.
-
-   :param dataset: The dataset to retrieve (e.g., 'seasonal-original-single-levels', 'sis-heat-and-cold-spells').
-   :type dataset: str
-   :param params: Dictionary containing the parameters for the CDS API call (e.g., variables, time range, area).
-                  To see which parameters are requested for the given dataset, go to the copernicus website of the dataset in the "download" tab,
-                  tick all required parameter choices. You find the params dicts as "request" dict in the "API request" section.
-   :type params: dict
-   :param filename: Full path and filename where the downloaded data will be stored. If None, data will be saved with the filename as suggested by the data store. Defaults to None.
-   :type filename: pathlib.Path or str
-   :param datastore_url: Url of the Copernicus data store to be accessed. If None, the url of the .cdsapirc file is used. Defaults to None.
-   :type datastore_url: str
-   :param overwrite: If True, overwrite the file if it already exists. If False, skip downloading
-                     if the file is already present. The default is False.
-   :type overwrite: bool, optional
-
-   :returns: Path to the downloaded file if the download was successfull.
-   :rtype: Path
-
-   :raises FileNotFoundError: Raised if the download attempt fails and the file is not found at the specified location.
-   :raises Exception: Raised for any other error during the download process, with further details corresponding to typical errors.
-
-
-.. py:function:: month_name_to_number(month)
-
-   Convert a month name or number to its corresponding integer value.
-
-   Accepts either an integer (1-12), full month name (e.g., 'March'),
-   or abbreviated month name (e.g., 'Mar') and returns the corresponding
-   month number (1-12).
-
-   :param month: Month as an integer (1-12) or as a string (full or abbreviated month name).
-   :type month: int or str
-
-   :returns: Month as an integer in the range 1-12.
-   :rtype: int
-
-   :raises ValueError: If the input month is invalid, empty, or outside the valid range.
-
-
-.. py:function:: calculate_leadtimes(year, initiation_month, valid_period)
-
-   Calculate forecast lead times (in hours) between initiation and valid period.
-
-   :param year: Forecast initiation year.
-   :type year: int
-   :param initiation_month: Month when the forecast starts, as integer (1–12) or full month name.
-   :type initiation_month: int or str
-   :param valid_period: Two-element list specifying the start and end months of the forecast period,
-                        either as integers or full month names (e.g., ['December', 'February']).
-   :type valid_period: list of int or str
-
-   :returns: List of lead times in hours (spaced every 6 hours) from initiation date
-             to the end of the valid period.
-   :rtype: list of int
-
-   :raises ValueError: If input months are invalid or misordered.
-
-   .. rubric:: Notes
-
-   - If the valid period crosses a calendar year (e.g., Dec–Feb), it is handled correctly.
-   - Lead times are counted from the first day of the initiation month.
-   - The list includes all time steps in 6-hour intervals until the end of the valid period.
-
-   .. rubric:: Examples
-
-   calculate_leadtimes(2022, "November", ["December", "February"])
-   [720, 726, 732, ..., 2184]
-
-
-.. py:function:: month_name_to_number(month)
-
-   Convert a month name or number to its corresponding integer value.
-
-   Accepts either an integer (1-12), full month name (e.g., 'March'),
-   or abbreviated month name (e.g., 'Mar') and returns the corresponding
-   month number (1-12).
-
-   :param month: Month as an integer (1-12) or as a string (full or abbreviated month name).
-   :type month: int or str
-
-   :returns: Month as an integer in the range 1-12.
-   :rtype: int
-
-   :raises ValueError: If the input month is invalid, empty, or outside the valid range.
-
-
-.. py:function:: get_file_path(base_dir: Union[str, pathlib.Path], originating_centre: str, year: Union[int, str], initiation_month_str: str, valid_period_str: str, data_type: str, index_metric: str, bounds_str: str, system: str, data_format: str = 'grib') -> Union[pathlib.Path, dict]
-
-   Construct the file path or path dictionary for a given forecast dataset.
-
-   Based on forecast metadata (provider, date, system, index, format, etc.), this
-   function builds the expected path or dictionary of paths (for indices) that follow
-   CLIMADA's seasonal forecast directory structure.
-
-   :param base_dir: Base directory where Copernicus seasonal data is stored.
-   :type base_dir: str or Path
-   :param originating_centre: Data provider (e.g., 'dwd').
-   :type originating_centre: str
-   :param year: Forecast initiation year.
-   :type year: int or str
-   :param initiation_month_str: Forecast initiation month in two-digit string format (e.g., '03').
-   :type initiation_month_str: str
-   :param valid_period_str: Valid period formatted as '<start>_<end>' (e.g., '06_08').
-   :type valid_period_str: str
-   :param data_type: Type of data, one of: 'downloaded_data', 'processed_data', 'indices', 'hazard'.
-   :type data_type: str
-   :param index_metric: Name of the climate index (e.g., 'HW', 'TR', 'Tmax').
-   :type index_metric: str
-   :param bounds_str: Bounding box string (e.g., 'W4_S44_E11_N48').
-   :type bounds_str: str
-   :param system: Forecast system (e.g., '21').
-   :type system: str
-   :param data_format: File format: 'grib', 'netcdf', or 'hdf5' (autodetected by data_type if not provided).
-   :type data_format: str, optional
-
-   :returns: A single file path (for non-index types) or a dictionary of paths (for 'indices').
-   :rtype: pathlib.Path or dict
-
-   :raises ValueError: If an unknown data_type is provided.
-
-   .. rubric:: Notes
-
-   - The returned path follows the CLIMADA forecast folder structure.
-   - Index files return a dict with 'daily', 'monthly', and 'stats' keys.
-
-
-.. py:function:: check_existing_files(base_dir: Union[str, pathlib.Path], originating_centre: str, index_metric: str, year: int, initiation_month: str, valid_period: List[str], bounds_str: str, system: str, download_format: str = 'grib', print_flag: bool = False) -> str
-
-   Inspect the existence of forecast data files for a given configuration.
-
-   A manual debugging utility, this function checks whether the expected
-   files (downloaded, processed, index, hazard) exist in the configured directory tree.
-
-   :param base_dir: Base directory where Copernicus seasonal data is stored.
-   :type base_dir: str or Path
-   :param originating_centre: Forecast data provider (e.g., 'dwd').
-   :type originating_centre: str
-   :param index_metric: Climate index to check (e.g., 'HW', 'TR', 'Tmax').
-   :type index_metric: str
-   :param year: Forecast initiation year.
-   :type year: int
-   :param initiation_month: Initiation month as string (e.g., 'March').
-   :type initiation_month: str
-   :param valid_period: Valid forecast months, exactly two (e.g., ['June', 'August']).
-   :type valid_period: list of str
-   :param bounds_str: Spatial bounds string used in filenames.
-   :type bounds_str: str
-   :param system: Forecast system version (e.g., '21').
-   :type system: str
-   :param download_format: Format of the downloaded data. Default is 'grib'.
-   :type download_format: str, optional
-   :param print_flag: Whether to print the existence check report.
-   :type print_flag: bool, optional
-
-   :returns: Summary report indicating which files exist.
-   :rtype: str
-
-   :raises ValueError: If valid_period is not exactly two months long.
-
-   .. rubric:: Notes
-
-   - This is a utility function for developers and users to validate pipeline outputs.
-   - It is not called by the main forecast processing pipeline.
-
-
-.. py:function:: bounding_box_from_cardinal_bounds(north: float, south: float, east: float, west: float) -> Tuple[float, float, float, float]
-
-   Return a bounding box tuple from cardinal directions.
-
-   :param north: Geographic bounds.
-   :type north: float
-   :param south: Geographic bounds.
-   :type south: float
-   :param east: Geographic bounds.
-   :type east: float
-   :param west: Geographic bounds.
-   :type west: float
-
-   :returns: (lon_min, lat_min, lon_max, lat_max)
-   :rtype: tuple
-
-
-.. py:function:: bounding_box_global() -> Tuple[float, float, float, float]
-
-   Return a bounding box covering the entire globe.
-
-   :returns: (-180.0, -90.0, 180.0, 90.0)
-   :rtype: tuple
-
-
-.. py:function:: bounding_box_from_countries(countries: List[str], buffer: float = 1.0) -> Tuple[float, float, float, float]
-
-   Return bounding box for a list of countries using Natural Earth data via Cartopy, with optional buffer.
-
-   :param countries: List of ISO-3 country codes (e.g., ['CHE', 'FRA']).
-   :type countries: list of str
-   :param buffer: Buffer to add to all sides of the bounding box (in degrees). Default is 1.0.
-   :type buffer: float, optional
-
-   :returns: (lon_min, lat_min, lon_max, lat_max)
-   :rtype: tuple
-
-   :raises ValueError: If no matching countries are found.
-
-
-.. py:data:: BASE_DATA_DIR
-
-.. py:data:: SEASONAL_FORECAST_DIR
 

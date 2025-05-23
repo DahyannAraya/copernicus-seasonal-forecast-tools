@@ -1,7 +1,7 @@
-seasonal_forecast_tools.index_definitions
-=========================================
+seasonal_forecast_tools.core.index_definitions
+==============================================
 
-.. py:module:: seasonal_forecast_tools.index_definitions
+.. py:module:: seasonal_forecast_tools.core.index_definitions
 
 .. autoapi-nested-parse::
 
@@ -50,8 +50,8 @@ Classes
 
 .. autoapisummary::
 
-   seasonal_forecast_tools.index_definitions.IndexSpec
-   seasonal_forecast_tools.index_definitions.IndexSpecEnum
+   seasonal_forecast_tools.core.index_definitions.IndexSpec
+   seasonal_forecast_tools.core.index_definitions.ClimateIndex
 
 
 Functions
@@ -59,7 +59,7 @@ Functions
 
 .. autoapisummary::
 
-   seasonal_forecast_tools.index_definitions.get_short_name_from_variable
+   seasonal_forecast_tools.core.index_definitions.get_short_name_from_variable
 
 
 Module Contents
@@ -83,7 +83,7 @@ Module Contents
       :type:  list
 
 
-.. py:class:: IndexSpecEnum
+.. py:class:: ClimateIndex
 
    Bases: :py:obj:`enum.Enum`
 
@@ -129,7 +129,7 @@ Module Contents
    .. py:attribute:: WBGT
 
 
-   .. py:method:: get_info(index_name: str)
+   .. py:method:: by_name(index_name: str)
       :classmethod:
 
 
@@ -144,14 +144,24 @@ Module Contents
 
 
 
+   .. py:method:: from_input(arg)
+      :staticmethod:
+
+
+      Returns proper IndexSpec object from whatever input is valid
+
+
+
 .. py:function:: get_short_name_from_variable(variable)
 
    Retrieve the short name of a variable within an index based on its standard name.
 
-   :param variable: The standard name of the climate variable (e.g., "2m_temperature", "10m_u_component_of_wind").
+   :param variable: The standard name of the climate variable (e.g., "2m_temperature",
+                    "10m_u_component_of_wind").
    :type variable: str
 
-   :returns: The short name corresponding to the specified climate variable (e.g., "t2m" for "2m_temperature").
+   :returns: The short name corresponding to the specified climate variable (e.g., "t2m" for
+             "2m_temperature").
              Returns None if the variable is not recognized.
    :rtype: str or None
 

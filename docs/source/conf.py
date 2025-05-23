@@ -15,12 +15,13 @@ extensions = [
     "autoapi.extension",
     "myst_nb",
 ]
-execution_excludepatterns = [
+nb_execution_excludepatterns = [
     "source/climada_hazard_copernicus_forecast.ipynb",
 ]
 
 autoapi_type = "python"
 autoapi_dirs = ["../../seasonal_forecast_tools"]  # relative to conf.py
+
 
 autoapi_keep_files = True
 autoapi_add_toctree_entry = True

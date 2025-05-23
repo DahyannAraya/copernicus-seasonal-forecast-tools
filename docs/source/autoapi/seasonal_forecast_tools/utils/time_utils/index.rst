@@ -1,7 +1,7 @@
-seasonal_forecast_tools.time_utils
-==================================
+seasonal_forecast_tools.utils.time_utils
+========================================
 
-.. py:module:: seasonal_forecast_tools.time_utils
+.. py:module:: seasonal_forecast_tools.utils.time_utils
 
 .. autoapi-nested-parse::
 
@@ -33,8 +33,8 @@ Functions
 
 .. autoapisummary::
 
-   seasonal_forecast_tools.time_utils.month_name_to_number
-   seasonal_forecast_tools.time_utils.calculate_leadtimes
+   seasonal_forecast_tools.utils.time_utils.month_name_to_number
+   seasonal_forecast_tools.utils.time_utils.calculate_leadtimes
 
 
 Module Contents

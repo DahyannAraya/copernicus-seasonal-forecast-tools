@@ -1,7 +1,7 @@
-seasonal_forecast_tools.config
-==============================
+seasonal_forecast_tools.utils.config
+====================================
 
-.. py:module:: seasonal_forecast_tools.config
+.. py:module:: seasonal_forecast_tools.utils.config
 
 .. autoapi-nested-parse::
 
@@ -31,8 +31,8 @@ Attributes
 
 .. autoapisummary::
 
-   seasonal_forecast_tools.config.BASE_DATA_DIR
-   seasonal_forecast_tools.config.SEASONAL_FORECAST_DIR
+   seasonal_forecast_tools.utils.config.BASE_DATA_DIR
+   seasonal_forecast_tools.utils.config.SEASONAL_FORECAST_DIR
 
 
 Module Contents

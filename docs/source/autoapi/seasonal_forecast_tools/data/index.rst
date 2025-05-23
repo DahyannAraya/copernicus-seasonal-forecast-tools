@@ -1,7 +1,7 @@
-seasonal_forecast_tools.downloader
-==================================
+seasonal_forecast_tools.data
+============================
 
-.. py:module:: seasonal_forecast_tools.downloader
+.. py:module:: seasonal_forecast_tools.data
 
 .. autoapi-nested-parse::
 
@@ -23,35 +23,17 @@ seasonal_forecast_tools.downloader
 
    ---
 
-   Functionality to download data from the Copernicus Data Stores.
-
-   ---
-
-   Prerequisites:
-   1. CDS API client installation:
-      pip install cdsapi
-
-   2. CDS account and API key:
-      Register at https://cds.climate.copernicus.eu
-
-   3. CDS API configuration:
-      Create a .cdsapirc file in your home directory with your API key and URL of the CDS you want to access.
-      For instance, if you want to access the Climate Data Store, see here for instructions:
-      https://cds.climate.copernicus.eu/how-to-api#install-the-cds-api-client
-
-   4. Dataset Terms and Conditions: After selecting the dataset to download, make
-      sure to accept the terms and conditions on the corresponding dataset webpage (under the "download" tab)
-      in the CDS portal before running the script.
+   init Copernicus seasonal forecast tools
 
 
 
-Attributes
+Submodules
 ----------
 
-.. autoapisummary::
+.. toctree::
+   :maxdepth: 1
 
-   seasonal_forecast_tools.downloader.DATA_DIR
-   seasonal_forecast_tools.downloader.LOGGER
+   /autoapi/seasonal_forecast_tools/data/downloader/index
 
 
 Functions
@@ -59,15 +41,11 @@ Functions
 
 .. autoapisummary::
 
-   seasonal_forecast_tools.downloader.download_data
+   seasonal_forecast_tools.data.download_data
 
 
-Module Contents
----------------
-
-.. py:data:: DATA_DIR
-
-.. py:data:: LOGGER
+Package Contents
+----------------
 
 .. py:function:: download_data(dataset, params, filename=None, datastore_url=None, overwrite=False)
 
