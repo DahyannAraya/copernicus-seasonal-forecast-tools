@@ -23,7 +23,7 @@ forecast download, processing, and hazard generation modules.
 
 from pathlib import Path
 from typing import List, Union
-from seasonal_forecast_tools.time_utils import month_name_to_number
+from seasonal_forecast_tools.utils.time_utils import month_name_to_number
 
 ##########  Path Functions  ##########
 

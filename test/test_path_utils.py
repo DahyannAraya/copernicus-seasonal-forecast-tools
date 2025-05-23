@@ -14,7 +14,7 @@ import unittest
 from pathlib import Path
 import shutil
 import os
-from seasonal_forecast_tools.path_utils import (
+from seasonal_forecast_tools.utils.path_utils import (
     get_file_path,
     check_existing_files,
 )

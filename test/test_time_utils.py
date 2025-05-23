@@ -9,7 +9,7 @@ This test suite covers:
 
 import unittest
 from datetime import date
-from seasonal_forecast_tools.time_utils import (
+from seasonal_forecast_tools.utils.time_utils import (
     month_name_to_number,
     calculate_leadtimes,
 )

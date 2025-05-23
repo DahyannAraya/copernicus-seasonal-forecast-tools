@@ -22,11 +22,11 @@ File to calculate different seasonal forecast indices.
 
 import logging
 
-import seasonal_forecast_tools.heat_index as heat_index
+import seasonal_forecast_tools.core.heat_index as heat_index
 import numpy as np
 import pandas as pd
 import xarray as xr
-from seasonal_forecast_tools.heat_index import kelvin_to_celsius
+from seasonal_forecast_tools.core.heat_index import kelvin_to_celsius
 
 LOGGER = logging.getLogger(__name__)
 

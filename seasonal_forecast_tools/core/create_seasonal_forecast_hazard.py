@@ -64,14 +64,14 @@ except ImportError:
             )
 
 
-from seasonal_forecast_tools.downloader import download_data
-from seasonal_forecast_tools.index_definitions import (
+from seasonal_forecast_tools.data.downloader import download_data
+from seasonal_forecast_tools.core.index_definitions import (
     ClimateIndex,
     get_short_name_from_variable,
 )
-import seasonal_forecast_tools.seasonal_statistics as seasonal_statistics
-from seasonal_forecast_tools.path_utils import get_file_path
-from seasonal_forecast_tools.time_utils import (
+import seasonal_forecast_tools.core.seasonal_statistics as seasonal_statistics
+from seasonal_forecast_tools.utils.path_utils import get_file_path
+from seasonal_forecast_tools.utils.time_utils import (
     calculate_leadtimes,
     month_name_to_number,
 )
@@ -79,7 +79,7 @@ from seasonal_forecast_tools.time_utils import (
 
 # set path to store data
 # DATA_OUT = CONFIG.hazard.copernicus.seasonal_forecasts.dir()
-from seasonal_forecast_tools import config
+from seasonal_forecast_tools.utils import config
 
 DATA_OUT = config.SEASONAL_FORECAST_DIR
 LOGGER = logging.getLogger(__name__)

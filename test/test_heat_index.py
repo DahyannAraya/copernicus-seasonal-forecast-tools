@@ -11,7 +11,7 @@ import numpy as np
 import numpy.testing as npt
 import pandas as pd
 import xarray as xr
-from seasonal_forecast_tools.heat_index import (
+from seasonal_forecast_tools.core.heat_index import (
     calculate_apparent_temperature,
     calculate_heat_index_adjusted,
     calculate_heat_index_simplified,

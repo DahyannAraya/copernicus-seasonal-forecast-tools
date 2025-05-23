@@ -21,7 +21,7 @@ import pandas as pd
 import xarray as xr
 
 # Import the module to test
-from seasonal_forecast_tools.seasonal_statistics import (
+from seasonal_forecast_tools.core.seasonal_statistics import (
     calculate_heat_indices_metrics,
     calculate_monthly_dataset,
     calculate_statistics_from_index,

@@ -45,7 +45,7 @@ import cdsapi
 #from climada import CONFIG
 
 #DATA_DIR = CONFIG.hazard.copernicus.local_data.dir()
-from .config import SEASONAL_FORECAST_DIR
+from ..utils.config import SEASONAL_FORECAST_DIR
 DATA_DIR = SEASONAL_FORECAST_DIR
 
 LOGGER = logging.getLogger(__name__)

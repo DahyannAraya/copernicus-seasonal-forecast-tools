@@ -17,17 +17,9 @@ If not, it is available at https://www.gnu.org/licenses/.
 
 ---
 
-init Copernicus seasonal forecast handler
+init Copernicus seasonal forecast tools
 """
 
-from .core.create_seasonal_forecast_hazard import *  # This will import all functions from create_seasonal_forecast_hazard.py
-from .core.heat_index import *  # This will import all functions from heat_index.py
-from .core.index_definitions import *  # This will import all functions from index_definitions.py
-from .core.seasonal_statistics import *  # This will import all functions from seasonal_statistics.py
-
-from .data.downloader import (download_data,)  # This will import all functions from downloader.py
-
-from .utils.time_utils import *  # Time-related helpers (e.g. month conversion, leadtime calculation)
-from .utils.path_utils import *  # Computes lead times and handles month name conversions
-from .utils.coordinates_utils import *  # Manage spatial subsetting and support area-of-interest selection for CDSAPI data downloads
-from .utils.config import *  # Default settings and paths for seasonal forecast pipeline 
+from .downloader import (
+    download_data,
+)  # This will import all functions from downloader.py
