@@ -43,8 +43,6 @@ modularity, traceability, and ease of integration into CLIMADA workflows.
 
 import logging
 from pathlib import Path, PosixPath
-
-
 import pandas as pd
 import xarray as xr
 
