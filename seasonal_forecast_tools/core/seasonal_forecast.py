@@ -750,6 +750,12 @@ def _process_data(output_file_name, overwrite, input_file_name, variables, data_
     and saves the resulting daily data as a NetCDF file. For each variable,
     daily mean, maximum, and minimum values are computed.
 
+    If data_format == "netcdf", any existing “forecast_period” dimension
+    is first renamed to “step” so that the Xarray coarsen( step=… ) call works.
+    Note that NetCDF format is still experimental; see the CDS documentation 
+    for details. In contrast, GRIB files (opened with engine="cfgrib") already 
+    include a step dimension, so no renaming is required.
+
     Parameters
     ----------
     output_file_name : Path
@@ -787,6 +793,13 @@ def _process_data(output_file_name, overwrite, input_file_name, variables, data_
             input_file_name,
             engine="cfgrib" if data_format == "grib" else None,
         ) as input_dataset:
+            # If this is a NetCDF file, rename "forecast_period" to "step"
+            if data_format == "netcdf" and "forecast_period" in input_dataset.dims:
+                input_dataset = input_dataset.rename_dims({"forecast_period": "step"})
+                # Also rename the coordinate variable if it exists under the same name
+                if "forecast_period" in input_dataset.coords:
+                    input_dataset = input_dataset.rename_vars({"forecast_period": "step"})
+            
             # Coarsen the data
             ds_mean = input_dataset.coarsen(step=4, boundary="trim").mean()
             ds_max = input_dataset.coarsen(step=4, boundary="trim").max()
@@ -798,6 +811,12 @@ def _process_data(output_file_name, overwrite, input_file_name, variables, data_
             combined_ds[f"{var}_mean"] = ds_mean[var]
             combined_ds[f"{var}_max"] = ds_max[var]
             combined_ds[f"{var}_min"] = ds_min[var]
+        
+        # Drop forecast_reference_time variable, coordinate, and dimension if present
+        if "forecast_reference_time" in combined_ds.coords:
+            combined_ds = combined_ds.drop_vars("forecast_reference_time")
+        if "forecast_reference_time" in combined_ds.dims:
+            combined_ds = combined_ds.squeeze("forecast_reference_time", drop=True)
 
         # Save the combined dataset to NetCDF
         combined_ds.to_netcdf(str(output_file_name))
@@ -971,6 +990,7 @@ def _convert_to_hazard(output_file_name, overwrite, input_file_name, index_metri
                     if "number" in input_dataset.dims
                     else input_dataset
                 )
+                
                 hazard = Hazard.from_xarray_raster(
                     data=ds_subset,
                     hazard_type=index_metric,
