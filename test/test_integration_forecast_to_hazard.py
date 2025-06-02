@@ -137,6 +137,8 @@ class TestIntegrationWorkflow(unittest.TestCase):
         - the intensity array is not empty,
         - at least one date is present,
         - the hazard type matches the index metric.
+
+        Note: If CLIMADA is not installed, this test is skipped.
         """
         for index_metric in INDEX_METRICS:
             with self.subTest(index_metric=index_metric):
