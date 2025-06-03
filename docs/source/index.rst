@@ -61,18 +61,25 @@ We've prepared a comprehensive :doc:`CDS API setup guide <cds_api>` to walk you 
 
 Installation
 ------------
+You can install **``copernicus-seasonal-forecast-tools``** in three ways, depending on your setup and preferences.
+
+.. note::
+
+   If you want to generate CLIMADA hazard objects, you must install the optional CLIMADA dependency.
 
 Install from PyPI:
 
 .. code-block:: bash
 
    pip install copernicus-seasonal-forecast-tools
-   pip install -r docs/requirements.txt
+   git clone https://github.com/DahyannAraya/copernicus-seasonal-forecast-tools.git (optional)
+   pip install -r docs/requirements.txt (optional)
 
 Install via environment.yml (Conda or Mamba):
 
 .. code-block:: bash
 
+   git clone https://github.com/DahyannAraya/copernicus-seasonal-forecast-tools.git
    conda env create -f environment.yml
    conda activate venv_forecast
 
@@ -83,6 +90,7 @@ Install from GitHub:
    git clone https://github.com/DahyannAraya/copernicus-seasonal-forecast-tools.git
    cd copernicus-seasonal-forecast-tools
    pip install .
+   pip install -r docs/requirements.txt (optional)
 
 CLIMADA Installation
 --------------------
