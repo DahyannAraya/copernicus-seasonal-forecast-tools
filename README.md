@@ -5,6 +5,7 @@
 [![GitHub repo](https://img.shields.io/badge/github-repo-000.svg?logo=github&labelColor=gray&color=blue)](https://github.com/DahyannAraya/copernicus-seasonal-forecast-tools)
 [![License](https://img.shields.io/github/license/DahyannAraya/copernicus-seasonal-forecast-tools)](https://github.com/DahyannAraya/copernicus-seasonal-forecast-tools/blob/main/LICENSE)
 [![PyPI version](https://badge.fury.io/py/copernicus-seasonal-forecast-tools.svg)](https://badge.fury.io/py/copernicus-seasonal-forecast-tools)
+[![Python](https://img.shields.io/badge/python-3.10%20%7C%203.12-blue?logo=python&logoColor=white)](https://pypi.org/project/copernicus-seasonal-forecast-tools/)
 [![Downloads](https://img.shields.io/pypi/dm/copernicus-seasonal-forecast-tools?color=yellow&label=Downloads)](https://pypistats.org/packages/copernicus-seasonal-forecast-tools)
 [![Documentation Status](https://readthedocs.org/projects/copernicus-seasonal-forecast-tools/badge/?version=latest)](https://copernicus-seasonal-forecast-tools.readthedocs.io/en/latest/?badge=latest)
 
