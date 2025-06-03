@@ -20,7 +20,7 @@ authors:
   - name: David N. Bresch
     affiliation: "1,2"
   - name: Tobias Geiger
-    affiliation: "4,5"
+    affiliation: "4"
 affiliations:
   - name: Institute for Environmental Decisions, ETH Zurich, Universitätstr. 22, 8092 Zurich, Switzerland
     index: 1
@@ -28,10 +28,8 @@ affiliations:
     index: 2
   - name: Computational and Data Science Support, ETH Zurich, Binzmühlestrasse 130, 8092 Zurich, Switzerland
     index: 3
-  - name: Potsdam Institute for Climate Impact Research (PIK), Member of the Leibniz Association, Potsdam, Germany
-    index: 4
   - name: Regional Climate Office Potsdam, Deutscher Wetterdienst, Potsdam, Germany
-    index: 5
+    index: 4
 date: 2025-04-28
 bibliography: paper.bib
 ---
