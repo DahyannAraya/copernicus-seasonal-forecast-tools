@@ -38,17 +38,22 @@ We've prepared a comprehensive [CDS API setup guide](https://copernicus-seasonal
 
 ## **Installation**
 
-You can install copernicus-seasonal-forecast-tools in three ways:
-For full installation instructions, see the [online documentation](https://copernicus-seasonal-forecast-tools.readthedocs.io/en/latest/index.html).
+You can install **`copernicus-seasonal-forecast-tools`** in three ways, depending on your setup and preferences.
+
+> **Note:** If you want to generate CLIMADA hazard objects, you must install the **optional CLIMADA dependency**.  
+> For full installation instructions, see the [online documentation](https://copernicus-seasonal-forecast-tools.readthedocs.io/en/latest/index.html).
+
 
 ### 1. Install via pip (recommended for most users)
 
 ```bash
 pip install copernicus-seasonal-forecast-tools
-pip install -r docs/requirements.txt
+git clone https://github.com/DahyannAraya/copernicus-seasonal-forecast-tools.git (optional)
+pip install -r docs/requirements.txt (optional)
 ```
 ### 2. Install via environment.yml (Conda or Mamba):
 ```bash
+git clone https://github.com/DahyannAraya/copernicus-seasonal-forecast-tools.git
 conda env create -f environment.yml
 conda activate venv_forecast
 ```
@@ -57,6 +62,7 @@ conda activate venv_forecast
 git clone https://github.com/DahyannAraya/copernicus-seasonal-forecast-tools.git
 cd copernicus-seasonal-forecast-tools
 pip install .
+pip install -r docs/requirements.txt (optional)
 ```
 
 
