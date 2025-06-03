@@ -639,6 +639,12 @@ Package Contents
    and saves the resulting daily data as a NetCDF file. For each variable,
    daily mean, maximum, and minimum values are computed.
 
+   If data_format == "netcdf", any existing “forecast_period” dimension
+   is first renamed to “step” so that the Xarray coarsen( step=… ) call works.
+   Note that NetCDF format is still experimental; see the CDS documentation
+   for details. In contrast, GRIB files (opened with engine="cfgrib") already
+   include a step dimension, so no renaming is required.
+
    :param output_file_name: Path to save the processed NetCDF file.
    :type output_file_name: Path
    :param overwrite: If True, existing processed files will be overwritten. If False and the file exists,
