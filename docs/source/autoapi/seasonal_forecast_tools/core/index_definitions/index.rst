@@ -45,21 +45,8 @@ seasonal_forecast_tools.core.index_definitions
 
 
 
-Classes
--------
-
-.. autoapisummary::
-
-   seasonal_forecast_tools.core.index_definitions.IndexSpec
-   seasonal_forecast_tools.core.index_definitions.ClimateIndex
 
 
-Functions
----------
-
-.. autoapisummary::
-
-   seasonal_forecast_tools.core.index_definitions.get_short_name_from_variable
 
 
 Module Contents

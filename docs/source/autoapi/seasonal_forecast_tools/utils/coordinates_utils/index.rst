@@ -28,14 +28,6 @@ seasonal_forecast_tools.utils.coordinates_utils
 
 
 
-Functions
----------
-
-.. autoapisummary::
-
-   seasonal_forecast_tools.utils.coordinates_utils.bounding_box_from_cardinal_bounds
-   seasonal_forecast_tools.utils.coordinates_utils.bounding_box_global
-   seasonal_forecast_tools.utils.coordinates_utils.bounding_box_from_countries
 
 
 Module Contents

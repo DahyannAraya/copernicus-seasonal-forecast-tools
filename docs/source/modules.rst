@@ -26,20 +26,20 @@ This section provides links to external resources related to data sources and pr
 **Demonstration Notebooks**
 
 - **Download and Process Data**
-  - `View in Colab <https://colab.research.google.com/github/DahyannAraya/copernicus_climada_seasonal_forecast_workshop/blob/main/Modul_climada_copernicus_seasonal_forecast_workshop.ipynb#scrollTo=Download_and_Process_Data>`_
-  - `View in Docs <https://copernicus-seasonal-forecast-tools.readthedocs.io/en/latest/climada_hazard_copernicus_forecast.html#download-and-process-data>`_
+  - `View in Colab (Download) <https://colab.research.google.com/github/DahyannAraya/copernicus_climada_seasonal_forecast_workshop/blob/main/Modul_climada_copernicus_seasonal_forecast_workshop.ipynb#scrollTo=Download_and_Process_Data>`_
+  - `View in Docs (Download) <https://copernicus-seasonal-forecast-tools.readthedocs.io/en/latest/climada_hazard_copernicus_forecast.html#download-and-process-data>`_
 
 - **Calculate Climate Indices**
-  - `View in Colab <https://colab.research.google.com/github/DahyannAraya/copernicus_climada_seasonal_forecast_workshop/blob/main/Modul_climada_copernicus_seasonal_forecast_workshop.ipynb#scrollTo=Calculate_Climate_Indices>`_
-  - `View in Docs <https://copernicus-seasonal-forecast-tools.readthedocs.io/en/latest/climada_hazard_copernicus_forecast.html#calculate-climate-indices>`_
+  - `View in Colab (Indices) <https://colab.research.google.com/github/DahyannAraya/copernicus_climada_seasonal_forecast_workshop/blob/main/Modul_climada_copernicus_seasonal_forecast_workshop.ipynb#scrollTo=Calculate_Climate_Indices>`_
+  - `View in Docs (Indices) <https://copernicus-seasonal-forecast-tools.readthedocs.io/en/latest/climada_hazard_copernicus_forecast.html#calculate-climate-indices>`_
 
 - **Calculate a Hazard Object**
-  - `View in Colab <https://colab.research.google.com/github/DahyannAraya/copernicus_climada_seasonal_forecast_workshop/blob/main/Modul_climada_copernicus_seasonal_forecast_workshop.ipynb#scrollTo=Calculate_a_Hazard_Object>`_
-  - `View in Docs <https://copernicus-seasonal-forecast-tools.readthedocs.io/en/latest/climada_hazard_copernicus_forecast.html#calculate-a-hazard-object>`_
+  - `View in Colab (Hazard) <https://colab.research.google.com/github/DahyannAraya/copernicus_climada_seasonal_forecast_workshop/blob/main/Modul_climada_copernicus_seasonal_forecast_workshop.ipynb#scrollTo=Calculate_a_Hazard_Object>`_
+  - `View in Docs (Hazard) <https://copernicus-seasonal-forecast-tools.readthedocs.io/en/latest/climada_hazard_copernicus_forecast.html#calculate-a-hazard-object>`_
 
 - **Example for Reading and Plotting Hazard**
-  - `View in Colab <https://colab.research.google.com/github/DahyannAraya/copernicus_climada_seasonal_forecast_workshop/blob/main/Modul_climada_copernicus_seasonal_forecast_workshop.ipynb#scrollTo=Example_for_reading_and_plotting_hazard>`_
-  - `View in Docs <https://copernicus-seasonal-forecast-tools.readthedocs.io/en/latest/climada_hazard_copernicus_forecast.html#example-for-reading-and-plotting-hazard>`_
+  - `View in Colab (Plot) <https://colab.research.google.com/github/DahyannAraya/copernicus_climada_seasonal_forecast_workshop/blob/main/Modul_climada_copernicus_seasonal_forecast_workshop.ipynb#scrollTo=Example_for_reading_and_plotting_hazard>`_
+  - `View in Docs (Plot) <https://copernicus-seasonal-forecast-tools.readthedocs.io/en/latest/climada_hazard_copernicus_forecast.html#example-for-reading-and-plotting-hazard>`_
 
 **Extended Example**
 

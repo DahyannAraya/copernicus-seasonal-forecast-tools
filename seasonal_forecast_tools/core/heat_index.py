@@ -282,7 +282,8 @@ def calculate_heat_index_adjusted(t2k, tdk):
 
     Adjustments:
         - If RH ≤ 13% and 80°F < T < 112°F:
-            Adjustment = (13 - RH) / 4 * sqrt((17 - |T - 95|) / 17)
+            Adjustment = (13 - RH) / 4 * sqrt((17 - |T minus 95|) / 17)
+
         - If RH > 85% and T < 87°F:
             Adjustment = (RH - 85) / 10 * ((87 - T) / 5)
 

@@ -27,23 +27,8 @@ seasonal_forecast_tools.core.seasonal_statistics
 
 
 
-Attributes
-----------
-
-.. autoapisummary::
-
-   seasonal_forecast_tools.core.seasonal_statistics.LOGGER
 
 
-Functions
----------
-
-.. autoapisummary::
-
-   seasonal_forecast_tools.core.seasonal_statistics.calculate_heat_indices_metrics
-   seasonal_forecast_tools.core.seasonal_statistics._monthly_periods_from_valid_times
-   seasonal_forecast_tools.core.seasonal_statistics.calculate_monthly_dataset
-   seasonal_forecast_tools.core.seasonal_statistics.calculate_statistics_from_index
 
 
 Module Contents
@@ -92,17 +77,6 @@ Module Contents
 
    :raises ValueError: If an unsupported index is provided.
    :raises FileNotFoundError: If the specified input file does not exist.
-
-
-.. py:function:: _monthly_periods_from_valid_times(ds)
-
-   Create monthly labels from valid times of a dataframe
-
-   :param ds: Dataset of daily values
-   :type ds: xr.DataSet
-
-   :returns: DataArray with monthly labels
-   :rtype: xr.DataArray
 
 
 .. py:function:: calculate_monthly_dataset(da_index, index_metric, method)

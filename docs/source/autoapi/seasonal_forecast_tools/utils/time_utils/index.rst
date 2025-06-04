@@ -28,13 +28,6 @@ seasonal_forecast_tools.utils.time_utils
 
 
 
-Functions
----------
-
-.. autoapisummary::
-
-   seasonal_forecast_tools.utils.time_utils.month_name_to_number
-   seasonal_forecast_tools.utils.time_utils.calculate_leadtimes
 
 
 Module Contents

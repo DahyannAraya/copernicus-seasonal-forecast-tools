@@ -28,13 +28,6 @@ seasonal_forecast_tools.utils.path_utils
 
 
 
-Functions
----------
-
-.. autoapisummary::
-
-   seasonal_forecast_tools.utils.path_utils.get_file_path
-   seasonal_forecast_tools.utils.path_utils.check_existing_files
 
 
 Module Contents

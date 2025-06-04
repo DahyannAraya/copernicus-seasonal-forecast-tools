@@ -26,13 +26,6 @@ seasonal_forecast_tools.utils.config
 
 
 
-Attributes
-----------
-
-.. autoapisummary::
-
-   seasonal_forecast_tools.utils.config.BASE_DATA_DIR
-   seasonal_forecast_tools.utils.config.SEASONAL_FORECAST_DIR
 
 
 Module Contents

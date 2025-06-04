@@ -30,6 +30,12 @@ templates_path = ['_templates']
 
 exclude_patterns = []
 
+# Suppress substitution warnings like "T - 95"
+suppress_warnings = ["substitution"]
+
+autoapi_options = ["members", "undoc-members", "show-inheritance", "no-index"]
+
+
 # Add project root directory to sys.path so autodoc can find modules
 import os
 import sys

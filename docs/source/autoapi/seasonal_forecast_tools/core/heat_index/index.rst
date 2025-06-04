@@ -40,39 +40,8 @@ seasonal_forecast_tools.core.heat_index
 
 
 
-Attributes
-----------
-
-.. autoapisummary::
-
-   seasonal_forecast_tools.core.heat_index.LOGGER
-   seasonal_forecast_tools.core.heat_index.HI_COEFFS
-   seasonal_forecast_tools.core.heat_index.HI_ADJUSTED_COEFFS
 
 
-Functions
----------
-
-.. autoapisummary::
-
-   seasonal_forecast_tools.core.heat_index.kelvin_to_fahrenheit
-   seasonal_forecast_tools.core.heat_index.fahrenheit_to_kelvin
-   seasonal_forecast_tools.core.heat_index.fahrenheit_to_celsius
-   seasonal_forecast_tools.core.heat_index.celsius_to_kelvin
-   seasonal_forecast_tools.core.heat_index.kelvin_to_celsius
-   seasonal_forecast_tools.core.heat_index.calculate_relative_humidity
-   seasonal_forecast_tools.core.heat_index.calculate_humidex
-   seasonal_forecast_tools.core.heat_index.calculate_heat_index_simplified
-   seasonal_forecast_tools.core.heat_index.calculate_heat_index_adjusted
-   seasonal_forecast_tools.core.heat_index.calculate_wind_speed
-   seasonal_forecast_tools.core.heat_index.calculate_apparent_temperature
-   seasonal_forecast_tools.core.heat_index.calculate_nonsaturation_vapour_pressure
-   seasonal_forecast_tools.core.heat_index.calculate_wbgt_simple
-   seasonal_forecast_tools.core.heat_index.calculate_heat_index
-   seasonal_forecast_tools.core.heat_index.calculate_tr
-   seasonal_forecast_tools.core.heat_index.calculate_tx30
-   seasonal_forecast_tools.core.heat_index.calculate_hw_1D
-   seasonal_forecast_tools.core.heat_index.calculate_hw
 
 
 Module Contents
@@ -198,7 +167,8 @@ Module Contents
              * *Adjustments* --
 
                - If RH ≤ 13% and 80°F < T < 112°F:
-                   Adjustment = (13 - RH) / 4 * sqrt((17 - |T - 95|) / 17)
+                   Adjustment = (13 - RH) / 4 * sqrt((17 - |T minus 95|) / 17)
+
                - If RH > 85% and T < 87°F:
                    Adjustment = (RH - 85) / 10 * ((87 - T) / 5)
 

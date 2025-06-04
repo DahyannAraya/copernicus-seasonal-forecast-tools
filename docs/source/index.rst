@@ -49,17 +49,19 @@ Key features include:
 
 - Download Copernicus CDS seasonal forecasts (subdaily)
 - Convert to daily resolution automatically
-- Calculate heat-related climate indices (e.g., Heatwaves, Tropical Nights).
+- Calculate heat-related climate indices (e.g., Heatwaves, Tropical Nights)
 - Integrate with CLIMADA hazard workflows
 
-While not part of the core `CLIMADA <https://climada.ethz.ch/>`_ platform, it is designed for **seamless integration** with CLIMADA for climate impact and risk workflows
+While not part of the core `CLIMADA <https://climada.ethz.ch/>`_ platform, it is designed for **seamless integration** with CLIMADA for climate impact and risk workflows.
 
 Getting Started
 ---------------
 
 Seasonal forecast data can be accessed through the `Copernicus Climate Data Store (CDS) <https://cds.climate.copernicus.eu>`_, which offers a variety of datasets including those compatible with this tool. Access requires a free CDS account and proper API configuration.
 
-**note:** You need a CDS account, API credentials, and to accept the dataset's terms and conditions.
+.. note::
+
+   You need a CDS account, API credentials, and to accept the dataset's terms and conditions.
 
 We've prepared a comprehensive :doc:`CDS API setup guide <cds_api>` to walk you through each step of the process. Once configured, you'll be ready to explore and analyze seasonal forecast data.
 
@@ -68,7 +70,7 @@ Installation
 
 The package requires **Python 3.10**, but versions 3.11 and 3.12 are also supported. Make sure your environment is using a compatible Python version before installation.
 
-You can install **``copernicus-seasonal-forecast-tools``** in three ways, depending on your setup and preferences.
+You can install **copernicus-seasonal-forecast-tools** in three ways, depending on your setup and preferences.
 
 .. note::
 
@@ -79,8 +81,8 @@ Install from PyPI:
 .. code-block:: bash
 
    pip install copernicus-seasonal-forecast-tools
-   git clone https://github.com/DahyannAraya/copernicus-seasonal-forecast-tools.git (optional)
-   pip install -r docs/requirements.txt (optional)
+   git clone https://github.com/DahyannAraya/copernicus-seasonal-forecast-tools.git  # optional
+   pip install -r docs/requirements.txt  # optional
 
 Install via environment.yml (Conda or Mamba):
 
@@ -97,7 +99,7 @@ Install from GitHub:
    git clone https://github.com/DahyannAraya/copernicus-seasonal-forecast-tools.git
    cd copernicus-seasonal-forecast-tools
    pip install .
-   pip install -r docs/requirements.txt (optional)
+   pip install -r docs/requirements.txt  # optional
 
 CLIMADA Installation
 --------------------
@@ -116,7 +118,7 @@ CLIMADA is required to generate hazard layers.
 
 .. note::
 
-   If you want to have all the functionalities of **CLIMADA**, you must install the full version. For detailed instructions, follow the official CLIMADA installation guide: `CLIMADA Installation Guide <https://climada-python.readthedocs.io/en/stable/guide/install.html>`__
+   If you want to have all the functionalities of **CLIMADA**, you must install the full version. For detailed instructions, follow the official CLIMADA installation guide: `CLIMADA Installation Guide <https://climada-python.readthedocs.io/en/stable/guide/install.html>`_
 
 Developer Setup
 ---------------
@@ -139,7 +141,7 @@ To contribute or run the documentation and tests:
 License
 -------
 
-`GPL-3.0 license <https://github.com/DahyannAraya/copernicus-seasonal-forecast-tools/blob/main/LICENSE>`__
+`GPL-3.0 license <https://github.com/DahyannAraya/copernicus-seasonal-forecast-tools/blob/main/LICENSE>`_
 
 .. toctree::
    :maxdepth: 1
