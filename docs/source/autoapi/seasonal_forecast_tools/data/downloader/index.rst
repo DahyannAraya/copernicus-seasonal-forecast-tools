@@ -44,24 +44,6 @@ seasonal_forecast_tools.data.downloader
       in the CDS portal before running the script.
 
 
-
-Attributes
-----------
-
-.. autoapisummary::
-
-   seasonal_forecast_tools.data.downloader.DATA_DIR
-   seasonal_forecast_tools.data.downloader.LOGGER
-
-
-Functions
----------
-
-.. autoapisummary::
-
-   seasonal_forecast_tools.data.downloader.download_data
-
-
 Module Contents
 ---------------
 
