@@ -12,14 +12,19 @@ tags:
   - Open-source software
 authors:
   - name: Dahyann Araya
+    orcid: 0000-0002-2439-6308
     affiliation: "1,2"
   - name: Valentin Gebhart
+    orcid: 0000-0002-3995-865X
     affiliation: "1,2"
   - name: Emanuel Schmid
+    orcid: 0000-0002-6814-7215
     affiliation: "3"
   - name: David N. Bresch
+    orcid: 0000-0002-8431-4263
     affiliation: "1,2"
   - name: Tobias Geiger
+    orcid: 0000-0002-8059-8270
     affiliation: "4"
 affiliations:
   - name: Institute for Environmental Decisions, ETH Zurich, Universitätstr. 22, 8092 Zurich, Switzerland
