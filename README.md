@@ -39,6 +39,8 @@ We've prepared a comprehensive [CDS API setup guide](https://copernicus-seasonal
 
 ## **Installation**
 
+The package requires **Python 3.10**, but versions 3.11 and 3.12 are also supported. Make sure your environment is using a compatible Python version before installation.
+
 You can install **`copernicus-seasonal-forecast-tools`** in three ways, depending on your setup and preferences.
 
 > **Note:** If you want to generate CLIMADA hazard objects, you must install the **optional CLIMADA dependency**.  

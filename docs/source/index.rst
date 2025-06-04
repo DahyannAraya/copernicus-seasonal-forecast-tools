@@ -57,7 +57,7 @@ While not part of the core `CLIMADA <https://climada.ethz.ch/>`_ platform, it is
 Getting Started
 ---------------
 
-To use this package, you must first configure access to the `Copernicus Climate Data Store (CDS) <https://cds.climate.copernicus.eu>`_, which provides the seasonal forecast datasets.
+Seasonal forecast data can be accessed through the `Copernicus Climate Data Store (CDS) <https://cds.climate.copernicus.eu>`_, which offers a variety of datasets including those compatible with this tool. Access requires a free CDS account and proper API configuration.
 
 **note:** You need a CDS account, API credentials, and to accept the dataset's terms and conditions.
 
@@ -65,6 +65,9 @@ We've prepared a comprehensive :doc:`CDS API setup guide <cds_api>` to walk you 
 
 Installation
 ------------
+
+The package requires **Python 3.10**, but versions 3.11 and 3.12 are also supported. Make sure your environment is using a compatible Python version before installation.
+
 You can install **``copernicus-seasonal-forecast-tools``** in three ways, depending on your setup and preferences.
 
 .. note::
