@@ -13,10 +13,10 @@
 
 <img src="https://raw.githubusercontent.com/DahyannAraya/copernicus-seasonal-forecast-tools/refs/heads/main/images/copernicus_forecast_qr.png" alt="Repository QR Code" width="150"/>
 
-This repository hosts the **copernicus-seasonal-forecast-tools** package, a Python module developed as part of the [U-CLIMADAPT project](https://www.copernicus-user-uptake.eu/user-uptake/details/responding-to-the-impact-of-climate-change-u-climadapt-488).
+This repository hosts the **copernicus-seasonal-forecast-tools**, a Python package developed to manage seasonal forecast data from the [Copernicus Climate Data Store (CDS)](https://cds.climate.copernicus.eu/) as part of the [U-CLIMADAPT project](https://www.copernicus-user-uptake.eu/user-uptake/details/responding-to-the-impact-of-climate-change-u-climadapt-488).
 
 It offers comprehensive tools for downloading, processing, computing climate indices, and generating hazard objects based on seasonal forecast datasets, particularly [Seasonal forecast daily and subdaily data on single levels](https://cds.climate.copernicus.eu/datasets/seasonal-original-single-levels?tab=overview).
-The module is tailored to integrate seamlessly with the [CLIMADA](https://climada.ethz.ch/) (CLIMate ADAptation) platform, supporting climate risk assessment and the development of effective adaptation strategies.
+The packge is tailored to integrate seamlessly with the [CLIMADA](https://climada.ethz.ch/) (CLIMate ADAptation) platform, supporting climate risk assessment and the development of effective adaptation strategies.
 
 Users can:
 - Automatically download of high-resolution seasonal forecast data via the CDS API
@@ -24,8 +24,6 @@ Users can:
 - Compute heat-related indices (e.g., **heatwave days**, **tropical nights**, **TX30**)
 - Generate **CLIMADA hazard objects**
 - Benefit from the modular design for extending to new indices or forecast products
-
-
 
 
 ## **Documentation**
@@ -113,7 +111,7 @@ You can find further material in [<img src="https://colab.research.google.com/as
 ## **Resources**
 - [U-CLIMADAPT Project](https://www.copernicus-user-uptake.eu/user-uptake/details/responding-to-the-impact-of-climate-change-u-climadapt-488)
 - [Copernicus Seasonal Forecast on CLIMADA](to do)
-- [Copernicus Seasonal Forecast Module extended demostration](https://colab.research.google.com/github/DahyannAraya/climada_copernicus_seasonal_forecast_workshop/blob/main/DEMO_Modul_climada_copernicus_seasonal_forecast_workshop.ipynb)
+- [Copernicus Seasonal Forecast Tools package extended demostration](https://colab.research.google.com/github/DahyannAraya/climada_copernicus_seasonal_forecast_workshop/blob/main/DEMO_Modul_climada_copernicus_seasonal_forecast_workshop.ipynb)
 - [Seasonal forecast daily and subdaily data on single levels](https://cds.climate.copernicus.eu/datasets/seasonal-original-single-levels?tab=overview)
 - [Copernicus Climate Data Store](https://cds.climate.copernicus.eu)
 - [CLIMADA Documentation](https://climada.ethz.ch/)
