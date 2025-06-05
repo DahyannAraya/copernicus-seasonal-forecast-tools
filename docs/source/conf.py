@@ -5,7 +5,7 @@
 project = 'Copernicus Seasonal Forecast Tools'
 copyright = '2025, Dahyann Araya'
 author = 'Dahyann Araya'
-release = '0.1.0'
+release = '0.1.1'
 
 # -- General configuration ---------------------------------------------------
 
@@ -48,6 +48,7 @@ html_static_path = ['_static']
 html_css_files = [
     'custom.css',
 ]
+
 
 
 
