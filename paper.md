@@ -2,14 +2,16 @@
 title: "Copernicus Seasonal Forecast Tools Package: Bridging Seasonal Climate Predictions and Impact Models for Operational Risk Assessment"
 
 tags:
-  - Python
   - Seasonal forecasts
   - Copernicus Climate Data Store
+  - CDS
+  - CLIMADA
   - Climate hazard modeling
   - Impact-based forecasting
   - Climate risk assessment
   - Climate adaptation
   - Open-source software
+  - Python
 authors:
   - name: Dahyann Araya
     orcid: 0000-0002-2439-6308

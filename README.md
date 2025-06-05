@@ -15,14 +15,16 @@
 
 This repository hosts the **copernicus-seasonal-forecast-tools** package, a Python module developed as part of the [U-CLIMADAPT project](https://www.copernicus-user-uptake.eu/user-uptake/details/responding-to-the-impact-of-climate-change-u-climadapt-488).
 
-The module bridges **seasonal forecast data** from the [Copernicus Climate Data Store (CDS)](https://cds.climate.copernicus.eu) with flexible data processing and climate impact modeling workflows. It supports downloading [sub-daily Copernicus forecasts](https://cds.climate.copernicus.eu/datasets/seasonal-original-single-levels?tab=overview) and **aggregating them to daily resolution**, enabling analysis of climate indices for impact forecasting.
+It offers comprehensive tools for downloading, processing, computing climate indices, and generating hazard objects based on seasonal forecast datasets, particularly [Seasonal forecast daily and subdaily data on single levels](https://cds.climate.copernicus.eu/datasets/seasonal-original-single-levels?tab=overview).
+The module is tailored to integrate seamlessly with the [CLIMADA](https://climada.ethz.ch/) (CLIMate ADAptation) platform, supporting climate risk assessment and the development of effective adaptation strategies.
 
 Users can:
-- Convert raw Copernicus seasonal forecasts into usable daily datasets.
-- Compute **heat-related climate indices** (e.g., Heatwaves, Tropical Nights).
-- Generate **CLIMADA-compatible hazard objects** from processed forecasts.
+- Automatically download of high-resolution seasonal forecast data via the CDS API
+- Preprocess sub-daily fields into daily aggregates
+- Compute heat-related indices (e.g., **heatwave days**, **tropical nights**, **TX30**)
+- Generate **CLIMADA hazard objects**
+- Benefit from the modular design for extending to new indices or forecast products
 
-While not part of the core [CLIMADA](https://climada.ethz.ch/) platform, it is designed for **seamless integration** with CLIMADA for climate impact and risk workflows.
 
 
 
