@@ -3,7 +3,7 @@
 # -- Project information -----------------------------------------------------
 
 project = 'Copernicus Seasonal Forecast Tools'
-copyright = '2025, Dahyann Araya'
+#copyright = '2025, Dahyann Araya'
 author = 'Dahyann Araya'
 release = '0.1.1'
 

@@ -86,14 +86,14 @@ CLIMADA is required to generate hazard layers.
 
 This section provides practical example to help users understand how to work with the copernicus-seasonal-forecast-tools package. The notebooks demonstrate key steps including downloading data, computing climate indices, and generating CLIMADA hazard objects.
 
-- **`DEMO_copernicus_forecast_seasonal.ipynb`**: This is the first notebook to run. It demonstrates how to install and use the `seasonal_forecast_tools` to download, process, and convert seasonal forecast data into a CLIMADA hazard object.
+- **DEMO_copernicus_forecast_seasonal.ipynb**: This is the first notebook to run. It demonstrates how to install and use the `seasonal_forecast_tools` to download, process, and convert seasonal forecast data into a CLIMADA hazard object.
 
 
 ### Notebooks
 
 | Notebook | Open in Colab | GitHub (Documentation) |
 |----------|----------------|-----------------|
-| DEMO Copernicus Seasonal Forecast | [<img src="https://colab.research.google.com/assets/colab-badge.svg" alt="Open In Colab" height="20">](https://colab.research.google.com/github/DahyannAraya/copernicus_climada_seasonal_forecast_workshop/blob/main/Modul_climada_copernicus_seasonal_forecast_workshop.ipynb) | [View on GitHub](https://copernicus-seasonal-forecast-tools.readthedocs.io/en/latest/climada_hazard_copernicus_forecast.html) |
+| DEMO Copernicus Seasonal Forecast | [<img src="https://colab.research.google.com/assets/colab-badge.svg" alt="Open In Colab" height="20">](https://colab.research.google.com/github/DahyannAraya/copernicus_climada_seasonal_forecast_workshop/blob/main/Modul_climada_copernicus_seasonal_forecast_workshop.ipynb) | [View in Docs](https://copernicus-seasonal-forecast-tools.readthedocs.io/en/latest/climada_hazard_copernicus_forecast.html) |
 | Download and Process Data | [<img src="https://colab.research.google.com/assets/colab-badge.svg" alt="Open In Colab" height="20">](https://colab.research.google.com/github/DahyannAraya/copernicus_climada_seasonal_forecast_workshop/blob/main/Modul_climada_copernicus_seasonal_forecast_workshop.ipynb#scrollTo=Download_and_Process_Data) | [View in Docs](https://copernicus-seasonal-forecast-tools.readthedocs.io/en/latest/climada_hazard_copernicus_forecast.html#download-and-process-data) |
 | Calculate Climate Indices | [<img src="https://colab.research.google.com/assets/colab-badge.svg" alt="Open In Colab" height="20">](https://colab.research.google.com/github/DahyannAraya/copernicus_climada_seasonal_forecast_workshop/blob/main/Modul_climada_copernicus_seasonal_forecast_workshop.ipynb#scrollTo=Calculate_Climate_Indices)  | [View in Docs](https://copernicus-seasonal-forecast-tools.readthedocs.io/en/latest/climada_hazard_copernicus_forecast.html#calculate-climate-indices) |
 | Calculate a Hazard Object | [<img src="https://colab.research.google.com/assets/colab-badge.svg" alt="Open In Colab" height="20">](https://colab.research.google.com/github/DahyannAraya/copernicus_climada_seasonal_forecast_workshop/blob/main/Modul_climada_copernicus_seasonal_forecast_workshop.ipynb#scrollTo=Calculate_a_Hazard_Object)  | [View in Docs](https://copernicus-seasonal-forecast-tools.readthedocs.io/en/latest/climada_hazard_copernicus_forecast.html#calculate-a-hazard-object) |
