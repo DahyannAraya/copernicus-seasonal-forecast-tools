@@ -82,4 +82,6 @@ The package has been tested within CLIMADA workflows and demonstrated in example
 The Copernicus Seasonal Forecast Package was developed by the CLIMADA team at ETH Zurich as part of the U-CLIMADAPT project, which aims to improve the usability of Copernicus data products for climate adaptation planning.
 This work was supported by the European Commission under the Framework Partnership Agreement on Copernicus User Uptake, 741 via the Action No. 2021-2-29 (U-CLIMADAPT). 
 
+The authors would also like to express their sincere gratitude to Dr. Ruth Lorenz from the Center for Climate Systems Modeling (C2SM) at ETH Zurich for her invaluable support and guidance throughout the course of this research.
+
 # References
