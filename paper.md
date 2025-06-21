@@ -1,6 +1,5 @@
 ---
 title: "Copernicus Seasonal Forecast Tools Package: Bridging Seasonal Climate Predictions and Impact Models for Operational Risk Assessment"
-
 tags:
   - Seasonal forecasts
   - Copernicus Climate Data Store
@@ -37,7 +36,7 @@ affiliations:
     index: 3
   - name: Regional Climate Office Potsdam, Deutscher Wetterdienst, Potsdam, Germany
     index: 4
-date: 2025-04-28
+date: 28 April 2025
 bibliography: paper.bib
 ---
 
