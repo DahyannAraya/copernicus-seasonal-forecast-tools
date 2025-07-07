@@ -25,7 +25,7 @@ from seasonal_forecast_tools.core.seasonal_statistics import (
     calculate_heat_indices_metrics,
     calculate_monthly_dataset,
     calculate_statistics_from_index,
-    _monthly_periods_from_valid_times,
+    _periods_from_valid_times,
 )
 
 """
@@ -225,12 +225,20 @@ class TestSeasonalStatistics(unittest.TestCase):
             calculate_heat_indices_metrics("nonexistent.nc", "Tmean")
 
     ### _monthly_periods_from_valid_times test ###
-    def test_monthly_periods_from_valid_times(self):
+    def test_periods_from_valid_times(self):
         """Test if the function correctly assing forescat month date."""
-        result = _monthly_periods_from_valid_times(self.ds_valid_time)
+        # monthly
+        result = _periods_from_valid_times(self.ds_valid_time)
         self.assertIsInstance(result, xr.DataArray)
         self.assertEqual(tuple(result.dims), ("step",))
         expected_months = ["2019-02"] * 3
+        np.testing.assert_array_equal(result.values, expected_months)
+
+        # two-daily
+        result = _periods_from_valid_times(self.ds_valid_time, period=2)
+        self.assertIsInstance(result, xr.DataArray)
+        self.assertEqual(tuple(result.dims), ("step",))
+        expected_months = ["2019-02-01", "2019-02-01", "2019-02-03"]
         np.testing.assert_array_equal(result.values, expected_months)
 
     ### calculate_monthly_dataset test ###
