@@ -6,9 +6,9 @@ and ensemble statistics from seasonal forecast datasets.
 
 Covered functions:
 - calculate_heat_indices_metrics
-- calculate_monthly_dataset
+- calculate_aggregated_dataset
 - calculate_statistics_from_index
-- _monthly_periods_from_valid_times
+- _periods_from_valid_times
 
 The tests use synthetic datasets to validate expected output structure,
 numerical accuracy, error handling, and metadata preservation.
@@ -23,7 +23,7 @@ import xarray as xr
 # Import the module to test
 from seasonal_forecast_tools.core.seasonal_statistics import (
     calculate_heat_indices_metrics,
-    calculate_monthly_dataset,
+    calculate_aggregated_dataset,
     calculate_statistics_from_index,
     _periods_from_valid_times,
 )
@@ -224,7 +224,7 @@ class TestSeasonalStatistics(unittest.TestCase):
         with self.assertRaises(FileNotFoundError):
             calculate_heat_indices_metrics("nonexistent.nc", "Tmean")
 
-    ### _monthly_periods_from_valid_times test ###
+    ### _periods_from_valid_times test ###
     def test_periods_from_valid_times(self):
         """Test if the function correctly assing forescat month date."""
         # monthly
@@ -245,7 +245,7 @@ class TestSeasonalStatistics(unittest.TestCase):
     def test_monthly_mean(self):
         """Test if the function correctly computes the monthly mean."""
         expected_jan_mean = 19  # Expected mean for January (first 10 days)
-        ds_monthly = calculate_monthly_dataset(self.da_index, "Tmean", "mean")
+        ds_monthly = calculate_aggregated_dataset(self.da_index, "Tmean", "mean")
         self.assertIsInstance(
             ds_monthly, xr.Dataset
         )  # check if the function returns an xarray.Dataset
@@ -255,7 +255,7 @@ class TestSeasonalStatistics(unittest.TestCase):
     def test_monthly_count(self):
         """Test if the function correctly computes the count of daily values per month for "TR", "TX30", "HW" """
         expected_jan_count = 7
-        ds_monthly = calculate_monthly_dataset(self.da_index_count, "Tcount", "count")
+        ds_monthly = calculate_aggregated_dataset(self.da_index_count, "Tcount", "count")
         self.assertIsInstance(
             ds_monthly, xr.Dataset
         )  # Check if the function returns an xarray.Dataset

@@ -161,10 +161,10 @@ def calculate_heat_indices_metrics(
     except Exception as e:
         raise e
 
-    # add monthly period label
+    # add period label
     da_index.coords["forecast_month"] = _periods_from_valid_times(daily_ds, period=index_window)
 
-    # compute monthly means
+    # compute period means
     method = "count" if index_metric in ["TR", "TX30", "HW"] else "mean"
     ds_monthly = calculate_aggregated_dataset(da_index, index_metric, method)
 
@@ -209,27 +209,8 @@ def _periods_from_valid_times(ds, period="monthly"):
             'Use "monthly" or an integer for the number of days'
         )
 
-# def _monthly_periods_from_valid_times(ds):
-#     """Create monthly labels from valid times of a dataframe
-
-#     Parameters
-#     ----------
-#     ds : xr.DataSet
-#         Dataset of daily values
-
-#     Returns
-#     -------
-#     xr.DataArray
-#         DataArray with monthly labels
-#     """
-#     valid_times = pd.to_datetime(ds.valid_time.values)
-#     forecast_months_str = valid_times.to_period("M").astype(str)
-#     step_to_month = dict(zip(ds.step.values, forecast_months_str))
-#     return xr.DataArray(list(step_to_month.values()), coords=[ds.step], dims=["step"])
-
-
 def calculate_aggregated_dataset(da_index, index_metric, method):
-    """Calculate monthly means from daily data
+    """Calculate means from daily data
 
     Parameters
     ----------
@@ -238,7 +219,8 @@ def calculate_aggregated_dataset(da_index, index_metric, method):
     index_metric : str
         index to be computed
     method : str
-        method to combine daily data to monthly data. Available are "mean" and "count".
+        method to combine daily data aggregated to period as defined in da_index.
+        Available are "mean" and "count".
 
     Returns
     -------
