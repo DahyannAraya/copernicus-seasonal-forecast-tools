@@ -34,6 +34,7 @@ LOGGER = logging.getLogger(__name__)
 def calculate_heat_indices_metrics(
     input_file_name,
     index_metric,
+    index_window="monthly",
     tr_threshold=20,
     hw_threshold=27,
     hw_min_duration=3,
@@ -49,7 +50,6 @@ def calculate_heat_indices_metrics(
         The file should be in NetCDF (.nc) or GRIB format and contain relevant atmospheric data such as temperature,
         dewpoint temperature, humidity, or wind speed. Information on the required variables for each index
         can be found in the `index_definitions` class.
-
     index_metric : str
         The climate index to be processed. Supported indices include:
         - "Tmean" : Mean daily temperature
@@ -61,6 +61,9 @@ def calculate_heat_indices_metrics(
         - "HUM" : Humidex
         - "AT"  : Apparent Temperature
         - "WBGT": Wet Bulb Globe Temperature (Simple)
+    index_window : str or int
+        Time window for the calculation of the index. If int, time window in days. If "monthly", time window are months.
+        Defaults to "monthly".
     tr_threshold : float, optional
         Temperature threshold (°C) for computing tropical nights (TR).
         Default is 20°C, meaning nights with Tmin > 20°C are considered tropical.
@@ -79,7 +82,7 @@ def calculate_heat_indices_metrics(
     tuple
         A tuple containing three `xarray.Dataset` objects:
         - `daily index` : The calculated daily index values.
-        - `monthly index` : Monthly mean values of the index.
+        - `index_window index` : Mean values of the index over the time window index_window.
         - `index statistics` : Ensemble statistics calculated from the index.
 
     Raises
@@ -159,38 +162,73 @@ def calculate_heat_indices_metrics(
         raise e
 
     # add monthly period label
-    da_index.coords["forecast_month"] = _monthly_periods_from_valid_times(daily_ds)
+    da_index.coords["forecast_month"] = _periods_from_valid_times(daily_ds, period=index_window)
 
     # compute monthly means
     method = "count" if index_metric in ["TR", "TX30", "HW"] else "mean"
-    ds_monthly = calculate_monthly_dataset(da_index, index_metric, method)
+    ds_monthly = calculate_aggregated_dataset(da_index, index_metric, method)
 
     # calculate ensemble statistics across members
     ds_stats = calculate_statistics_from_index(ds_monthly[f"{index_metric}"])
 
     return ds_combined, ds_monthly, ds_stats
 
-
-def _monthly_periods_from_valid_times(ds):
-    """Create monthly labels from valid times of a dataframe
+def _periods_from_valid_times(ds, period="monthly"):
+    """
+    Create period labels from valid times of a DataSet.
 
     Parameters
     ----------
-    ds : xr.DataSet
+    ds : xr.Dataset
         Dataset of daily values
+    period : int or str
+        If int, length of period in days. If "monthly", create monthly period labels.
+        Defaults to "monthly".
 
     Returns
     -------
     xr.DataArray
-        DataArray with monthly labels
+        DataArray with period labels
     """
     valid_times = pd.to_datetime(ds.valid_time.values)
-    forecast_months_str = valid_times.to_period("M").astype(str)
-    step_to_month = dict(zip(ds.step.values, forecast_months_str))
-    return xr.DataArray(list(step_to_month.values()), coords=[ds.step], dims=["step"])
+    if period == "monthly":
+        forecast_months_str = valid_times.to_period("M").astype(str)
+        step_to_period = dict(zip(ds.step.values, forecast_months_str))
+        return xr.DataArray(list(step_to_period.values()), coords=[ds.step], dims=["step"])
+    elif isinstance(period, int):
+        start_date = valid_times.min().normalize()
+        days_since_start = (valid_times - start_date) / np.timedelta64(1, 'D')
+        period_numbers = (days_since_start // period).astype(int)        
+        period_start_dates = start_date + pd.to_timedelta(period_numbers * period, unit='D')
+        period_labels = period_start_dates.strftime('%Y-%m-%d')        
+        step_to_period = dict(zip(ds.step.values, period_labels))
+        return xr.DataArray(list(step_to_period.values()), coords=[ds.step], dims=["step"])
+    else:
+        raise ValueError(
+            f'Unrecognized value {period} for time period. '
+            'Use "monthly" or an integer for the number of days'
+        )
+
+# def _monthly_periods_from_valid_times(ds):
+#     """Create monthly labels from valid times of a dataframe
+
+#     Parameters
+#     ----------
+#     ds : xr.DataSet
+#         Dataset of daily values
+
+#     Returns
+#     -------
+#     xr.DataArray
+#         DataArray with monthly labels
+#     """
+#     valid_times = pd.to_datetime(ds.valid_time.values)
+#     forecast_months_str = valid_times.to_period("M").astype(str)
+#     step_to_month = dict(zip(ds.step.values, forecast_months_str))
+#     return xr.DataArray(list(step_to_month.values()), coords=[ds.step], dims=["step"])
 
 
-def calculate_monthly_dataset(da_index, index_metric, method):
+def calculate_aggregated_dataset(da_index, index_metric, method):
     """Calculate monthly means from daily data
 
     Parameters
