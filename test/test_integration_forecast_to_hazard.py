@@ -79,7 +79,7 @@ class TestIntegrationWorkflow(unittest.TestCase):
             month_str = forecast.initiation_month_str[0]
             cls.forecasts[index_metric] = forecast
             cls.hazard_paths[index_metric] = forecast.get_pipeline_path(cls.year, month_str, "hazard")
-            cls.nc_paths[index_metric] = forecast.get_pipeline_path(cls.year, month_str, "indices")["monthly"]
+            cls.nc_paths[index_metric] = forecast.get_pipeline_path(cls.year, month_str, "indices")["index_window_monthly"]
 
     def test_grib_input_exists(self):
         """

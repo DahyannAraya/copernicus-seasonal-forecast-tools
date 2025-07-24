@@ -72,7 +72,7 @@ class TestPathUtils(unittest.TestCase):
             self.system,
         )
         self.assertIsInstance(paths, dict)
-        for timeframe in ["daily", "monthly", "stats"]:
+        for timeframe in ["daily", "index_window_monthly", "stats"]:
             self.assertIn(timeframe, paths)
             self.assertTrue(paths[timeframe].name.endswith(f"{timeframe}.nc"))
 

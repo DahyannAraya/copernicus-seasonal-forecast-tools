@@ -99,6 +99,7 @@ class SeasonalForecast:
         data_format,
         originating_centre,
         system,
+        index_window="monthly",
         data_out=None,
     ):
         """
@@ -123,6 +124,9 @@ class SeasonalForecast:
             Data provider (e.g., "dwd").
         system : str
             Forecast system configuration (e.g., "21").
+        index_window : str or int, optional
+            Time window for the calculation of the index. If int, time window in days. If "monthly", time window are months.
+            Defaults to "monthly".
         data_out : pathlib.Path, optional
             Output directory for storing downloaded and processed data. If None,
             uses a default directory specified in the configuration.
@@ -156,6 +160,7 @@ class SeasonalForecast:
         self.data_format = data_format
         self.originating_centre = originating_centre
         self.system = system
+        self.index_window = index_window
 
         # initialze base directory
         self.data_out = Path(data_out) if data_out else DATA_OUT
@@ -231,7 +236,7 @@ class SeasonalForecast:
         -------
         Path or dict of Path
             Path to the requested file(s). For 'indices', returns a dictionary with keys
-            'daily', 'monthly', 'stats'.
+            'daily', 'index_window', 'stats'.
 
         Raises
         ------
@@ -254,12 +259,13 @@ class SeasonalForecast:
             self.index_metric,
             self.bounds_str,
             self.system,
-            self.data_format,
+            index_window=self.index_window,
+            data_format=self.data_format,
         )
 
         # create directory if not existing
         if data_type == "indices":
-            file_path["monthly"].parent.mkdir(parents=True, exist_ok=True)
+            file_path[f"index_window_{self.index_window}"].parent.mkdir(parents=True, exist_ok=True)
         else:
             file_path.parent.mkdir(parents=True, exist_ok=True)
 
@@ -452,7 +458,7 @@ class SeasonalForecast:
         -------
         dict
             Dictionary with keys of the form "<year>_init<month>_valid<valid_period>"
-            and values corresponding to the output NetCDF index files (daily, monthly, stats).
+            and values corresponding to the output NetCDF index files (daily, index_window, stats).
 
         Raises
         ------
@@ -500,6 +506,7 @@ class SeasonalForecast:
                         overwrite,
                         input_data_path,
                         self.index_metric,
+                        index_window=self.index_window,
                         tr_threshold=tr_threshold,
                         hw_min_duration=hw_min_duration,
                         hw_max_gap=hw_max_gap,
@@ -531,8 +538,9 @@ class SeasonalForecast:
         """
         Convert the calculated climate index to a CLIMADA Hazard object and save it as HDF5.
 
-        This function reads the monthly aggregated index NetCDF files and converts them
-        into a CLIMADA Hazard object. The resulting hazard files are saved in HDF5 format.
+        This function reads the aggregated index NetCDF files (over time frame specified by
+        index_window attribute) and converts them into a CLIMADA Hazard object. The
+        resulting hazard files are saved in HDF5 format.
 
         Parameters
         ----------
@@ -553,7 +561,7 @@ class SeasonalForecast:
         Notes
         -----
         The hazard conversion is performed using the `_convert_to_hazard` function.
-        The function expects that the index files (monthly NetCDF) have already been
+        The function expects that the index files (NetCDF) have already been
         calculated and saved using `calculate_index()`.
 
         The resulting Hazard objects follow CLIMADA's internal structure and can be
@@ -576,7 +584,7 @@ class SeasonalForecast:
                 )
                 # Get input index file paths and hazard output file paths
                 index_data_path = self.get_pipeline_path(year, month_str, "indices")[
-                    "monthly"
+                   f"index_window_{self.index_window}"
                 ]
                 hazard_data_path = self.get_pipeline_path(year, month_str, "hazard")
 
@@ -594,7 +602,7 @@ class SeasonalForecast:
                 except FileNotFoundError:
                     msg = (
                         f"[Hazard Conversion] Skipped {self.index_metric} for year={year}, "
-                        f"month={month_str} — monthly index file not found."
+                        f"month={month_str} — index file not found."
                     )
                     LOGGER.warning(msg)
 
@@ -646,11 +654,11 @@ def handle_overwriting(function):
                 LOGGER.info("%s already exists.", output_file_name)
                 return output_file_name
         elif isinstance(output_file_name, dict):
-            if not overwrite and any(
+            if not overwrite and all(
                 path.exists() for path in output_file_name.values()
             ):
                 existing_files = [str(path) for path in output_file_name.values()]
-                LOGGER.info("One or more files already exist: %s", existing_files)
+                LOGGER.info("Files already exist: %s", existing_files)
                 return output_file_name
 
         return function(output_file_name, overwrite, *args, **kwargs)
@@ -840,6 +848,7 @@ def _calculate_index(
     overwrite,
     input_file_name,
     index_metric,
+    index_window="monthly",
     tr_threshold=20,
     hw_threshold=27,
     hw_min_duration=3,
@@ -851,13 +860,16 @@ def _calculate_index(
     Parameters
     ----------
     output_file_names : dict
-        Dictionary containing paths for daily, monthly, and stats output files.
+        Dictionary containing paths for daily, index_window, and stats output files.
     overwrite : bool
         Whether to overwrite existing files.
     input_file_name : Path
         Path to the input file.
     index_metric : str
         Climate index to calculate (e.g., 'HW', 'TR').
+    index_window : str or int, optional
+        Time window for the calculation of the index. If int, time window in days. If "monthly", time window are months.
+        Defaults to "monthly".
     threshold : float, optional
         Threshold for the index calculation (specific to the index type).
     min_duration : int, optional
@@ -874,12 +886,13 @@ def _calculate_index(
     """
     # Define output paths
     daily_output_path = output_file_names["daily"]
-    monthly_output_path = output_file_names["monthly"]
+    monthly_output_path = output_file_names[f"index_window_{index_window}"]
     stats_output_path = output_file_names["stats"]
 
     ds_daily, ds_monthly, ds_stats = seasonal_statistics.calculate_heat_indices_metrics(
         input_file_name,
         index_metric,
+        index_window=index_window,
         tr_threshold=tr_threshold,
         hw_threshold=hw_threshold,
         hw_min_duration=hw_min_duration,
@@ -892,14 +905,14 @@ def _calculate_index(
         LOGGER.info("Saved daily index to %s", daily_output_path)
     if ds_monthly is not None:
         ds_monthly.to_netcdf(monthly_output_path)
-        LOGGER.info("Saved monthly index to %s", monthly_output_path)
+        LOGGER.info("Saved %s index to %s", index_window, monthly_output_path)
     if ds_stats is not None:
         ds_stats.to_netcdf(stats_output_path)
         LOGGER.info("Saved stats index to %s", stats_output_path)
 
     return {
         "daily": daily_output_path,
-        "monthly": monthly_output_path,
+        f"index_window_{index_window}": monthly_output_path,
         "stats": stats_output_path,
     }
 

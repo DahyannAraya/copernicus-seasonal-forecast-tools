@@ -37,6 +37,7 @@ def get_file_path(
     index_metric: str,
     bounds_str: str,
     system: str,
+    index_window = "monthly",
     data_format: str = "grib",
 ) -> Union[Path, dict]:
     """
@@ -66,6 +67,9 @@ def get_file_path(
         Bounding box string (e.g., 'W4_S44_E11_N48').
     system : str
         Forecast system (e.g., '21').
+    index_window : str or int
+        Time window for the calculation of the index. If int, time window in days. If
+        "monthly", time window are months. Defaults to "monthly".
     data_format : str, optional
         File format: 'grib', 'netcdf', or 'hdf5' (autodetected by data_type if not provided).
 
@@ -82,13 +86,14 @@ def get_file_path(
     Notes
     -----
     - The returned path follows the CLIMADA forecast folder structure.
-    - Index files return a dict with 'daily', 'monthly', and 'stats' keys.
+    - Index files return a dict with 'daily', 'index_window', and 'stats' keys.
     """
     if data_type == "downloaded_data":
         data_type += f"/{data_format}"
     elif data_type == "hazard":
         data_type += f"/{index_metric}"
         data_format = "hdf5"
+        bounds_str+= f"_index_window_{index_window}"
     elif data_type == "indices":
         data_type += f"/{index_metric}"
         data_format = "nc"
@@ -110,7 +115,7 @@ def get_file_path(
             timeframe: Path(
                 f"{sub_dir}/{index_metric}_{bounds_str}_{timeframe}.{data_format}"
             )
-            for timeframe in ["daily", "monthly", "stats"]
+            for timeframe in ["daily", f"index_window_{index_window}", "stats"]
         }
 
     return Path(f"{sub_dir}/{index_metric}_{bounds_str}.{data_format}")
@@ -125,6 +130,7 @@ def check_existing_files(
     valid_period: List[str],
     bounds_str: str,
     system: str,
+    index_window = "monthly",
     download_format: str = "grib",
     print_flag: bool = False,
 ) -> str:
@@ -152,6 +158,9 @@ def check_existing_files(
         Spatial bounds string used in filenames.
     system : str
         Forecast system version (e.g., '21').
+    index_window : str or int
+        Time window for the calculation of the index. If int, time window in days. If
+        "monthly", time window are months. Defaults to "monthly".
     download_format : str, optional
         Format of the downloaded data. Default is 'grib'.
     print_flag : bool, optional
@@ -197,6 +206,7 @@ def check_existing_files(
             index_metric,
             bounds_str,
             system,
+            index_window=index_window,
             data_format=download_format,
         )
         for data_type in ["downloaded_data", "processed_data", "indices", "hazard"]
