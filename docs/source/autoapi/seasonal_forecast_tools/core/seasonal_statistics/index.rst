@@ -36,7 +36,7 @@ Module Contents
 
 .. py:data:: LOGGER
 
-.. py:function:: calculate_heat_indices_metrics(input_file_name, index_metric, tr_threshold=20, hw_threshold=27, hw_min_duration=3, hw_max_gap=0)
+.. py:function:: calculate_heat_indices_metrics(input_file_name, index_metric, index_window='monthly', tr_threshold=20, hw_threshold=27, hw_min_duration=3, hw_max_gap=0)
 
    Computes heat indices or temperature-related metrics based on the specified climate index.
 
@@ -56,6 +56,9 @@ Module Contents
                         - "AT"  : Apparent Temperature
                         - "WBGT": Wet Bulb Globe Temperature (Simple)
    :type index_metric: str
+   :param index_window: Time window for the calculation of the index. If int, time window in days. If "monthly", time window are months.
+                        Defaults to "monthly".
+   :type index_window: str or int
    :param tr_threshold: Temperature threshold (°C) for computing tropical nights (TR).
                         Default is 20°C, meaning nights with Tmin > 20°C are considered tropical.
    :type tr_threshold: float, optional
@@ -71,7 +74,7 @@ Module Contents
 
    :returns: A tuple containing three `xarray.Dataset` objects:
              - `daily index` : The calculated daily index values.
-             - `monthly index` : Monthly mean values of the index.
+             - `index_window index` : Mean values of the index over the time window index_window.
              - `index statistics` : Ensemble statistics calculated from the index.
    :rtype: tuple
 
@@ -79,15 +82,16 @@ Module Contents
    :raises FileNotFoundError: If the specified input file does not exist.
 
 
-.. py:function:: calculate_monthly_dataset(da_index, index_metric, method)
+.. py:function:: calculate_aggregated_dataset(da_index, index_metric, method)
 
-   Calculate monthly means from daily data
+   Calculate means from daily data
 
    :param da_index: Dataset containing daily data
    :type da_index: xr.Dataset
    :param index_metric: index to be computed
    :type index_metric: str
-   :param method: method to combine daily data to monthly data. Available are "mean" and "count".
+   :param method: method to combine daily data aggregated to period as defined in da_index.
+                  Available are "mean" and "count".
    :type method: str
 
    :returns: Dataset of monthly averages

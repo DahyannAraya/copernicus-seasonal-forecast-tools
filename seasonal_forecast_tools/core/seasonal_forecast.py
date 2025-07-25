@@ -15,7 +15,7 @@ or fitness for a particular purpose. For more details, see the GNU General Publi
 A copy of the GNU General Public License should have been provided with this module.
 If not, it is available at https://www.gnu.org/licenses/.
 
----
+
 Core interface for managing seasonal climate forecasts in CLIMADA.
 
 This module provides the SeasonalForecast class, which enables:
@@ -206,13 +206,9 @@ class SeasonalForecast:
         index_metric = ClimateIndex.from_input(index_metric or self.index_metric)
 
         response = (
-            f"Explanation for {index_metric.full_name}: "
-            f"{index_metric.explanation} "
+            f"Explanation for {index_metric.full_name}: " f"{index_metric.explanation} "
         )
-        response += (
-            "Required variables: "
-            f"{', '.join(index_metric.variables)}"
-        )
+        response += "Required variables: " f"{', '.join(index_metric.variables)}"
         if print_flag:
             print(response)
         return response
@@ -265,7 +261,9 @@ class SeasonalForecast:
 
         # create directory if not existing
         if data_type == "indices":
-            file_path[f"index_window_{self.index_window}"].parent.mkdir(parents=True, exist_ok=True)
+            file_path[f"index_window_{self.index_window}"].parent.mkdir(
+                parents=True, exist_ok=True
+            )
         else:
             file_path.parent.mkdir(parents=True, exist_ok=True)
 
@@ -584,7 +582,7 @@ class SeasonalForecast:
                 )
                 # Get input index file paths and hazard output file paths
                 index_data_path = self.get_pipeline_path(year, month_str, "indices")[
-                   f"index_window_{self.index_window}"
+                    f"index_window_{self.index_window}"
                 ]
                 hazard_data_path = self.get_pipeline_path(year, month_str, "hazard")
 
@@ -760,8 +758,8 @@ def _process_data(output_file_name, overwrite, input_file_name, variables, data_
 
     If data_format == "netcdf", any existing “forecast_period” dimension
     is first renamed to “step” so that the Xarray coarsen( step=… ) call works.
-    Note that NetCDF format is still experimental; see the CDS documentation 
-    for details. In contrast, GRIB files (opened with engine="cfgrib") already 
+    Note that NetCDF format is still experimental; see the CDS documentation
+    for details. In contrast, GRIB files (opened with engine="cfgrib") already
     include a step dimension, so no renaming is required.
 
     Parameters
@@ -806,8 +804,10 @@ def _process_data(output_file_name, overwrite, input_file_name, variables, data_
                 input_dataset = input_dataset.rename_dims({"forecast_period": "step"})
                 # Also rename the coordinate variable if it exists under the same name
                 if "forecast_period" in input_dataset.coords:
-                    input_dataset = input_dataset.rename_vars({"forecast_period": "step"})
-            
+                    input_dataset = input_dataset.rename_vars(
+                        {"forecast_period": "step"}
+                    )
+
             # Coarsen the data
             ds_mean = input_dataset.coarsen(step=4, boundary="trim").mean()
             ds_max = input_dataset.coarsen(step=4, boundary="trim").max()
@@ -819,7 +819,7 @@ def _process_data(output_file_name, overwrite, input_file_name, variables, data_
             combined_ds[f"{var}_mean"] = ds_mean[var]
             combined_ds[f"{var}_max"] = ds_max[var]
             combined_ds[f"{var}_min"] = ds_min[var]
-        
+
         # Drop forecast_reference_time variable, coordinate, and dimension if present
         if "forecast_reference_time" in combined_ds.coords:
             combined_ds = combined_ds.drop_vars("forecast_reference_time")
@@ -1003,7 +1003,7 @@ def _convert_to_hazard(output_file_name, overwrite, input_file_name, index_metri
                     if "number" in input_dataset.dims
                     else input_dataset
                 )
-                
+
                 hazard = Hazard.from_xarray_raster(
                     data=ds_subset,
                     hazard_type=index_metric,

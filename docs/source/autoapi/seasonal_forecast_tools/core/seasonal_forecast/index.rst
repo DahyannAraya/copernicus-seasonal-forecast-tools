@@ -21,7 +21,7 @@ seasonal_forecast_tools.core.seasonal_forecast
    A copy of the GNU General Public License should have been provided with this module.
    If not, it is available at https://www.gnu.org/licenses/.
 
-   ---
+
    Core interface for managing seasonal climate forecasts in CLIMADA.
 
    This module provides the SeasonalForecast class, which enables:
@@ -64,7 +64,7 @@ Module Contents
 
 .. py:data:: LOGGER
 
-.. py:class:: SeasonalForecast(index_metric, year_list, forecast_period, initiation_month, bounds, data_format, originating_centre, system, data_out=None)
+.. py:class:: SeasonalForecast(index_metric, year_list, forecast_period, initiation_month, bounds, data_format, originating_centre, system, index_window='monthly', data_out=None)
 
    Class for managing the download, processing, and analysis of seasonal climate forecast data.
 
@@ -101,6 +101,11 @@ Module Contents
 
 
    .. py:attribute:: system
+
+
+   .. py:attribute:: index_window
+      :value: 'monthly'
+
 
 
    .. py:attribute:: data_out
@@ -150,7 +155,7 @@ Module Contents
       :type data_type: str
 
       :returns: Path to the requested file(s). For 'indices', returns a dictionary with keys
-                'daily', 'monthly', 'stats'.
+                'daily', 'index_window', 'stats'.
       :rtype: Path or dict of Path
 
       :raises ValueError: If unknown data_type is provided.
@@ -210,7 +215,7 @@ Module Contents
       :type tr_threshold: float, optional
 
       :returns: Dictionary with keys of the form "<year>_init<month>_valid<valid_period>"
-                and values corresponding to the output NetCDF index files (daily, monthly, stats).
+                and values corresponding to the output NetCDF index files (daily, index_window, stats).
       :rtype: dict
 
       :raises Exception: If index calculation fails due to missing files or processing errors.
@@ -230,8 +235,9 @@ Module Contents
 
       Convert the calculated climate index to a CLIMADA Hazard object and save it as HDF5.
 
-      This function reads the monthly aggregated index NetCDF files and converts them
-      into a CLIMADA Hazard object. The resulting hazard files are saved in HDF5 format.
+      This function reads the aggregated index NetCDF files (over time frame specified by
+      index_window attribute) and converts them into a CLIMADA Hazard object. The
+      resulting hazard files are saved in HDF5 format.
 
       :param overwrite: If True, existing hazard files will be overwritten. Default is False.
       :type overwrite: bool, optional
@@ -245,7 +251,7 @@ Module Contents
       .. rubric:: Notes
 
       The hazard conversion is performed using the `_convert_to_hazard` function.
-      The function expects that the index files (monthly NetCDF) have already been
+      The function expects that the index files (NetCDF) have already been
       calculated and saved using `calculate_index()`.
 
       The resulting Hazard objects follow CLIMADA's internal structure and can be

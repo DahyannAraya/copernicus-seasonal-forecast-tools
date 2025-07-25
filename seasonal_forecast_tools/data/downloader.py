@@ -15,11 +15,11 @@ or fitness for a particular purpose. For more details, see the GNU General Publi
 A copy of the GNU General Public License should have been provided with this module.
 If not, it is available at https://www.gnu.org/licenses/.
 
----
+
 
 Functionality to download data from the Copernicus Data Stores.
 
----
+
 
 Prerequisites:
 1. CDS API client installation:
@@ -42,10 +42,12 @@ import logging
 from pathlib import Path
 
 import cdsapi
-#from climada import CONFIG
 
-#DATA_DIR = CONFIG.hazard.copernicus.local_data.dir()
+# from climada import CONFIG
+
+# DATA_DIR = CONFIG.hazard.copernicus.local_data.dir()
 from ..utils.config import SEASONAL_FORECAST_DIR
+
 DATA_DIR = SEASONAL_FORECAST_DIR
 
 LOGGER = logging.getLogger(__name__)
@@ -88,13 +90,7 @@ def download_data(dataset, params, filename=None, datastore_url=None, overwrite=
     if not datastore_url:
         cds_filepath = str(Path.home()) + "/.cdsapirc"
         with open(cds_filepath, "r") as file:
-            url = (
-                file.read()
-                .split("\n")[0]
-                .split(" ")[1]
-                .strip()
-                .removesuffix("/api")
-            )
+            url = file.read().split("\n")[0].split(" ")[1].strip().removesuffix("/api")
     else:
         if not datastore_url.endswith("/api"):
             raise ValueError("The given datastore_url must end with /api.")

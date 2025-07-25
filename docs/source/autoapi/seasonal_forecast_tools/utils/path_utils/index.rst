@@ -33,7 +33,7 @@ seasonal_forecast_tools.utils.path_utils
 Module Contents
 ---------------
 
-.. py:function:: get_file_path(base_dir: Union[str, pathlib.Path], originating_centre: str, year: Union[int, str], initiation_month_str: str, valid_period_str: str, data_type: str, index_metric: str, bounds_str: str, system: str, data_format: str = 'grib') -> Union[pathlib.Path, dict]
+.. py:function:: get_file_path(base_dir: Union[str, pathlib.Path], originating_centre: str, year: Union[int, str], initiation_month_str: str, valid_period_str: str, data_type: str, index_metric: str, bounds_str: str, system: str, index_window='monthly', data_format: str = 'grib') -> Union[pathlib.Path, dict]
 
    Construct the file path or path dictionary for a given forecast dataset.
 
@@ -59,6 +59,9 @@ Module Contents
    :type bounds_str: str
    :param system: Forecast system (e.g., '21').
    :type system: str
+   :param index_window: Time window for the calculation of the index. If int, time window in days. If
+                        "monthly", time window are months. Defaults to "monthly".
+   :type index_window: str or int
    :param data_format: File format: 'grib', 'netcdf', or 'hdf5' (autodetected by data_type if not provided).
    :type data_format: str, optional
 
@@ -70,10 +73,10 @@ Module Contents
    .. rubric:: Notes
 
    - The returned path follows the CLIMADA forecast folder structure.
-   - Index files return a dict with 'daily', 'monthly', and 'stats' keys.
+   - Index files return a dict with 'daily', 'index_window', and 'stats' keys.
 
 
-.. py:function:: check_existing_files(base_dir: Union[str, pathlib.Path], originating_centre: str, index_metric: str, year: int, initiation_month: str, valid_period: List[str], bounds_str: str, system: str, download_format: str = 'grib', print_flag: bool = False) -> str
+.. py:function:: check_existing_files(base_dir: Union[str, pathlib.Path], originating_centre: str, index_metric: str, year: int, initiation_month: str, valid_period: List[str], bounds_str: str, system: str, index_window='monthly', download_format: str = 'grib', print_flag: bool = False) -> str
 
    Inspect the existence of forecast data files for a given configuration.
 
@@ -96,6 +99,9 @@ Module Contents
    :type bounds_str: str
    :param system: Forecast system version (e.g., '21').
    :type system: str
+   :param index_window: Time window for the calculation of the index. If int, time window in days. If
+                        "monthly", time window are months. Defaults to "monthly".
+   :type index_window: str or int
    :param download_format: Format of the downloaded data. Default is 'grib'.
    :type download_format: str, optional
    :param print_flag: Whether to print the existence check report.

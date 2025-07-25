@@ -21,11 +21,11 @@ seasonal_forecast_tools.data.downloader
    A copy of the GNU General Public License should have been provided with this module.
    If not, it is available at https://www.gnu.org/licenses/.
 
-   ---
+
 
    Functionality to download data from the Copernicus Data Stores.
 
-   ---
+
 
    Prerequisites:
    1. CDS API client installation:
