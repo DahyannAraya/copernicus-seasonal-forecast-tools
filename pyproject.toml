@@ -4,7 +4,7 @@ build-backend = "setuptools.build_meta"
 
 [project]
 name = "copernicus-seasonal-forecast-tools"
-version = "0.1.1"
+version = "0.1.2"
 description = "CLIMADA-compatible module for generating and analyzing seasonal forecast hazards from Copernicus data"
 license = "GPL-3.0-or-later"
 requires-python = ">=3.10,<3.12"
