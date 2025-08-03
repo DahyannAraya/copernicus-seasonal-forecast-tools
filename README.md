@@ -13,7 +13,7 @@
 
 <img src="https://raw.githubusercontent.com/DahyannAraya/copernicus-seasonal-forecast-tools/refs/heads/main/images/copernicus_forecast_qr.png" alt="Repository QR Code" width="150"/>
 
-This repository hosts the **copernicus-seasonal-forecast-tools**, a Python package developed to manage seasonal forecast data from the [Copernicus Climate Data Store (CDS)](https://cds.climate.copernicus.eu/) as part of the [U-CLIMADAPT project](https://www.copernicus-user-uptake.eu/user-uptake/details/responding-to-the-impact-of-climate-change-u-climadapt-488).
+This repository hosts the **copernicus-seasonal-forecast-tools**, a Python package developed to manage seasonal forecast data from the [Copernicus Climate Data Store (CDS)](https://cds.climate.copernicus.eu/) as part of the [U-CLIMADAPT project](https://www.dwd.de/EN/research/projects/socioeconomics/fpcup_u_climadapt/fpcup_u_climadapt.html).
 
 It offers comprehensive tools for downloading, processing, computing climate indices, and generating hazard objects based on seasonal forecast datasets, particularly [Seasonal forecast daily and subdaily data on single levels](https://cds.climate.copernicus.eu/datasets/seasonal-original-single-levels?tab=overview).
 The packge is tailored to integrate seamlessly with the [CLIMADA](https://climada.ethz.ch/) (CLIMate ADAptation) platform, supporting climate risk assessment and the development of effective adaptation strategies.
@@ -109,7 +109,7 @@ You can find further material in [<img src="https://colab.research.google.com/as
 
 
 ## **Resources**
-- [U-CLIMADAPT Project](https://www.copernicus-user-uptake.eu/user-uptake/details/responding-to-the-impact-of-climate-change-u-climadapt-488)
+- [U-CLIMADAPT Project](https://www.dwd.de/EN/research/projects/socioeconomics/fpcup_u_climadapt/fpcup_u_climadapt.html)
 - [Copernicus Seasonal Forecast Tools package on CLIMADA](https://climada-python.readthedocs.io/en/latest/user-guide/climada_hazard_copernicus_seasonal_forecast.html)
 - [Copernicus Seasonal Forecast Tools Package — Extended Demonstration](https://colab.research.google.com/github/DahyannAraya/copernicus_climada_seasonal_forecast_workshop/blob/main/DEMO_Modul_climada_copernicus_seasonal_forecast_workshop.ipynb)
 - [Seasonal forecast daily and subdaily data on single levels](https://cds.climate.copernicus.eu/datasets/seasonal-original-single-levels?tab=overview)
