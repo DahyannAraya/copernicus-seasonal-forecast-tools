@@ -26,7 +26,7 @@ This section provides links to external resources related to data sources and pr
 
 **Related Project**
 
-- `U-CLIMADAPT Project <https://www.copernicus-user-uptake.eu/user-uptake/details/responding-to-the-impact-of-climate-change-u-climadapt-488>`_
+- `U-CLIMADAPT Project <https://www.dwd.de/EN/research/projects/socioeconomics/fpcup_u_climadapt/fpcup_u_climadapt.html>`_
 
 **Data Sources**
 
