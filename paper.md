@@ -5,7 +5,7 @@ tags:
   - Copernicus Climate Data Store
   - CDS
   - CLIMADA
-  - Climate hazard modelingf
+  - Climate hazard modeling
   - Impact-based forecasting
   - Climate risk assessment
   - Climate adaptation
