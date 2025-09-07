@@ -5,7 +5,7 @@ tags:
   - Copernicus Climate Data Store
   - CDS
   - CLIMADA
-  - Climate hazard modeling
+  - Climate hazard modelingf
   - Impact-based forecasting
   - Climate risk assessment
   - Climate adaptation
@@ -58,7 +58,7 @@ The Copernicus Seasonal Forecast Tools Package addresses this gap by providing a
 
 The Copernicus Climate Data Store currently offers one of the most comprehensive and globally accessible repositories of seasonal forecast data [@Buontempo:2022]. It brings together high-dimensional, hourly-resolution outputs from approximately eight major meteorological centers, encompassing more than 50 climate variables. These datasets span both hindcast and forecast periods, starting from around 1996 to the present, with up to 6-month lead times and multiple ensemble members per forecasting provider [@cds_documentation]. While the richness of this dataset enables advanced climate research, its size and complexity renders direct use challenging.
 
-To address this issue, the Copernicus Seasonal Forecast Package provides streamlined tools to access data via cdsapi, and to filter and aggregate raw GRIB/netCDF files into daily netCDF outputs, facilitating their downstream use in climate index calculation and risk modeling. Once retrieved, it processes the raw files into gridded daily netCDF datasets, structured by forecast date, ensemble member, latitude, and longitude. In all steps of the process, the package checks if the corresponding output files already exist before proceeding. Each file includes multi-ensemble data for daily mean, maximum, and minimum values.
+To address this issue, the Copernicus Seasonal Forecast Package provides streamlined tools to access data via Climate Data Store API (Python client: cdsapi), and to filter and aggregate raw GRIB/netCDF files into daily netCDF outputs, facilitating their downstream use in climate index calculation and risk modeling. Once retrieved, it processes the raw files into gridded daily netCDF datasets, structured by forecast date, ensemble member, latitude, and longitude. In all steps of the process, the package checks if the corresponding output files already exist before proceeding. Each file includes multi-ensemble data for daily mean, maximum, and minimum values.
 
 Once daily data is calculated, users can select from twelve available heat indices, including temperature-based indices (Tmean, Tmin, Tmax), heat stress indicators (HIA—Heat Index Adjusted, HIS—Heat Index Simplified, HUM—Humidex, AT—Apparent Temperature, WBGT—Wet Bulb Globe Temperature), and extreme event indices (HW—Heat Wave, TR—Tropical Nights, TX30—Hot Days).
 
