@@ -41,7 +41,7 @@ Overview
 
 Welcome to the **Copernicus Seasonal Forecast Tools**! 
 
-This Python package, developed to manage seasonal forecast data from the `Copernicus Climate Data Store (CDS) <https://cds.climate.copernicus.eu/>`_ as part of the `U-CLIMADAPT <https://www.copernicus-user-uptake.eu/user-uptake/details/responding-to-the-impact-of-climate-change-u-climadapt-488>`_ project. We designed this package to make working with climate forecasts more accessible for researchers and practitioners.
+This Python package, developed to manage seasonal forecast data from the `Copernicus Climate Data Store (CDS) <https://cds.climate.copernicus.eu/>`_ as part of the `U-CLIMADAPT <https://www.dwd.de/EN/research/projects/socioeconomics/fpcup_u_climadapt/fpcup_u_climadapt.html>`_ project. We designed this package to make working with climate forecasts more accessible for researchers and practitioners.
 
 It offers comprehensive tools for downloading, processing, computing climate indices, and generating hazard objects based on seasonal forecast datasets, particularly `Seasonal forecast daily and subdaily data on single levels <https://cds.climate.copernicus.eu/datasets/seasonal-original-single-levels?tab=overview>`_.
 The package is tailored to integrate seamlessly with the `CLIMADA <https://climada.ethz.ch/>`_ (CLIMate ADAptation) platform, supporting climate risk assessment and the development of effective adaptation strategies.

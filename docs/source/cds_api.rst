@@ -32,7 +32,8 @@ This page guides you through setting up the Copernicus Climate Data Store (CDS) 
    * Remember to accept the Terms and Conditions for each dataset you're interested in
    * You'll find these terms at the bottom of each dataset's download page
    * This simple step enables your API requests to work correctly
-   * For reference, the general data usage guidelines are available at: https://cds.climate.copernicus.eu/terms
+   * For reference, the general data usage guidelines are available at: `CDS Term of Use <https://cds.climate.copernicus.eu/disclaimer-privacy>`_
+
 
 Step-by-Step Instructions
 -------------------------
@@ -53,13 +54,13 @@ Step-by-Step Instructions
 **3. Configure Your API Key**
 
 - After registration, go to your CDS account page:  
-  https://cds.climate.copernicus.eu/api-how-to
+  https://cds.climate.copernicus.eu/how-to-api
 
 - Copy your personal API key and create a file named **`.cdsapirc`** in your home directory with the following format:
 
   .. code-block:: text
 
-     url: https://cds.climate.copernicus.eu/api/v2
+     url: https://cds.climate.copernicus.eu/api
      key: <your-uid>:<your-api-key>
 
   For full instructions, see:  
