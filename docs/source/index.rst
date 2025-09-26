@@ -58,133 +58,23 @@ Key features include:
 Getting Started
 ---------------
 
-Seasonal forecast data can be accessed through the `Copernicus Climate Data Store (CDS) <https://cds.climate.copernicus.eu>`_, which offers a variety of datasets including those compatible with this tool. Access requires a free CDS account and proper API configuration.
-
-.. note::
-
-   You need a CDS account, API credentials, and to accept the dataset's terms and conditions.
-
-We've prepared a comprehensive :doc:`CDS API setup guide <cds_api>` to walk you through each step of the process. Once configured, you'll be ready to explore and analyze seasonal forecast data.
-
-Installation
-------------
-
-The package requires **Python 3.10**, but versions 3.11 and 3.12 are also supported. Make sure your environment is using a compatible Python version before installation.
-
-You can install **copernicus-seasonal-forecast-tools** in three ways, depending on your setup and preferences.
-
-.. note::
-
-   If you want to generate CLIMADA hazard objects, you must install the optional CLIMADA dependency.
-
-Install from PyPI:
+For a quick start, install the package and its requirements
 
 .. code-block:: bash
 
    pip install copernicus-seasonal-forecast-tools
-   git clone https://github.com/DahyannAraya/copernicus-seasonal-forecast-tools.git  # optional
-   pip install -r docs/requirements.txt  # optional
-
-Install via environment.yml (Conda or Mamba):
-
-.. code-block:: bash
-
-   git clone https://github.com/DahyannAraya/copernicus-seasonal-forecast-tools.git
-   conda env create -f environment.yml
-   conda activate venv_forecast
-
-Install from GitHub:
-
-.. code-block:: bash
-
-   git clone https://github.com/DahyannAraya/copernicus-seasonal-forecast-tools.git
-   cd copernicus-seasonal-forecast-tools
-   pip install .
-   pip install -r docs/requirements.txt  # optional
-
-CLIMADA Installation
---------------------
-
-CLIMADA is required to generate hazard layers.
-
-- If you installed via `environment.yml`, CLIMADA is already included.
-- If you installed from PyPI and then ran `pip install -r docs/requirements.txt`, CLIMADA is also installed.
-- ⚠️ Only install CLIMADA manually if you skipped `requirements.txt` or want to customize its installation:
-
-.. code-block:: bash
-
-   git clone https://github.com/CLIMADA-project/climada_python.git
-   cd climada_python
-   pip install -e .
-
-.. note::
-
-   If you want to have all the functionalities of **CLIMADA**, you must install the full version. For detailed instructions, follow the official CLIMADA installation guide: `CLIMADA Installation Guide <https://climada-python.readthedocs.io/en/stable/guide/install.html>`_
-
-Developer Setup
----------------
-
-To contribute or run the documentation and tests:
-
-.. code-block:: bash
-
-   git clone https://github.com/DahyannAraya/copernicus-seasonal-forecast-tools.git
-   cd copernicus-seasonal-forecast-tools
-   python3.10 -m venv .venv_forecast  # Windows: use py -3.10
-   source .venv_forecast/bin/activate
-   pip install -e .
+   git clone https://github.com/DahyannAraya/copernicus-seasonal-forecast-tools.git 
    pip install -r docs/requirements.txt
 
+For detailed installation instructions, see :doc:`Installation <installation>`.
+
 .. note::
 
-   On Windows, use ``.venv_forecast\Scripts\activate`` instead of ``source``.
-
-Community guidelines
---------------------
-
-This section summarizes how to contribute and where to find details. We adopt the CLIMADA contribution workflow and conventions.
-
-1) Contribute
--------------
-
-We follow the CLIMADA workflow for branching, tests, and reviews. Please read the CLIMADA guide:
-
-- `CLIMADA development guide <https://climada-python.readthedocs.io/en/latest/development/index.html>`_
-
-Typical steps: fork -> branch -> tests -> pull request.
-
-For extended resources for CLIMADA development, visit:
-
-- `Guide to CLIMADA development <https://climada-python.readthedocs.io/en/latest/development/Guide_CLIMADA_Development.html>`_
-
-2) Report issues or problems
-----------------------------
-
-`Open an issue <https://github.com/DahyannAraya/copernicus-seasonal-forecast-tools/issues/new/choose>`_ and include:
-
-- Clear description and minimal example
-- Expected vs actual behavior
-- Version info (package, Python, OS)
-- Relevant logs or traceback
-
-3) Seek support
----------------
-
-`Talk to the CLIMADA group <https://climada-python.readthedocs.io/en/latest/development/Guide_CLIMADA_Development.html#talk-to-the-group>`__
-
-- Before starting to code, coordinate with one of the repository admins.
-- Align on the big picture: intersections with other projects, potential conflicts, changes to CLIMADA core, and additional dependencies.
-- Also talk with members of the core development team (see the GitHub wiki).
-- Bring your idea to a developers meeting to get advice, find collaborators, and identify reviewers.
-- Keep communicating as your plans evolve.
-
-4) How to stay informed or participate
---------------------------------------
-
-- `GitHub repository <https://github.com/CLIMADA-project/climada_python>`_
-- `Developer and user mailing list <https://sympa.ethz.ch/sympa/info/climada-users>`_
-- Monthly developers and users meetings (please register for the mailing list to receive invitations)
-- `Contribution guide <https://climada-python.readthedocs.io/en/latest/development/index.html>`_
+   Seasonal forecast data can be accessed through the `Copernicus Climate Data Store (CDS) <https://cds.climate.copernicus.eu>`_, 
+   which offers a variety of datasets including those compatible with this tool. **Access requires a free CDS account and proper API configuration.**
+   You need a CDS account, API credentials, and to accept the dataset's terms and conditions.
+   We've prepared a comprehensive :ref:`CDS API setup guide <cds-api-setup>` to walk you through each step of the process.
+   Once configured, you'll be ready to explore and analyze seasonal forecast data.
 
 License
 -------
@@ -197,8 +87,9 @@ License
    :titlesonly:
 
    Home <self>
-   CDS API <cds_api>
-   autoapi/index
+   Installation <installation>
    climada_hazard_copernicus_forecast.ipynb
+   autoapi/index
    How to Cite <citing>
+   Contribution <contribution>
    Resources <modules>
