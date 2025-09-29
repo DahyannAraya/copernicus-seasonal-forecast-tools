@@ -88,7 +88,8 @@ License
 
    Home <self>
    Installation <installation>
-   climada_hazard_copernicus_forecast.ipynb
+   Short Example <copernicus_forecast_short.ipynb>
+   Full Walkthrough <climada_hazard_copernicus_forecast.ipynb>
    autoapi/index
    How to Cite <citing>
    Contribution <contribution>
