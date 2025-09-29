@@ -17,6 +17,7 @@ extensions = [
 ]
 nb_execution_excludepatterns = [
     "source/climada_hazard_copernicus_forecast.ipynb",
+    "source/copernicus_forecast_short.ipynb",
 ]
 
 autoapi_type = "python"
