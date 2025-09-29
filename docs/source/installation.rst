@@ -24,7 +24,7 @@ Installation
 
 The package requires **Python 3.10**, but versions 3.11 and 3.12 are also supported. Make sure your environment is using a compatible Python version before installation.
 
-You can install **copernicus-seasonal-forecast-tools** in three ways, depending on your setup and preferences.
+You can install **copernicus-seasonal-forecast-tools** in different ways, depending on your setup and preferences.
 
 .. note::
 
@@ -35,8 +35,9 @@ Install from PyPI:
 .. code-block:: bash
 
    pip install copernicus-seasonal-forecast-tools
-   git clone https://github.com/DahyannAraya/copernicus-seasonal-forecast-tools.git  # optional
-   pip install -r docs/requirements.txt  # optional
+   # optional (including CLIMADA installation):
+   git clone https://github.com/DahyannAraya/copernicus-seasonal-forecast-tools.git
+   pip install -r docs/requirements.txt
 
 Install via environment.yml (Conda or Mamba):
 
@@ -53,25 +54,29 @@ Install from GitHub:
    git clone https://github.com/DahyannAraya/copernicus-seasonal-forecast-tools.git
    cd copernicus-seasonal-forecast-tools
    pip install .
-   pip install -r docs/requirements.txt  # optional
+   pip install -r docs/requirements.txt  # optional (including CLIMADA installation)
 
-Developer Setup
----------------
-
-To contribute or run the documentation and tests:
+To install the package **in developer (editable) mode on macOS/Linux**, and run the documentation and tests:
 
 .. code-block:: bash
 
    git clone https://github.com/DahyannAraya/copernicus-seasonal-forecast-tools.git
    cd copernicus-seasonal-forecast-tools
-   python3.10 -m venv .venv_forecast  # Windows: use py -3.10
+   python3.10 -m venv .venv_forecast
    source .venv_forecast/bin/activate
    pip install -e .
-   pip install -r docs/requirements.txt
+   pip install -r docs/requirements.txt # optional (including CLIMADA installation)
 
-.. note::
+To install the package **in developer (editable) mode on Windows (PowerShell)**, and run the documentation and tests:
 
-   On Windows, use ``.venv_forecast\Scripts\activate`` instead of ``source``.
+.. code-block:: powershell
+
+   git clone https://github.com/DahyannAraya/copernicus-seasonal-forecast-tools.git
+   cd copernicus-seasonal-forecast-tools
+   py -3.10 -m venv .venv_forecast
+   .venv_forecast\Scripts\Activate.ps1
+   pip install -e .
+   pip install -r docs/requirements.txt # optional (including CLIMADA installation)
 
 
 CLIMADA Installation
