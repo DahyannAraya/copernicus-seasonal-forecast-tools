@@ -17,25 +17,9 @@ If not, it is available at https://www.gnu.org/licenses/.
 
 
 
-Functionality to download data from the Copernicus Data Stores.
-
-
-
-Prerequisites:
-1. CDS API client installation:
-   pip install cdsapi
-
-2. CDS account and API key:
-   Register at https://cds.climate.copernicus.eu
-
-3. CDS API configuration:
-   Create a .cdsapirc file in your home directory with your API key and URL of the CDS you want to access.
-   For instance, if you want to access the Climate Data Store, see here for instructions:
-   https://cds.climate.copernicus.eu/how-to-api#install-the-cds-api-client
-
-4. Dataset Terms and Conditions: After selecting the dataset to download, make
-   sure to accept the terms and conditions on the corresponding dataset webpage (under the "download" tab)
-   in the CDS portal before running the script.
+Functionality to download data from the Copernicus Data Stores. Please make sure
+to have fulfilled installed the CDS API client correctly, see
+https://copernicus-seasonal-forecast-tools.readthedocs.io/en/latest/installation.html.
 """
 
 import logging
