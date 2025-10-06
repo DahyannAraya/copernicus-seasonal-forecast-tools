@@ -75,6 +75,11 @@ def bounding_box_from_countries(countries: List[str], buffer: float = 1.0) -> Tu
     ------
     ValueError
         If no matching countries are found.
+
+    Notes
+    -----
+    This function is a wrapper function around `geopandas.GeoSeries.total_bounds` adding an optional buffer.
+
     """
     shp_path = shapereader.natural_earth(resolution="110m", category="cultural", name="admin_0_countries")
     gdf = gpd.read_file(shp_path)
