@@ -37,6 +37,7 @@ Install from PyPI:
    pip install copernicus-seasonal-forecast-tools
    # optional (including CLIMADA installation):
    git clone https://github.com/DahyannAraya/copernicus-seasonal-forecast-tools.git
+   cd copernicus-seasonal-forecast-tools
    pip install -r docs/requirements.txt
 
 Install via environment.yml (Conda or Mamba):
@@ -44,6 +45,7 @@ Install via environment.yml (Conda or Mamba):
 .. code-block:: bash
 
    git clone https://github.com/DahyannAraya/copernicus-seasonal-forecast-tools.git
+   cd copernicus-seasonal-forecast-tools
    conda env create -f environment.yml
    conda activate venv_forecast
 
