@@ -1,10 +1,11 @@
 """
-Smoke test for SeasonalForecast using synthetic data and mocks.
-Ensures calculate_index runs without deep nested sample inputs.
+Integration tests for seasonal_forecast_tools.SeasonalForecast (IO mocked).
 
-Key fix: 'step' uses a DatetimeIndex so resample(step="1D") works.
+This test suite covers:
+- End-to-end orchestration: init → preprocess → compute → finalize.
+- Isolation from external services (CDS, filesystem) via mocks.
+- Error handling and minimal output contracts under mocked operations.
 """
-
 import unittest
 from unittest.mock import patch
 from pathlib import Path
