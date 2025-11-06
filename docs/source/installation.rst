@@ -67,9 +67,9 @@ To install the package **in developer (editable) mode on Windows (PowerShell)**,
    pip install -e .
    pip install -r docs/requirements.txt # optional (including CLIMADA installation)
 
+INSTALLATIONS TO BE REMOVED
+===========================
 
-INSTALLATION TO BE REMOVED
-.. OLD INSTALLATION INSTRUCTIONS; NOT FUNCTIONAL AT THE MOMENT
 Install from PyPI:
 
 .. code-block:: bash
