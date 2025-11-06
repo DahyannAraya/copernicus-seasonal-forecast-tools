@@ -26,8 +26,8 @@ The package requires Python 3.10, 3.11 or 3.12. Make sure your environment is us
 
 You can install **copernicus-seasonal-forecast-tools** in different ways, depending on your setup and preferences.
 Below we describe the installation using the package manager and environment management system
-`Conda<https://docs.conda.io/projects/conda/en/stable/user-guide/getting-started.html>`
-(similar installations are possible with the package managers `Mamba<https://mamba.readthedocs.io/en/latest/>` or `Pixi<https://pixi.sh/latest/>`).
+`Conda <https://docs.conda.io/projects/conda/en/stable/user-guide/getting-started.html>`_
+(similar installations are possible with the package managers `Mamba <https://mamba.readthedocs.io/en/latest/>`_ or `Pixi <https://pixi.sh/latest/>`_).
 
 To **install the package with the climate-risk assessment package CLIMADA**:
 
@@ -37,7 +37,7 @@ To **install the package with the climate-risk assessment package CLIMADA**:
    conda activate conernicus_with
    pip install copernicus-seasonal-forecast-tools
 
-To **install the package with the climate-risk assessment package CLIMADA**:
+To **install the package without the climate-risk assessment package CLIMADA**:
 
 .. code-block:: bash
 
