@@ -22,4 +22,3 @@ dependencies:
   - pip
   - pip:
     - -e .. 
-    - -r requirements.txt
