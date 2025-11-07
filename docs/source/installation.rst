@@ -29,7 +29,7 @@ Below we describe the installation using the package manager and environment man
 `Conda <https://docs.conda.io/projects/conda/en/stable/user-guide/getting-started.html>`_
 (similar installations are possible with the package managers `Mamba <https://mamba.readthedocs.io/en/latest/>`_ or `Pixi <https://pixi.sh/latest/>`_).
 
-To **install the package with the climate-risk assessment package CLIMADA**:
+To install the package **with** the climate-risk assessment package CLIMADA:
 
 .. code-block:: bash
 
@@ -37,7 +37,7 @@ To **install the package with the climate-risk assessment package CLIMADA**:
    conda activate conernicus_with
    pip install copernicus-seasonal-forecast-tools
 
-To **install the package without the climate-risk assessment package CLIMADA**:
+To install the package **without** the climate-risk assessment package CLIMADA:
 
 .. code-block:: bash
 
@@ -45,81 +45,28 @@ To **install the package without the climate-risk assessment package CLIMADA**:
    conda activate conernicus_without
    pip install copernicus-seasonal-forecast-tools
 
-To install the package **in developer (editable) mode on macOS/Linux**, and run the documentation and tests:
+To install the package **in developer (editable) mode**, and run the documentation and tests:
 
 .. code-block:: bash
 
+   conda create -n copernicus-dev-mode python=3.11 pip geopandas climada
+   conda activate copernicus-dev-mode
    git clone https://github.com/DahyannAraya/copernicus-seasonal-forecast-tools.git
    cd copernicus-seasonal-forecast-tools
-   python3.10 -m venv .venv_forecast
-   source .venv_forecast/bin/activate
    pip install -e .
-   pip install -r docs/requirements.txt # optional (including CLIMADA installation)
-
-To install the package **in developer (editable) mode on Windows (PowerShell)**, and run the documentation and tests:
-
-.. code-block:: powershell
-
-   git clone https://github.com/DahyannAraya/copernicus-seasonal-forecast-tools.git
-   cd copernicus-seasonal-forecast-tools
-   py -3.10 -m venv .venv_forecast
-   .venv_forecast\Scripts\Activate.ps1
-   pip install -e .
-   pip install -r docs/requirements.txt # optional (including CLIMADA installation)
-
-INSTALLATIONS TO BE REMOVED
-===========================
-
-Install from PyPI:
-
-.. code-block:: bash
-
-   pip install copernicus-seasonal-forecast-tools
-   # optional (including CLIMADA installation):
-   git clone https://github.com/DahyannAraya/copernicus-seasonal-forecast-tools.git
-   cd copernicus-seasonal-forecast-tools
-   pip install -r docs/requirements.txt
-
-INSTALLATION TO BE REMOVED
-.. OLD INSTALLATION INSTRUCTIONS; NOT FUNCTIONAL AT THE MOMENT
-Install via environment.yml (Conda or Mamba):
-
-.. code-block:: bash
-
-   git clone https://github.com/DahyannAraya/copernicus-seasonal-forecast-tools.git
-   cd copernicus-seasonal-forecast-tools
-   conda env create -f environment.yml
-   conda activate venv_forecast
-
-INSTALLATION TO BE REMOVED
-Install from GitHub:
-
-.. code-block:: bash
-
-   git clone https://github.com/DahyannAraya/copernicus-seasonal-forecast-tools.git
-   cd copernicus-seasonal-forecast-tools
-   pip install .
-   pip install -r docs/requirements.txt  # optional (including CLIMADA installation)
-
 
 CLIMADA Installation
 --------------------
 
 CLIMADA is required to generate hazard layers.
 
-- If you installed via `environment.yml`, CLIMADA is already included.
-- If you installed from PyPI and then ran `pip install -r docs/requirements.txt`, CLIMADA is also installed.
-- ⚠️ Only install CLIMADA manually if you skipped `requirements.txt` or want to customize its installation:
+- If you installed the package without CLIMADA you can install CLIMADA later on with
 
 .. code-block:: bash
 
-   git clone https://github.com/CLIMADA-project/climada_python.git
-   cd climada_python
-   pip install -e .
+   conda install climada
 
-.. note::
-
-   If you want to have all the functionalities of **CLIMADA**, you must install the full version. For detailed instructions, follow the official CLIMADA installation guide: `CLIMADA Installation Guide <https://climada-python.readthedocs.io/en/stable/guide/install.html>`_
+- If you want to customize the CLIMADA installation, follow the `Advanced Instructions <https://climada-python.readthedocs.io/en/stable/getting-started/install.html#advanced-instructions-installing-from-source>`_ of the CLIMADA installation guide.
 
 .. _cds-api-setup:
 How to Set Up the Copernicus API?
