@@ -21,5 +21,4 @@ dependencies:
   - sphinx_rtd_theme
   - pip
   - pip:
-    - -e .. 
-    - -r requirements.txt
+    - -e . 
