@@ -62,9 +62,9 @@ For a quick start, install the package and its requirements
 
 .. code-block:: bash
 
+   conda create -n copernicus_with python=3.11 pip climada
+   conda activate conernicus_with
    pip install copernicus-seasonal-forecast-tools
-   git clone https://github.com/DahyannAraya/copernicus-seasonal-forecast-tools.git 
-   pip install -r docs/requirements.txt
 
 For detailed installation instructions, see :doc:`Installation <installation>`.
 
