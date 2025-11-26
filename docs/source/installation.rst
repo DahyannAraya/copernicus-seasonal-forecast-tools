@@ -58,15 +58,13 @@ To install the package **in developer (editable) mode**, and run the documentati
 CLIMADA Installation
 --------------------
 
-CLIMADA is required to generate hazard layers.
-
-- If you installed the package without CLIMADA you can install CLIMADA later on with
+CLIMADA is required to generate hazard layers. If you installed the package without CLIMADA you can install CLIMADA later on with
 
 .. code-block:: bash
 
    conda install climada
 
-- If you want to customize the CLIMADA installation, follow the `Advanced Instructions <https://climada-python.readthedocs.io/en/stable/getting-started/install.html#advanced-instructions-installing-from-source>`_ of the CLIMADA installation guide.
+If you want to customize the CLIMADA installation, follow the `Advanced Instructions <https://climada-python.readthedocs.io/en/stable/getting-started/install.html#advanced-instructions-installing-from-source>`_ of the CLIMADA installation guide.
 
 .. _cds-api-setup:
 How to Set Up the Copernicus API?

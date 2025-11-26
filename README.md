@@ -39,47 +39,47 @@ We've prepared a comprehensive [CDS API setup guide](https://copernicus-seasonal
 
 ## **Installation**
 
-The package requires **Python 3.10**, but versions 3.11 and 3.12 are also supported. Make sure your environment is using a compatible Python version before installation.
+The package requires Python 3.10, 3.11 or 3.12. Make sure your environment is using a compatible Python version before installation.
 
-You can install **`copernicus-seasonal-forecast-tools`** in three ways, depending on your setup and preferences.
+You can install **copernicus-seasonal-forecast-tools** in different ways, depending on your setup and preferences.
+Below we describe the installation using the package manager and environment management system
+`Conda <https://docs.conda.io/projects/conda/en/stable/user-guide/getting-started.html>`_
+(similar installations are possible with the package managers `Mamba <https://mamba.readthedocs.io/en/latest/>`_ or `Pixi <https://pixi.sh/latest/>`_).
 
 > **Note:** If you want to generate CLIMADA hazard objects, you must install the **optional CLIMADA dependency**.  
 > For full installation instructions, see the [online documentation](https://copernicus-seasonal-forecast-tools.readthedocs.io/en/latest/index.html).
 
 
-### 1. Install via pip (recommended for most users)
+### 1. To install the package WITH the climate-risk assessment package CLIMADA:
 
 ```bash
+conda create -n copernicus_with python=3.11 pip climada
+conda activate conernicus_with
 pip install copernicus-seasonal-forecast-tools
-git clone https://github.com/DahyannAraya/copernicus-seasonal-forecast-tools.git (optional)
-pip install -r docs/requirements.txt (optional)
 ```
-### 2. Install via environment.yml (Conda or Mamba):
+### 2. To install the package WITHOUT the climate-risk assessment package CLIMADA:
 ```bash
-git clone https://github.com/DahyannAraya/copernicus-seasonal-forecast-tools.git
-conda env create -f environment.yml
-conda activate venv_forecast
+conda create -n copernicus_without python=3.11 pip geopandas
+conda activate conernicus_without
+pip install copernicus-seasonal-forecast-tools
 ```
-### 3. Install directly from GitHub 
+### 3. To install the package in DEVELOPER (editable) mode, and run the documentation and tests:
 ```bash
+conda create -n copernicus-dev-mode python=3.11 pip geopandas climada
+conda activate copernicus-dev-mode
 git clone https://github.com/DahyannAraya/copernicus-seasonal-forecast-tools.git
 cd copernicus-seasonal-forecast-tools
-pip install .
-pip install -r docs/requirements.txt (optional)
+pip install -e .
 ```
 
 
 ### **CLIMADA Installation**
 
-CLIMADA is required to generate hazard layers.
-
-- If you installed via `environment.yml`, CLIMADA is already included.
-- If you installed from PyPI and then ran `pip install -r docs/requirements.txt`, CLIMADA is also installed.
-
-> **Note**  
-> If you want to have all the functionalities of **CLIMADA**, you must install the full version.  
-> 👉 For detailed instructions, follow the official CLIMADA installation guide:  
-> [CLIMADA Installation Guide](https://climada-python.readthedocs.io/en/stable/guide/install.html)
+CLIMADA is required to generate hazard layers. If you installed the package without CLIMADA you can install CLIMADA later on with
+```bash
+conda install climada
+```
+If you want to customize the CLIMADA installation, follow the `Advanced Instructions <https://climada-python.readthedocs.io/en/stable/getting-started/install.html#advanced-instructions-installing-from-source>`_ of the CLIMADA installation guide.
 
 
 ## **Example of use**
