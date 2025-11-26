@@ -43,8 +43,7 @@ The package requires Python 3.10, 3.11 or 3.12. Make sure your environment is us
 
 You can install **copernicus-seasonal-forecast-tools** in different ways, depending on your setup and preferences.
 Below we describe the installation using the package manager and environment management system
-`Conda <https://docs.conda.io/projects/conda/en/stable/user-guide/getting-started.html>`_
-(similar installations are possible with the package managers `Mamba <https://mamba.readthedocs.io/en/latest/>`_ or `Pixi <https://pixi.sh/latest/>`_).
+[Conda](https://docs.conda.io/projects/conda/en/stable/user-guide/getting-started.html).
 
 > **Note:** If you want to generate CLIMADA hazard objects, you must install the **optional CLIMADA dependency**.  
 > For full installation instructions, see the [online documentation](https://copernicus-seasonal-forecast-tools.readthedocs.io/en/latest/index.html).
@@ -79,7 +78,7 @@ CLIMADA is required to generate hazard layers. If you installed the package with
 ```bash
 conda install climada
 ```
-If you want to customize the CLIMADA installation, follow the `Advanced Instructions <https://climada-python.readthedocs.io/en/stable/getting-started/install.html#advanced-instructions-installing-from-source>`_ of the CLIMADA installation guide.
+If you want to customize the CLIMADA installation, follow the [Advanced Instructions](https://climada-python.readthedocs.io/en/stable/getting-started/install.html#advanced-instructions-installing-from-source) of the CLIMADA installation guide.
 
 
 ## **Example of use**
