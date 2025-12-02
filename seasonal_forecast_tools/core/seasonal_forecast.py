@@ -615,6 +615,37 @@ class SeasonalForecast:
 ##########  Utility Functions  ##########
 
 
+def _sanitize_ds_for_netcdf(ds):
+    """
+    Remove attributes and encodings that may conflict with xarray/netCDF
+    decoding (for example the reserved key 'dtype'). This mutates and
+    returns the dataset for convenience.
+    """
+    if ds is None:
+        return ds
+
+    names = list(ds.coords) + list(ds.data_vars)
+    for name in names:
+        try:
+            da = ds[name]
+        except Exception:
+            continue
+
+        # drop problematic attrs
+        da.attrs.pop("dtype", None)
+
+        # ensure encoding does not contain dtype either
+        try:
+            enc = dict(da.encoding) if hasattr(da, "encoding") else {}
+            enc.pop("dtype", None)
+            da.encoding = enc
+        except Exception:
+            # non-fatal: keep going
+            pass
+
+    return ds
+
+
 def handle_overwriting(function):
     """
     Decorator to handle file overwriting during data processing.
@@ -826,7 +857,8 @@ def _process_data(output_file_name, overwrite, input_file_name, variables, data_
         if "forecast_reference_time" in combined_ds.dims:
             combined_ds = combined_ds.squeeze("forecast_reference_time", drop=True)
 
-        # Save the combined dataset to NetCDF
+        # Save the combined dataset to NetCDF (sanitize first)
+        combined_ds = _sanitize_ds_for_netcdf(combined_ds)
         combined_ds.to_netcdf(str(output_file_name))
         LOGGER.info("Daily file saved to %s", output_file_name)
 
@@ -901,12 +933,15 @@ def _calculate_index(
 
     # Save outputs
     if ds_daily is not None:
+        ds_daily = _sanitize_ds_for_netcdf(ds_daily)
         ds_daily.to_netcdf(daily_output_path)
         LOGGER.info("Saved daily index to %s", daily_output_path)
     if ds_monthly is not None:
+        ds_monthly = _sanitize_ds_for_netcdf(ds_monthly)
         ds_monthly.to_netcdf(monthly_output_path)
         LOGGER.info("Saved %s index to %s", index_window, monthly_output_path)
     if ds_stats is not None:
+        ds_stats = _sanitize_ds_for_netcdf(ds_stats)
         ds_stats.to_netcdf(stats_output_path)
         LOGGER.info("Saved stats index to %s", stats_output_path)
 
