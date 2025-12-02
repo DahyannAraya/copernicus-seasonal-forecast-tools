@@ -27,6 +27,7 @@ from seasonal_forecast_tools.core.seasonal_statistics import (
     calculate_statistics_from_index,
     _periods_from_valid_times,
 )
+from seasonal_forecast_tools.core.seasonal_forecast import _sanitize_ds_for_netcdf
 
 """
 Test Suite for seasonal Statistics Functions
@@ -72,6 +73,7 @@ class TestSeasonalStatistics(unittest.TestCase):
         )  # Constant wind speed (V component) # Wind V Component
 
         self.steps = pd.timedelta_range(start="0 days", periods=3, freq="D")
+        step_vals = (self.steps / np.timedelta64(1, "D")).astype(int)  # 0, 1, 2
         self.lats = [0, 1]
         self.lons = [0, 1]
         self.numbers = [1, 2, 3]
@@ -89,7 +91,7 @@ class TestSeasonalStatistics(unittest.TestCase):
                 "v10_max": (("number", "step", "latitude", "longitude"), wind_v),
             },
             coords={
-                "step": self.steps,
+                "step": ("step", step_vals, {"units": "days"}),
                 "latitude": self.lats,
                 "longitude": self.lons,
                 "number": self.numbers,
@@ -206,6 +208,8 @@ class TestSeasonalStatistics(unittest.TestCase):
 
     def test_tmax_calculation(self):
         """Test if 'Tmax' index is computed correctly."""
+        att = xr.open_dataset(self.test_file, decode_cf=True)
+        print(att)
         ds_daily, _, _ = calculate_heat_indices_metrics(self.test_file, "Tmax")
         computed_tmax = (
             ds_daily["Tmax"].mean(dim=["number", "latitude", "longitude"]).values
