@@ -42,7 +42,7 @@ This section provides links to external resources related to data sources and pr
 
 - `CLIMADA <https://climada.ethz.ch/>`_
 - `CLIMADA Documentation <https://climada-python.readthedocs.io/en/stable/>`_
-- `Copernicus Seasonal Forecas Tools package on CLIMADA <https://climada-python.readthedocs.io/en/latest/user-guide/climada_hazard_copernicus_seasonal_forecast.html>`_
+- `Copernicus Seasonal Forecast Tools package on CLIMADA <https://climada-python.readthedocs.io/en/latest/user-guide/climada_hazard_copernicus_seasonal_forecast.html>`_
 - `Copernicus Seasonal Forecast Tools Package <https://github.com/DahyannAraya/copernicus-seasonal-forecast-tools>`_
 
 **Demonstration Notebooks**

@@ -6,7 +6,7 @@ This section summarizes how to contribute and where to find details. We adopt th
 We follow the CLIMADA workflow (branching, tests, reviews). Please read the CLIMADA guide:
 https://climada-python.readthedocs.io/en/latest/development/index.html  
 Typical steps: fork → branch → tests → pull request.
-For extended resorces for CLIMADA Development visit https://climada-python.readthedocs.io/en/latest/development/Guide_CLIMADA_Development.html
+For extended resources for CLIMADA Development visit https://climada-python.readthedocs.io/en/latest/development/Guide_CLIMADA_Development.html
 
 ### 2) Report issues or problems
 **[Open an issue](https://github.com/DahyannAraya/copernicus-seasonal-forecast-tools/issues/new/choose)**. Please include: a description, minimal example, expected vs. actual behavior, version info (package, Python, OS), and any logs/traceback.

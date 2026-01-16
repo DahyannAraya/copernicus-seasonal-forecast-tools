@@ -34,7 +34,7 @@ To install the package **with** the climate-risk assessment package CLIMADA:
 .. code-block:: bash
 
    conda create -n copernicus_with python=3.11 pip climada
-   conda activate conernicus_with
+   conda activate copernicus_with
    pip install copernicus-seasonal-forecast-tools
 
 To install the package **without** the climate-risk assessment package CLIMADA:
@@ -42,7 +42,7 @@ To install the package **without** the climate-risk assessment package CLIMADA:
 .. code-block:: bash
 
    conda create -n copernicus_without python=3.11 pip geopandas
-   conda activate conernicus_without
+   conda activate copernicus_without
    pip install copernicus-seasonal-forecast-tools
 
 To install the package **in developer (editable) mode**, and run the documentation and tests:

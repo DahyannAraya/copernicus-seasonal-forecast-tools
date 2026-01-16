@@ -16,7 +16,7 @@
 This repository hosts the **copernicus-seasonal-forecast-tools**, a Python package developed to manage seasonal forecast data from the [Copernicus Climate Data Store (CDS)](https://cds.climate.copernicus.eu/) as part of the [U-CLIMADAPT project](https://www.dwd.de/EN/research/projects/socioeconomics/fpcup_u_climadapt/fpcup_u_climadapt.html).
 
 It offers comprehensive tools for downloading, processing, computing climate indices, and generating hazard objects based on seasonal forecast datasets, particularly [Seasonal forecast daily and subdaily data on single levels](https://cds.climate.copernicus.eu/datasets/seasonal-original-single-levels?tab=overview).
-The packge is tailored to integrate seamlessly with the [CLIMADA](https://climada.ethz.ch/) (CLIMate ADAptation) platform, supporting climate risk assessment and the development of effective adaptation strategies.
+The package is tailored to integrate seamlessly with the [CLIMADA](https://climada.ethz.ch/) (CLIMate ADAptation) platform, supporting climate risk assessment and the development of effective adaptation strategies.
 
 Users can:
 - Automatically download of high-resolution seasonal forecast data via the CDS API
@@ -53,13 +53,13 @@ Below we describe the installation using the package manager and environment man
 
 ```bash
 conda create -n copernicus_with python=3.11 pip climada
-conda activate conernicus_with
+conda activate copernicus_with
 pip install copernicus-seasonal-forecast-tools
 ```
 ### 2. To install the package WITHOUT the climate-risk assessment package CLIMADA:
 ```bash
 conda create -n copernicus_without python=3.11 pip geopandas
-conda activate conernicus_without
+conda activate copernicus_without
 pip install copernicus-seasonal-forecast-tools
 ```
 ### 3. To install the package in DEVELOPER (editable) mode, and run the documentation and tests:
