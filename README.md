@@ -52,19 +52,19 @@ Below we describe the installation using the package manager and environment man
 ### 1. To install the package WITH the climate-risk assessment package CLIMADA:
 
 ```bash
-conda create -n copernicus_with python=3.11 pip climada
+conda create -c conda-forge -n copernicus_with python=3.11 pip climada
 conda activate copernicus_with
 pip install copernicus-seasonal-forecast-tools
 ```
 ### 2. To install the package WITHOUT the climate-risk assessment package CLIMADA:
 ```bash
-conda create -n copernicus_without python=3.11 pip geopandas
+conda create -c conda-forge -n copernicus_without python=3.11 pip geopandas
 conda activate copernicus_without
 pip install copernicus-seasonal-forecast-tools
 ```
 ### 3. To install the package in DEVELOPER (editable) mode, and run the documentation and tests:
 ```bash
-conda create -n copernicus-dev-mode python=3.11 pip geopandas climada
+conda create -c conda-forge -n copernicus-dev-mode python=3.11 pip geopandas climada
 conda activate copernicus-dev-mode
 git clone https://github.com/DahyannAraya/copernicus-seasonal-forecast-tools.git
 cd copernicus-seasonal-forecast-tools
